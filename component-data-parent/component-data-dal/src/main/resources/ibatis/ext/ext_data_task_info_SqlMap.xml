@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ext_data_task_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataTaskInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="task_type" property="taskType" jdbcType="VARCHAR" />
+    <result column="task_id" property="taskId" jdbcType="VARCHAR" />
+    <result column="in_file_id" property="inFileId" jdbcType="VARCHAR" />
+    <result column="out_file_id" property="outFileId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+   <sql id="Base_Column_List" >
+	    id, task_type, task_id, in_file_id, out_file_id, status, memo, flag, version, created_by, 
+	    created_dt, updatetimed_by, updatetimed_dt
+  	</sql>
+   <select id="selectByTaskId" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+	    select 
+	    <include refid="ext_data_task_info.Base_Column_List" />
+	    from data_task_info
+	    where task_id = #taskId:CHAR#
+  </select>
+</sqlMap>

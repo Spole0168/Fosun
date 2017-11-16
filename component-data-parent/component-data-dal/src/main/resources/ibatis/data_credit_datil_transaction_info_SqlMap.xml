@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="data_credit_datil_transaction_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="credit_report_id" property="creditReportId" jdbcType="VARCHAR" />
+    <result column="credit_report_type" property="creditReportType" jdbcType="VARCHAR" />
+    <result column="transaction_type" property="transactionType" jdbcType="VARCHAR" />
+    <result column="transaction_issue_date" property="transactionIssueDate" jdbcType="VARCHAR" />
+    <result column="transaction_loan_amount" property="transactionLoanAmount" jdbcType="VARCHAR" />
+    <result column="transaction_loan_type" property="transactionLoanType" jdbcType="VARCHAR" />
+    <result column="transaction_branch" property="transactionBranch" jdbcType="VARCHAR" />
+    <result column="transaction_loan_mortgage_type" property="transactionLoanMortgageType" jdbcType="VARCHAR" />
+    <result column="transaction_loan_trem" property="transactionLoanTrem" jdbcType="VARCHAR" />
+    <result column="transaction_status" property="transactionStatus" jdbcType="VARCHAR" />
+    <result column="ransaction_loan_due_date" property="ransactionLoanDueDate" jdbcType="VARCHAR" />
+    <result column="ransaction_loan_5class_type" property="ransactionLoan5classType" jdbcType="VARCHAR" />
+    <result column="ransaction_loan_left_principal_amount" property="ransactionLoanLeftPrincipalAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_thismonth_return_amount" property="ransactionThismonthReturnAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_thismonth_returned_amount" property="ransactionThismonthReturnedAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_last24term_overdue_status" property="ransactionLast24termOverdueStatus" jdbcType="VARCHAR" />
+    <result column="transaction_credit_amount_total" property="transactionCreditAmountTotal" jdbcType="VARCHAR" />
+    <result column="transaction_share_credit_amount_total" property="transactionShareCreditAmountTotal" jdbcType="VARCHAR" />
+    <result column="transaction_used_credit_amount" property="transactionUsedCreditAmount" jdbcType="VARCHAR" />
+    <result column="transaction_max_used_credit_amount" property="transactionMaxUsedCreditAmount" jdbcType="VARCHAR" />
+    <result column="transaction_last6month_used_credit_amount_avg" property="transactionLast6monthUsedCreditAmountAvg" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+    <result column="ransaction_currency" property="ransactionCurrency" jdbcType="VARCHAR" />
+    <result column="ransaction_current_overdue_amount" property="ransactionCurrentOverdueAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_overdue31_60days_amount" property="ransactionOverdue3160daysAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_overdue61_90days_amount" property="ransactionOverdue6190daysAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_overdue91_180days_amount" property="ransactionOverdue91180daysAmount" jdbcType="VARCHAR" />
+    <result column="ransaction_overduemore180days_amount" property="ransactionOverduemore180daysAmount" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, credit_report_id, credit_report_type, transaction_type, transaction_issue_date, 
+    transaction_loan_amount, transaction_loan_type, transaction_branch, transaction_loan_mortgage_type, 
+    transaction_loan_trem, transaction_status, ransaction_loan_due_date, ransaction_loan_5class_type, 
+    ransaction_loan_left_principal_amount, ransaction_thismonth_return_amount, ransaction_thismonth_returned_amount, 
+    ransaction_last24term_overdue_status, transaction_credit_amount_total, transaction_share_credit_amount_total, 
+    transaction_used_credit_amount, transaction_max_used_credit_amount, transaction_last6month_used_credit_amount_avg, 
+    flag, version, created_by, created_dt, updatetimed_by, updatetimed_dt, ransaction_currency, 
+    ransaction_current_overdue_amount, ransaction_overdue31_60days_amount, ransaction_overdue61_90days_amount, 
+    ransaction_overdue91_180days_amount, ransaction_overduemore180days_amount
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_credit_datil_transaction_info.Base_Column_List" />
+    from data_credit_datil_transaction_info
+    <isParameterPresent >
+      <include refid="data_credit_datil_transaction_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    select 
+    <include refid="data_credit_datil_transaction_info.Base_Column_List" />
+    from data_credit_datil_transaction_info
+    where id = #id:CHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    delete from data_credit_datil_transaction_info
+    where id = #id:CHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfoExample" >
+    delete from data_credit_datil_transaction_info
+    <include refid="data_credit_datil_transaction_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('data_credit_datil_transaction_info')
+    </selectKey>
+    insert into data_credit_datil_transaction_info (id, credit_report_id, credit_report_type, transaction_type, 
+      transaction_issue_date, transaction_loan_amount, transaction_loan_type, 
+      transaction_branch, transaction_loan_mortgage_type, transaction_loan_trem, 
+      transaction_status, ransaction_loan_due_date, ransaction_loan_5class_type, 
+      ransaction_loan_left_principal_amount, ransaction_thismonth_return_amount, 
+      ransaction_thismonth_returned_amount, ransaction_last24term_overdue_status, 
+      transaction_credit_amount_total, transaction_share_credit_amount_total, 
+      transaction_used_credit_amount, transaction_max_used_credit_amount, 
+      transaction_last6month_used_credit_amount_avg, flag, version, 
+      created_by, created_dt, updatetimed_by, updatetimed_dt, 
+      ransaction_currency, ransaction_current_overdue_amount, ransaction_overdue31_60days_amount, 
+      ransaction_overdue61_90days_amount, ransaction_overdue91_180days_amount, 
+      ransaction_overduemore180days_amount)
+    values (#id:CHAR#, #creditReportId:VARCHAR#, #creditReportType:VARCHAR#, #transactionType:VARCHAR#, 
+      #transactionIssueDate:VARCHAR#, #transactionLoanAmount:VARCHAR#, #transactionLoanType:VARCHAR#, 
+      #transactionBranch:VARCHAR#, #transactionLoanMortgageType:VARCHAR#, #transactionLoanTrem:VARCHAR#, 
+      #transactionStatus:VARCHAR#, #ransactionLoanDueDate:VARCHAR#, #ransactionLoan5classType:VARCHAR#, 
+      #ransactionLoanLeftPrincipalAmount:VARCHAR#, #ransactionThismonthReturnAmount:VARCHAR#, 
+      #ransactionThismonthReturnedAmount:VARCHAR#, #ransactionLast24termOverdueStatus:VARCHAR#, 
+      #transactionCreditAmountTotal:VARCHAR#, #transactionShareCreditAmountTotal:VARCHAR#, 
+      #transactionUsedCreditAmount:VARCHAR#, #transactionMaxUsedCreditAmount:VARCHAR#, 
+      #transactionLast6monthUsedCreditAmountAvg:VARCHAR#, #flag:CHAR#, #version:INTEGER#, 
+      #createdBy:VARCHAR#, #createdDt:TIMESTAMP#, #updatetimedBy:VARCHAR#, #updatetimedDt:TIMESTAMP#, 
+      #ransactionCurrency:VARCHAR#, #ransactionCurrentOverdueAmount:VARCHAR#, #ransactionOverdue3160daysAmount:VARCHAR#, 
+      #ransactionOverdue6190daysAmount:VARCHAR#, #ransactionOverdue91180daysAmount:VARCHAR#, 
+      #ransactionOverduemore180daysAmount:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('data_credit_datil_transaction_info')
+    </selectKey>
+    insert into data_credit_datil_transaction_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        credit_report_type
+      </isNotNull>
+      <isNotNull prepend="," property="transactionType" >
+        transaction_type
+      </isNotNull>
+      <isNotNull prepend="," property="transactionIssueDate" >
+        transaction_issue_date
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanAmount" >
+        transaction_loan_amount
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanType" >
+        transaction_loan_type
+      </isNotNull>
+      <isNotNull prepend="," property="transactionBranch" >
+        transaction_branch
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanMortgageType" >
+        transaction_loan_mortgage_type
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanTrem" >
+        transaction_loan_trem
+      </isNotNull>
+      <isNotNull prepend="," property="transactionStatus" >
+        transaction_status
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanDueDate" >
+        ransaction_loan_due_date
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoan5classType" >
+        ransaction_loan_5class_type
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanLeftPrincipalAmount" >
+        ransaction_loan_left_principal_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnAmount" >
+        ransaction_thismonth_return_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnedAmount" >
+        ransaction_thismonth_returned_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLast24termOverdueStatus" >
+        ransaction_last24term_overdue_status
+      </isNotNull>
+      <isNotNull prepend="," property="transactionCreditAmountTotal" >
+        transaction_credit_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="transactionShareCreditAmountTotal" >
+        transaction_share_credit_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="transactionUsedCreditAmount" >
+        transaction_used_credit_amount
+      </isNotNull>
+      <isNotNull prepend="," property="transactionMaxUsedCreditAmount" >
+        transaction_max_used_credit_amount
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLast6monthUsedCreditAmountAvg" >
+        transaction_last6month_used_credit_amount_avg
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrency" >
+        ransaction_currency
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrentOverdueAmount" >
+        ransaction_current_overdue_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue3160daysAmount" >
+        ransaction_overdue31_60days_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue6190daysAmount" >
+        ransaction_overdue61_90days_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue91180daysAmount" >
+        ransaction_overdue91_180days_amount
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverduemore180daysAmount" >
+        ransaction_overduemore180days_amount
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        #creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionType" >
+        #transactionType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionIssueDate" >
+        #transactionIssueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanAmount" >
+        #transactionLoanAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanType" >
+        #transactionLoanType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionBranch" >
+        #transactionBranch:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanMortgageType" >
+        #transactionLoanMortgageType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanTrem" >
+        #transactionLoanTrem:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionStatus" >
+        #transactionStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanDueDate" >
+        #ransactionLoanDueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoan5classType" >
+        #ransactionLoan5classType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanLeftPrincipalAmount" >
+        #ransactionLoanLeftPrincipalAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnAmount" >
+        #ransactionThismonthReturnAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnedAmount" >
+        #ransactionThismonthReturnedAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLast24termOverdueStatus" >
+        #ransactionLast24termOverdueStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionCreditAmountTotal" >
+        #transactionCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionShareCreditAmountTotal" >
+        #transactionShareCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionUsedCreditAmount" >
+        #transactionUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionMaxUsedCreditAmount" >
+        #transactionMaxUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLast6monthUsedCreditAmountAvg" >
+        #transactionLast6monthUsedCreditAmountAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrency" >
+        #ransactionCurrency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrentOverdueAmount" >
+        #ransactionCurrentOverdueAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue3160daysAmount" >
+        #ransactionOverdue3160daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue6190daysAmount" >
+        #ransactionOverdue6190daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue91180daysAmount" >
+        #ransactionOverdue91180daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverduemore180daysAmount" >
+        #ransactionOverduemore180daysAmount:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from data_credit_datil_transaction_info
+    <include refid="data_credit_datil_transaction_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update data_credit_datil_transaction_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.creditReportId" >
+        credit_report_id = #record.creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.creditReportType" >
+        credit_report_type = #record.creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionType" >
+        transaction_type = #record.transactionType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionIssueDate" >
+        transaction_issue_date = #record.transactionIssueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionLoanAmount" >
+        transaction_loan_amount = #record.transactionLoanAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionLoanType" >
+        transaction_loan_type = #record.transactionLoanType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionBranch" >
+        transaction_branch = #record.transactionBranch:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionLoanMortgageType" >
+        transaction_loan_mortgage_type = #record.transactionLoanMortgageType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionLoanTrem" >
+        transaction_loan_trem = #record.transactionLoanTrem:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionStatus" >
+        transaction_status = #record.transactionStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionLoanDueDate" >
+        ransaction_loan_due_date = #record.ransactionLoanDueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionLoan5classType" >
+        ransaction_loan_5class_type = #record.ransactionLoan5classType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionLoanLeftPrincipalAmount" >
+        ransaction_loan_left_principal_amount = #record.ransactionLoanLeftPrincipalAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionThismonthReturnAmount" >
+        ransaction_thismonth_return_amount = #record.ransactionThismonthReturnAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionThismonthReturnedAmount" >
+        ransaction_thismonth_returned_amount = #record.ransactionThismonthReturnedAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionLast24termOverdueStatus" >
+        ransaction_last24term_overdue_status = #record.ransactionLast24termOverdueStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionCreditAmountTotal" >
+        transaction_credit_amount_total = #record.transactionCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionShareCreditAmountTotal" >
+        transaction_share_credit_amount_total = #record.transactionShareCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionUsedCreditAmount" >
+        transaction_used_credit_amount = #record.transactionUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionMaxUsedCreditAmount" >
+        transaction_max_used_credit_amount = #record.transactionMaxUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transactionLast6monthUsedCreditAmountAvg" >
+        transaction_last6month_used_credit_amount_avg = #record.transactionLast6monthUsedCreditAmountAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.flag" >
+        flag = #record.flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.version" >
+        version = #record.version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdBy" >
+        created_by = #record.createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdDt" >
+        created_dt = #record.createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedBy" >
+        updatetimed_by = #record.updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedDt" >
+        updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionCurrency" >
+        ransaction_currency = #record.ransactionCurrency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionCurrentOverdueAmount" >
+        ransaction_current_overdue_amount = #record.ransactionCurrentOverdueAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionOverdue3160daysAmount" >
+        ransaction_overdue31_60days_amount = #record.ransactionOverdue3160daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionOverdue6190daysAmount" >
+        ransaction_overdue61_90days_amount = #record.ransactionOverdue6190daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionOverdue91180daysAmount" >
+        ransaction_overdue91_180days_amount = #record.ransactionOverdue91180daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ransactionOverduemore180daysAmount" >
+        ransaction_overduemore180days_amount = #record.ransactionOverduemore180daysAmount:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="data_credit_datil_transaction_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update data_credit_datil_transaction_info
+    set id = #record.id:CHAR#,
+      credit_report_id = #record.creditReportId:VARCHAR#,
+      credit_report_type = #record.creditReportType:VARCHAR#,
+      transaction_type = #record.transactionType:VARCHAR#,
+      transaction_issue_date = #record.transactionIssueDate:VARCHAR#,
+      transaction_loan_amount = #record.transactionLoanAmount:VARCHAR#,
+      transaction_loan_type = #record.transactionLoanType:VARCHAR#,
+      transaction_branch = #record.transactionBranch:VARCHAR#,
+      transaction_loan_mortgage_type = #record.transactionLoanMortgageType:VARCHAR#,
+      transaction_loan_trem = #record.transactionLoanTrem:VARCHAR#,
+      transaction_status = #record.transactionStatus:VARCHAR#,
+      ransaction_loan_due_date = #record.ransactionLoanDueDate:VARCHAR#,
+      ransaction_loan_5class_type = #record.ransactionLoan5classType:VARCHAR#,
+      ransaction_loan_left_principal_amount = #record.ransactionLoanLeftPrincipalAmount:VARCHAR#,
+      ransaction_thismonth_return_amount = #record.ransactionThismonthReturnAmount:VARCHAR#,
+      ransaction_thismonth_returned_amount = #record.ransactionThismonthReturnedAmount:VARCHAR#,
+      ransaction_last24term_overdue_status = #record.ransactionLast24termOverdueStatus:VARCHAR#,
+      transaction_credit_amount_total = #record.transactionCreditAmountTotal:VARCHAR#,
+      transaction_share_credit_amount_total = #record.transactionShareCreditAmountTotal:VARCHAR#,
+      transaction_used_credit_amount = #record.transactionUsedCreditAmount:VARCHAR#,
+      transaction_max_used_credit_amount = #record.transactionMaxUsedCreditAmount:VARCHAR#,
+      transaction_last6month_used_credit_amount_avg = #record.transactionLast6monthUsedCreditAmountAvg:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#,
+      ransaction_currency = #record.ransactionCurrency:VARCHAR#,
+      ransaction_current_overdue_amount = #record.ransactionCurrentOverdueAmount:VARCHAR#,
+      ransaction_overdue31_60days_amount = #record.ransactionOverdue3160daysAmount:VARCHAR#,
+      ransaction_overdue61_90days_amount = #record.ransactionOverdue6190daysAmount:VARCHAR#,
+      ransaction_overdue91_180days_amount = #record.ransactionOverdue91180daysAmount:VARCHAR#,
+      ransaction_overduemore180days_amount = #record.ransactionOverduemore180daysAmount:VARCHAR#
+    <isParameterPresent >
+      <include refid="data_credit_datil_transaction_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    update data_credit_datil_transaction_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id = #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        credit_report_type = #creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionType" >
+        transaction_type = #transactionType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionIssueDate" >
+        transaction_issue_date = #transactionIssueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanAmount" >
+        transaction_loan_amount = #transactionLoanAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanType" >
+        transaction_loan_type = #transactionLoanType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionBranch" >
+        transaction_branch = #transactionBranch:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanMortgageType" >
+        transaction_loan_mortgage_type = #transactionLoanMortgageType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLoanTrem" >
+        transaction_loan_trem = #transactionLoanTrem:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionStatus" >
+        transaction_status = #transactionStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanDueDate" >
+        ransaction_loan_due_date = #ransactionLoanDueDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoan5classType" >
+        ransaction_loan_5class_type = #ransactionLoan5classType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLoanLeftPrincipalAmount" >
+        ransaction_loan_left_principal_amount = #ransactionLoanLeftPrincipalAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnAmount" >
+        ransaction_thismonth_return_amount = #ransactionThismonthReturnAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionThismonthReturnedAmount" >
+        ransaction_thismonth_returned_amount = #ransactionThismonthReturnedAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionLast24termOverdueStatus" >
+        ransaction_last24term_overdue_status = #ransactionLast24termOverdueStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionCreditAmountTotal" >
+        transaction_credit_amount_total = #transactionCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionShareCreditAmountTotal" >
+        transaction_share_credit_amount_total = #transactionShareCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionUsedCreditAmount" >
+        transaction_used_credit_amount = #transactionUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionMaxUsedCreditAmount" >
+        transaction_max_used_credit_amount = #transactionMaxUsedCreditAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transactionLast6monthUsedCreditAmountAvg" >
+        transaction_last6month_used_credit_amount_avg = #transactionLast6monthUsedCreditAmountAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag = #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version = #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by = #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt = #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by = #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt = #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrency" >
+        ransaction_currency = #ransactionCurrency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionCurrentOverdueAmount" >
+        ransaction_current_overdue_amount = #ransactionCurrentOverdueAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue3160daysAmount" >
+        ransaction_overdue31_60days_amount = #ransactionOverdue3160daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue6190daysAmount" >
+        ransaction_overdue61_90days_amount = #ransactionOverdue6190daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverdue91180daysAmount" >
+        ransaction_overdue91_180days_amount = #ransactionOverdue91180daysAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="ransactionOverduemore180daysAmount" >
+        ransaction_overduemore180days_amount = #ransactionOverduemore180daysAmount:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:CHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilTransactionInfo" >
+    update data_credit_datil_transaction_info
+    set credit_report_id = #creditReportId:VARCHAR#,
+      credit_report_type = #creditReportType:VARCHAR#,
+      transaction_type = #transactionType:VARCHAR#,
+      transaction_issue_date = #transactionIssueDate:VARCHAR#,
+      transaction_loan_amount = #transactionLoanAmount:VARCHAR#,
+      transaction_loan_type = #transactionLoanType:VARCHAR#,
+      transaction_branch = #transactionBranch:VARCHAR#,
+      transaction_loan_mortgage_type = #transactionLoanMortgageType:VARCHAR#,
+      transaction_loan_trem = #transactionLoanTrem:VARCHAR#,
+      transaction_status = #transactionStatus:VARCHAR#,
+      ransaction_loan_due_date = #ransactionLoanDueDate:VARCHAR#,
+      ransaction_loan_5class_type = #ransactionLoan5classType:VARCHAR#,
+      ransaction_loan_left_principal_amount = #ransactionLoanLeftPrincipalAmount:VARCHAR#,
+      ransaction_thismonth_return_amount = #ransactionThismonthReturnAmount:VARCHAR#,
+      ransaction_thismonth_returned_amount = #ransactionThismonthReturnedAmount:VARCHAR#,
+      ransaction_last24term_overdue_status = #ransactionLast24termOverdueStatus:VARCHAR#,
+      transaction_credit_amount_total = #transactionCreditAmountTotal:VARCHAR#,
+      transaction_share_credit_amount_total = #transactionShareCreditAmountTotal:VARCHAR#,
+      transaction_used_credit_amount = #transactionUsedCreditAmount:VARCHAR#,
+      transaction_max_used_credit_amount = #transactionMaxUsedCreditAmount:VARCHAR#,
+      transaction_last6month_used_credit_amount_avg = #transactionLast6monthUsedCreditAmountAvg:VARCHAR#,
+      flag = #flag:CHAR#,
+      version = #version:INTEGER#,
+      created_by = #createdBy:VARCHAR#,
+      created_dt = #createdDt:TIMESTAMP#,
+      updatetimed_by = #updatetimedBy:VARCHAR#,
+      updatetimed_dt = #updatetimedDt:TIMESTAMP#,
+      ransaction_currency = #ransactionCurrency:VARCHAR#,
+      ransaction_current_overdue_amount = #ransactionCurrentOverdueAmount:VARCHAR#,
+      ransaction_overdue31_60days_amount = #ransactionOverdue3160daysAmount:VARCHAR#,
+      ransaction_overdue61_90days_amount = #ransactionOverdue6190daysAmount:VARCHAR#,
+      ransaction_overdue91_180days_amount = #ransactionOverdue91180daysAmount:VARCHAR#,
+      ransaction_overduemore180days_amount = #ransactionOverduemore180daysAmount:VARCHAR#
+    where id = #id:CHAR#
+  </update>
+</sqlMap>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="data_third_req_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataThirdReqInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="task_type" property="taskType" jdbcType="VARCHAR" />
+    <result column="task_id" property="taskId" jdbcType="VARCHAR" />
+    <result column="req_no" property="reqNo" jdbcType="VARCHAR" />
+    <result column="req_sys_name" property="reqSysName" jdbcType="VARCHAR" />
+    <result column="req_dt" property="reqDt" jdbcType="TIMESTAMP" />
+    <result column="req_param_name" property="reqParamName" jdbcType="VARCHAR" />
+    <result column="req_param_identity" property="reqParamIdentity" jdbcType="VARCHAR" />
+    <result column="req_param_mobile" property="reqParamMobile" jdbcType="VARCHAR" />
+    <result column="req_param_interface_name" property="reqParamInterfaceName" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" class="com.fosun.data.dataTask.model.DataThirdReqInfo" extends="data_third_req_info.BaseResultMap" >
+    <result column="req_param_content" property="reqParamContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, task_type, task_id, req_no, req_sys_name, req_dt, req_param_name, req_param_identity, 
+    req_param_mobile, req_param_interface_name, flag, version, created_by, created_dt, 
+    updatetimed_by, updatetimed_dt
+  </sql>
+  <sql id="Blob_Column_List" >
+    req_param_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_third_req_info.Base_Column_List" />
+    ,
+    <include refid="data_third_req_info.Blob_Column_List" />
+    from data_third_req_info
+    <isParameterPresent >
+      <include refid="data_third_req_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_third_req_info.Base_Column_List" />
+    from data_third_req_info
+    <isParameterPresent >
+      <include refid="data_third_req_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <delete id="deleteByExample" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfoExample" >
+    delete from data_third_req_info
+    <include refid="data_third_req_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_third_req_info')
+    </selectKey>
+    insert into data_third_req_info (id, task_type, task_id, req_no, req_sys_name, 
+      req_dt, req_param_name, req_param_identity, req_param_mobile, 
+      req_param_interface_name, flag, version, created_by, 
+      created_dt, updatetimed_by, updatetimed_dt, req_param_content
+      )
+    values (#id:CHAR#, #taskType:VARCHAR#, #taskId:VARCHAR#, #reqNo:VARCHAR#, #reqSysName:VARCHAR#, 
+      #reqDt:TIMESTAMP#, #reqParamName:VARCHAR#, #reqParamIdentity:VARCHAR#, #reqParamMobile:VARCHAR#, 
+      #reqParamInterfaceName:VARCHAR#, #flag:CHAR#, #version:INTEGER#, #createdBy:VARCHAR#, 
+      #createdDt:TIMESTAMP#, #updatetimedBy:VARCHAR#, #updatetimedDt:TIMESTAMP#, #reqParamContent:LONGVARCHAR#
+      )
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_third_req_info')
+    </selectKey>
+    insert into data_third_req_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="taskType" >
+        task_type
+      </isNotNull>
+      <isNotNull prepend="," property="taskId" >
+        task_id
+      </isNotNull>
+      <isNotNull prepend="," property="reqNo" >
+        req_no
+      </isNotNull>
+      <isNotNull prepend="," property="reqSysName" >
+        req_sys_name
+      </isNotNull>
+      <isNotNull prepend="," property="reqDt" >
+        req_dt
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamName" >
+        req_param_name
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamIdentity" >
+        req_param_identity
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamMobile" >
+        req_param_mobile
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamInterfaceName" >
+        req_param_interface_name
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamContent" >
+        req_param_content
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taskType" >
+        #taskType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taskId" >
+        #taskId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqNo" >
+        #reqNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqSysName" >
+        #reqSysName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqDt" >
+        #reqDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamName" >
+        #reqParamName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamIdentity" >
+        #reqParamIdentity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamMobile" >
+        #reqParamMobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamInterfaceName" >
+        #reqParamInterfaceName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="reqParamContent" >
+        #reqParamContent:LONGVARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.data.dataTask.model.DataThirdReqInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from data_third_req_info
+    <include refid="data_third_req_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update data_third_req_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.taskType" >
+        task_type = #record.taskType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.taskId" >
+        task_id = #record.taskId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqNo" >
+        req_no = #record.reqNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqSysName" >
+        req_sys_name = #record.reqSysName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqDt" >
+        req_dt = #record.reqDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqParamName" >
+        req_param_name = #record.reqParamName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqParamIdentity" >
+        req_param_identity = #record.reqParamIdentity:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqParamMobile" >
+        req_param_mobile = #record.reqParamMobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqParamInterfaceName" >
+        req_param_interface_name = #record.reqParamInterfaceName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.flag" >
+        flag = #record.flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.version" >
+        version = #record.version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdBy" >
+        created_by = #record.createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdDt" >
+        created_dt = #record.createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedBy" >
+        updatetimed_by = #record.updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedDt" >
+        updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqParamContent" >
+        req_param_content = #record.reqParamContent:LONGVARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="data_third_req_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExampleWithBLOBs" >
+    update data_third_req_info
+    set id = #record.id:CHAR#,
+      task_type = #record.taskType:VARCHAR#,
+      task_id = #record.taskId:VARCHAR#,
+      req_no = #record.reqNo:VARCHAR#,
+      req_sys_name = #record.reqSysName:VARCHAR#,
+      req_dt = #record.reqDt:TIMESTAMP#,
+      req_param_name = #record.reqParamName:VARCHAR#,
+      req_param_identity = #record.reqParamIdentity:VARCHAR#,
+      req_param_mobile = #record.reqParamMobile:VARCHAR#,
+      req_param_interface_name = #record.reqParamInterfaceName:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#,
+      req_param_content = #record.reqParamContent:LONGVARCHAR#
+    <isParameterPresent >
+      <include refid="data_third_req_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update data_third_req_info
+    set id = #record.id:CHAR#,
+      task_type = #record.taskType:VARCHAR#,
+      task_id = #record.taskId:VARCHAR#,
+      req_no = #record.reqNo:VARCHAR#,
+      req_sys_name = #record.reqSysName:VARCHAR#,
+      req_dt = #record.reqDt:TIMESTAMP#,
+      req_param_name = #record.reqParamName:VARCHAR#,
+      req_param_identity = #record.reqParamIdentity:VARCHAR#,
+      req_param_mobile = #record.reqParamMobile:VARCHAR#,
+      req_param_interface_name = #record.reqParamInterfaceName:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="data_third_req_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+</sqlMap>

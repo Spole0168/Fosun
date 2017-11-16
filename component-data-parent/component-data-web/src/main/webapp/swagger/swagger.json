@@ -1,0 +1,540 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "XXX系统服务列表",
+    "version" : "version 1.0",
+    "title" : "接口文档"
+  },
+  "host" : "localhost",
+  "basePath" : "http://localhost:18010:/api/",
+  "tags" : [ {
+    "name" : "消息发送"
+  }, {
+    "name" : "短信通知服务"
+  }, {
+    "name" : "配置信息管理"
+  }, {
+    "name" : "配置模板管理"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/messageSendParamService/getMessageSendParam" : {
+      "post" : {
+        "tags" : [ "配置信息管理" ],
+        "summary" : "获取全部配置信息管理",
+        "description" : "",
+        "operationId" : "getMessageSendParam",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/messageSendParamService/getMessageSendParamByNo" : {
+      "post" : {
+        "tags" : [ "配置信息管理" ],
+        "summary" : "根据配置ID获取配置信息管理",
+        "description" : "",
+        "operationId" : "getMessageSendParamByNo",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "pushNO",
+          "description" : "配置编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/MessageSendParamVo"
+            }
+          }
+        }
+      }
+    },
+    "/messageSendParamService/upDateMessageSendParam" : {
+      "post" : {
+        "tags" : [ "配置信息管理" ],
+        "summary" : "更新配置信息",
+        "description" : "",
+        "operationId" : "upDateMessageSendParam",
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/messageSendService/saveMessageSend" : {
+      "post" : {
+        "tags" : [ "消息发送" ],
+        "summary" : "消息发送保存",
+        "description" : "",
+        "operationId" : "saveMessageSend",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "messageSendVo",
+          "description" : "消息发送保存",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/MessageSendVo"
+          }
+        }, {
+          "in" : "body",
+          "name" : "messageSendVo",
+          "description" : "消息接收人",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/MsgSendMemberVo"
+            }
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/messageSendService/updateMessageSend" : {
+      "post" : {
+        "tags" : [ "消息发送" ],
+        "summary" : "消息接收人发送状态更新",
+        "description" : "",
+        "operationId" : "updateMessageSend",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "messageSendVo",
+          "description" : "消息发送保存",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/MsgSendMemberVo"
+          }
+        }, {
+          "in" : "body",
+          "name" : "STATUS",
+          "description" : "消息发送保存",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/messageService/smsSend" : {
+      "post" : {
+        "tags" : [ "短信通知服务" ],
+        "summary" : "发送消息",
+        "description" : "可发送短信、钉钉、邮件",
+        "operationId" : "sendMsg",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "templateNo",
+          "description" : "模板编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "appId",
+          "description" : "应用编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "busiType",
+          "description" : "业务类型",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "paramList",
+          "description" : "\t * 比如：文本-- 你好我是{1},年龄{2}  ;   参数--List<张三,20>  ; 替换后：你好我是张三，年龄20",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/MessageParams"
+            }
+          }
+        }, {
+          "in" : "body",
+          "name" : "userName",
+          "description" : "发送人",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "MsgSendMemberList",
+          "description" : "通知接收人",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/MsgSendMemberVo"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/messageTemplateService/getMessageTemplate" : {
+      "post" : {
+        "tags" : [ "配置模板管理" ],
+        "summary" : "获取全部配置模板",
+        "description" : "",
+        "operationId" : "getMessageTemplate",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/messageTemplateService/getMessageTemplateByNo" : {
+      "post" : {
+        "tags" : [ "配置模板管理" ],
+        "summary" : "根据模板模板编号、产品类型、系统编号获取配置模板",
+        "description" : "",
+        "operationId" : "getMessageTemplateByNoAndAppNo",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "templateNO",
+          "description" : "模板编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "appId",
+          "description" : "系统编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "body",
+          "name" : "busiType",
+          "description" : "业务类型",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/MessageTemplateVo"
+            }
+          }
+        }
+      }
+    },
+    "/messageTemplateService/upDateMessageTemplateParam" : {
+      "post" : {
+        "tags" : [ "配置模板管理" ],
+        "summary" : "根据模板ID更新配置模板",
+        "description" : "",
+        "operationId" : "upDateMessageTemplateParam",
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "templateNO",
+          "description" : "模板编号",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "MessageParams" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MessageSendParamVo" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "pushNo" : {
+          "type" : "string"
+        },
+        "pushType" : {
+          "type" : "string"
+        },
+        "sendServer" : {
+          "type" : "string"
+        },
+        "sendUser" : {
+          "type" : "string"
+        },
+        "sendUname" : {
+          "type" : "string"
+        },
+        "sendPwd" : {
+          "type" : "string"
+        },
+        "dingtalkClientId" : {
+          "type" : "string"
+        },
+        "dingtalkAgentId" : {
+          "type" : "string"
+        },
+        "dingtalkServer" : {
+          "type" : "string"
+        },
+        "dingtalkMsgType" : {
+          "type" : "string"
+        },
+        "dingtalkMsgUrl" : {
+          "type" : "string"
+        },
+        "dingtalkPcMsgUrl" : {
+          "type" : "string"
+        },
+        "dingtalkBgColor" : {
+          "type" : "string"
+        },
+        "dingtalkMsgSendUser" : {
+          "type" : "string"
+        },
+        "smsServerIp" : {
+          "type" : "string"
+        },
+        "smsServerPort" : {
+          "type" : "string"
+        },
+        "smsAccountSid" : {
+          "type" : "string"
+        },
+        "smsAuthToken" : {
+          "type" : "string"
+        },
+        "smsAppId" : {
+          "type" : "string"
+        },
+        "org" : {
+          "type" : "string"
+        },
+        "custComment" : {
+          "type" : "string"
+        },
+        "crtTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "crtUser" : {
+          "type" : "string"
+        },
+        "lstUpdTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lstUpdUser" : {
+          "type" : "string"
+        },
+        "lstUpdDate" : {
+          "type" : "string"
+        },
+        "dingtalkServerImg" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MessageSendVo" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "msgNo" : {
+          "type" : "string"
+        },
+        "sendState" : {
+          "type" : "string"
+        },
+        "returnState" : {
+          "type" : "string"
+        },
+        "sendTime" : {
+          "type" : "string"
+        },
+        "returnTime" : {
+          "type" : "string"
+        },
+        "isRetry" : {
+          "type" : "string"
+        },
+        "custComment" : {
+          "type" : "string"
+        },
+        "crtTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "crtUser" : {
+          "type" : "string"
+        },
+        "lstUpdTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lstUpdUser" : {
+          "type" : "string"
+        },
+        "lstUpdDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MessageTemplateVo" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "templateNo" : {
+          "type" : "string"
+        },
+        "msgContent" : {
+          "type" : "string"
+        },
+        "appNo" : {
+          "type" : "string"
+        },
+        "busiType" : {
+          "type" : "string"
+        },
+        "pushType" : {
+          "type" : "string"
+        },
+        "pushNo" : {
+          "type" : "string"
+        },
+        "priority" : {
+          "type" : "string"
+        },
+        "isRetry" : {
+          "type" : "string"
+        },
+        "retryNum" : {
+          "type" : "string"
+        },
+        "org" : {
+          "type" : "string"
+        },
+        "custComment" : {
+          "type" : "string"
+        },
+        "crtTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "crtUser" : {
+          "type" : "string"
+        },
+        "lstUpdTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "lstUpdUser" : {
+          "type" : "string"
+        },
+        "lstUpdDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MsgSendMemberVo" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "channelNo" : {
+          "type" : "string",
+          "description" : "渠道编号"
+        },
+        "webCustNO" : {
+          "type" : "string",
+          "description" : "客户渠道号"
+        },
+        "custMobile" : {
+          "type" : "string",
+          "description" : "客户手机号"
+        },
+        "custNo" : {
+          "type" : "string",
+          "description" : "客户编号"
+        },
+        "userMobile" : {
+          "type" : "string",
+          "description" : "用户手机号"
+        },
+        "userDingTalk" : {
+          "type" : "string",
+          "description" : "用户钉钉"
+        },
+        "userNo" : {
+          "type" : "string",
+          "description" : "用户编号"
+        },
+        "userEmail" : {
+          "type" : "string",
+          "description" : "用户邮箱"
+        }
+      }
+    }
+  }
+}

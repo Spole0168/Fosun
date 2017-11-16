@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="data_task_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataTaskInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="task_type" property="taskType" jdbcType="VARCHAR" />
+    <result column="task_id" property="taskId" jdbcType="VARCHAR" />
+    <result column="in_file_id" property="inFileId" jdbcType="VARCHAR" />
+    <result column="out_file_id" property="outFileId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, task_type, task_id, in_file_id, out_file_id, status, memo, flag, version, created_by, 
+    created_dt, updatetimed_by, updatetimed_dt
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataTaskInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_task_info.Base_Column_List" />
+    from data_task_info
+    <isParameterPresent >
+      <include refid="data_task_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    select 
+    <include refid="data_task_info.Base_Column_List" />
+    from data_task_info
+    where id = #id:CHAR#
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    delete from data_task_info
+    where id = #id:CHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.data.dataTask.model.DataTaskInfoExample" >
+    delete from data_task_info
+    <include refid="data_task_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_task_info')
+    </selectKey>
+    insert into data_task_info (id, task_type, task_id, in_file_id, out_file_id, 
+      status, memo, flag, version, created_by, 
+      created_dt, updatetimed_by, updatetimed_dt)
+    values (#id:CHAR#, #taskType:VARCHAR#, #taskId:VARCHAR#, #inFileId:VARCHAR#, #outFileId:VARCHAR#, 
+      #status:VARCHAR#, #memo:VARCHAR#, #flag:CHAR#, #version:INTEGER#, #createdBy:VARCHAR#, 
+      #createdDt:TIMESTAMP#, #updatetimedBy:VARCHAR#, #updatetimedDt:TIMESTAMP#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_task_info')
+    </selectKey>
+    insert into data_task_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="taskType" >
+        task_type
+      </isNotNull>
+      <isNotNull prepend="," property="taskId" >
+        task_id
+      </isNotNull>
+      <isNotNull prepend="," property="inFileId" >
+        in_file_id
+      </isNotNull>
+      <isNotNull prepend="," property="outFileId" >
+        out_file_id
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        memo
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taskType" >
+        #taskType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taskId" >
+        #taskId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="inFileId" >
+        #inFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="outFileId" >
+        #outFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        #memo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.data.dataTask.model.DataTaskInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from data_task_info
+    <include refid="data_task_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update data_task_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.taskType" >
+        task_type = #record.taskType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.taskId" >
+        task_id = #record.taskId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.inFileId" >
+        in_file_id = #record.inFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.outFileId" >
+        out_file_id = #record.outFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memo" >
+        memo = #record.memo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.flag" >
+        flag = #record.flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.version" >
+        version = #record.version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdBy" >
+        created_by = #record.createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdDt" >
+        created_dt = #record.createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedBy" >
+        updatetimed_by = #record.updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedDt" >
+        updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="data_task_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update data_task_info
+    set id = #record.id:CHAR#,
+      task_type = #record.taskType:VARCHAR#,
+      task_id = #record.taskId:VARCHAR#,
+      in_file_id = #record.inFileId:VARCHAR#,
+      out_file_id = #record.outFileId:VARCHAR#,
+      status = #record.status:VARCHAR#,
+      memo = #record.memo:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="data_task_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    update data_task_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="taskType" >
+        task_type = #taskType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taskId" >
+        task_id = #taskId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="inFileId" >
+        in_file_id = #inFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="outFileId" >
+        out_file_id = #outFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memo" >
+        memo = #memo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag = #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version = #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by = #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt = #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by = #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt = #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:CHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataTaskInfo" >
+    update data_task_info
+    set task_type = #taskType:VARCHAR#,
+      task_id = #taskId:VARCHAR#,
+      in_file_id = #inFileId:VARCHAR#,
+      out_file_id = #outFileId:VARCHAR#,
+      status = #status:VARCHAR#,
+      memo = #memo:VARCHAR#,
+      flag = #flag:CHAR#,
+      version = #version:INTEGER#,
+      created_by = #createdBy:VARCHAR#,
+      created_dt = #createdDt:TIMESTAMP#,
+      updatetimed_by = #updatetimedBy:VARCHAR#,
+      updatetimed_dt = #updatetimedDt:TIMESTAMP#
+    where id = #id:CHAR#
+  </update>
+</sqlMap>

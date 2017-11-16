@@ -1,0 +1,288 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.fosun.component</groupId>
+    <artifactId>component-data-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>component-data-api</artifactId>
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+				<plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-deploy-plugin</artifactId>
+	                <version>2.7</version>
+	            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			
+			
+			
+			 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <charset>UTF-8</charset>
+                    <docencoding>UTF-8</docencoding>
+                    <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+			
+			
+			
+			<plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                	<charset>UTF-8</charset>
+                    <docencoding>UTF-8</docencoding>
+                	 <enable>true</enable> <!--注意这里 -->
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>false</springmvc>
+                            <locations>
+                            	<!-- com.github.kongchen.swagger.sample.wordnik.resource -->
+                            	com.fosun
+                           	</locations>
+                            <schemes>http,https</schemes>
+                            <host>localhost</host>
+                            <basePath>http://localhost:18010:/api/</basePath>
+                            <info>
+                                <title>接口文档</title>
+                                <version>version 1.0</version>
+                                <description>数据服务列表</description>
+                            </info>
+                            <templatePath>/apps/config/swagger/templates/strapdown.html.hbs</templatePath>
+                            <outputPath>/apps/config/swagger/generated/data/document.html</outputPath>
+                            <swaggerDirectory>/opt/app/swagger/webapps/swagger/json/data/</swaggerDirectory>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			
+			<!-- 
+			<plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                	<charset>UTF-8</charset>
+                    <docencoding>UTF-8</docencoding>
+                	 <enable>true</enable> 注意这里
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>false</springmvc>
+                            <locations>
+                            	com.github.kongchen.swagger.sample.wordnik.resource
+                            	com.fosun
+                           	</locations>
+                            <schemes>http,https</schemes>
+                            <host>localhost</host>
+                            <basePath>http://localhost:18010:/api/</basePath>
+                            <info>
+                                <title>接口文档</title>
+                                <version>version 1.0</version>
+                                <description>XXX系统服务列表</description>
+                                <termsOfService>
+                                    http://www.github.com/kongchen/swagger-maven-plugin
+                                </termsOfService>
+                            </info>
+                            <templatePath>${basedir}/templates/strapdown.html.hbs</templatePath>
+                            <outputPath>${basedir}/generated/document.html</outputPath>
+                            <swaggerDirectory>generated/swagger-ui</swaggerDirectory>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+			
+			
+			
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.github.kongchen
+										</groupId>
+										<artifactId>
+											swagger-maven-plugin
+										</artifactId>
+										<versionRange>
+											[3.1.1,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+  </build>
+	
+	<distributionManagement>
+  		<repository>
+  			<id>nexus-releases</id>
+  			<url>http://10.166.10.212:8081/nexus/content/repositories/releases/</url>
+  		</repository>
+  		<snapshotRepository>  
+            <id>nexus-snapshots</id>  
+            <url>http://10.166.10.212:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>  
+	</distributionManagement>
+	
+	
+  <dependencies>
+  	<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.api.version}</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- datasource -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+  		
+         <dependency>
+         	<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+         </dependency>
+		<dependency>
+		  <groupId>com.tongtongfu</groupId>
+		  <artifactId>encrytor-util</artifactId>
+		  <version>1.0.2</version>
+		</dependency>
+		<dependency>
+	        <groupId>com.google.code.gson</groupId>
+	        <artifactId>gson</artifactId>
+	        <version>2.8.0</version>
+	    </dependency>
+	    
+	    <dependency>
+		  <groupId>javax.ws.rs</groupId>
+		  <artifactId>javax.ws.rs-api</artifactId>
+		  <version>2.0-m10</version>
+		</dependency>
+	    
+	    <!-- Interface包 -->
+	   <dependency>
+			<groupId>com.fosun.component</groupId>
+	   		<artifactId>component-interface-channel</artifactId>
+	   		<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+	    <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+            <scope>compile</scope>
+            <version>1.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.ws.rs</groupId>
+                    <artifactId>jsr311-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+		
+  </dependencies>
+</project>

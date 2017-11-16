@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="data_credit_public_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="credit_report_id" property="creditReportId" jdbcType="VARCHAR" />
+    <result column="credit_report_type" property="creditReportType" jdbcType="VARCHAR" />
+    <result column="record_taxes_owed" property="recordTaxesOwed" jdbcType="VARCHAR" />
+    <result column="record_civil_judgment" property="recordCivilJudgment" jdbcType="VARCHAR" />
+    <result column="record_force_execution" property="recordForceExecution" jdbcType="VARCHAR" />
+    <result column="record_admin_sanction" property="recordAdminSanction" jdbcType="VARCHAR" />
+    <result column="record_telecom_arrears" property="recordTelecomArrears" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, credit_report_id, credit_report_type, record_taxes_owed, record_civil_judgment, 
+    record_force_execution, record_admin_sanction, record_telecom_arrears, flag, version, 
+    created_by, created_dt, updatetimed_by, updatetimed_dt
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_credit_public_info.Base_Column_List" />
+    from data_credit_public_info
+    <isParameterPresent >
+      <include refid="data_credit_public_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    select 
+    <include refid="data_credit_public_info.Base_Column_List" />
+    from data_credit_public_info
+    where id = #id:CHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    delete from data_credit_public_info
+    where id = #id:CHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfoExample" >
+    delete from data_credit_public_info
+    <include refid="data_credit_public_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_credit_public_info')
+    </selectKey>
+    insert into data_credit_public_info (id, credit_report_id, credit_report_type, record_taxes_owed, 
+      record_civil_judgment, record_force_execution, record_admin_sanction, 
+      record_telecom_arrears, flag, version, created_by, 
+      created_dt, updatetimed_by, updatetimed_dt)
+    values (#id:CHAR#, #creditReportId:VARCHAR#, #creditReportType:VARCHAR#, #recordTaxesOwed:VARCHAR#, 
+      #recordCivilJudgment:VARCHAR#, #recordForceExecution:VARCHAR#, #recordAdminSanction:VARCHAR#, 
+      #recordTelecomArrears:VARCHAR#, #flag:CHAR#, #version:INTEGER#, #createdBy:VARCHAR#, 
+      #createdDt:TIMESTAMP#, #updatetimedBy:VARCHAR#, #updatetimedDt:TIMESTAMP#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_credit_public_info')
+    </selectKey>
+    insert into data_credit_public_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        credit_report_type
+      </isNotNull>
+      <isNotNull prepend="," property="recordTaxesOwed" >
+        record_taxes_owed
+      </isNotNull>
+      <isNotNull prepend="," property="recordCivilJudgment" >
+        record_civil_judgment
+      </isNotNull>
+      <isNotNull prepend="," property="recordForceExecution" >
+        record_force_execution
+      </isNotNull>
+      <isNotNull prepend="," property="recordAdminSanction" >
+        record_admin_sanction
+      </isNotNull>
+      <isNotNull prepend="," property="recordTelecomArrears" >
+        record_telecom_arrears
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        #creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordTaxesOwed" >
+        #recordTaxesOwed:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordCivilJudgment" >
+        #recordCivilJudgment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordForceExecution" >
+        #recordForceExecution:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordAdminSanction" >
+        #recordAdminSanction:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordTelecomArrears" >
+        #recordTelecomArrears:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from data_credit_public_info
+    <include refid="data_credit_public_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update data_credit_public_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.creditReportId" >
+        credit_report_id = #record.creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.creditReportType" >
+        credit_report_type = #record.creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recordTaxesOwed" >
+        record_taxes_owed = #record.recordTaxesOwed:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recordCivilJudgment" >
+        record_civil_judgment = #record.recordCivilJudgment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recordForceExecution" >
+        record_force_execution = #record.recordForceExecution:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recordAdminSanction" >
+        record_admin_sanction = #record.recordAdminSanction:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recordTelecomArrears" >
+        record_telecom_arrears = #record.recordTelecomArrears:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.flag" >
+        flag = #record.flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.version" >
+        version = #record.version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdBy" >
+        created_by = #record.createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdDt" >
+        created_dt = #record.createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedBy" >
+        updatetimed_by = #record.updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedDt" >
+        updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="data_credit_public_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update data_credit_public_info
+    set id = #record.id:CHAR#,
+      credit_report_id = #record.creditReportId:VARCHAR#,
+      credit_report_type = #record.creditReportType:VARCHAR#,
+      record_taxes_owed = #record.recordTaxesOwed:VARCHAR#,
+      record_civil_judgment = #record.recordCivilJudgment:VARCHAR#,
+      record_force_execution = #record.recordForceExecution:VARCHAR#,
+      record_admin_sanction = #record.recordAdminSanction:VARCHAR#,
+      record_telecom_arrears = #record.recordTelecomArrears:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="data_credit_public_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    update data_credit_public_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id = #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportType" >
+        credit_report_type = #creditReportType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordTaxesOwed" >
+        record_taxes_owed = #recordTaxesOwed:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordCivilJudgment" >
+        record_civil_judgment = #recordCivilJudgment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordForceExecution" >
+        record_force_execution = #recordForceExecution:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordAdminSanction" >
+        record_admin_sanction = #recordAdminSanction:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recordTelecomArrears" >
+        record_telecom_arrears = #recordTelecomArrears:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag = #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version = #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by = #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt = #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by = #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt = #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:CHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditPublicInfo" >
+    update data_credit_public_info
+    set credit_report_id = #creditReportId:VARCHAR#,
+      credit_report_type = #creditReportType:VARCHAR#,
+      record_taxes_owed = #recordTaxesOwed:VARCHAR#,
+      record_civil_judgment = #recordCivilJudgment:VARCHAR#,
+      record_force_execution = #recordForceExecution:VARCHAR#,
+      record_admin_sanction = #recordAdminSanction:VARCHAR#,
+      record_telecom_arrears = #recordTelecomArrears:VARCHAR#,
+      flag = #flag:CHAR#,
+      version = #version:INTEGER#,
+      created_by = #createdBy:VARCHAR#,
+      created_dt = #createdDt:TIMESTAMP#,
+      updatetimed_by = #updatetimedBy:VARCHAR#,
+      updatetimed_dt = #updatetimedDt:TIMESTAMP#
+    where id = #id:CHAR#
+  </update>
+</sqlMap>

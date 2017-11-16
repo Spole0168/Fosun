@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="data_credit_datil_outline_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="credit_report_id" property="creditReportId" jdbcType="VARCHAR" />
+    <result column="asset_disposal_num" property="assetDisposalNum" jdbcType="VARCHAR" />
+    <result column="assurer_num" property="assurerNum" jdbcType="VARCHAR" />
+    <result column="bad_debts_num" property="badDebtsNum" jdbcType="VARCHAR" />
+    <result column="house_loan_num" property="houseLoanNum" jdbcType="VARCHAR" />
+    <result column="other_loan_num" property="otherLoanNum" jdbcType="VARCHAR" />
+    <result column="guarantee_other_num" property="guaranteeOtherNum" jdbcType="VARCHAR" />
+    <result column="bad_loans_total_num" property="badLoansTotalNum" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_legalperson_total" property="unclearedLoanLegalpersonTotal" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_branch_total" property="unclearedLoanBranchTotal" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_num_total" property="unclearedLoanNumTotal" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_signlamount_total" property="unclearedLoanSignlamountTotal" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_leftamount_total" property="unclearedLoanLeftamountTotal" jdbcType="VARCHAR" />
+    <result column="uncleared_loan_last5mouth_pay_avg" property="unclearedLoanLast5mouthPayAvg" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_legalperson_total" property="noCancellationCreditLegalpersonTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_branch_total" property="noCancellationCreditBranchTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_account_total" property="noCancellationCreditAccountTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_amount_total" property="noCancellationCreditAmountTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_single_max_amount_total" property="noCancellationCreditSingleMaxAmountTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_single_min_amount_total" property="noCancellationCreditSingleMinAmountTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_used_amount_total" property="noCancellationCreditUsedAmountTotal" jdbcType="VARCHAR" />
+    <result column="no_cancellation_credit_last6mouth_pay_avg" property="noCancellationCreditLast6mouthPayAvg" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="CHAR" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="created_dt" property="createdDt" jdbcType="TIMESTAMP" />
+    <result column="updatetimed_by" property="updatetimedBy" jdbcType="VARCHAR" />
+    <result column="updatetimed_dt" property="updatetimedDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, credit_report_id, asset_disposal_num, assurer_num, bad_debts_num, house_loan_num, 
+    other_loan_num, guarantee_other_num, bad_loans_total_num, uncleared_loan_legalperson_total, 
+    uncleared_loan_branch_total, uncleared_loan_num_total, uncleared_loan_signlamount_total, 
+    uncleared_loan_leftamount_total, uncleared_loan_last5mouth_pay_avg, no_cancellation_credit_legalperson_total, 
+    no_cancellation_credit_branch_total, no_cancellation_credit_account_total, no_cancellation_credit_amount_total, 
+    no_cancellation_credit_single_max_amount_total, no_cancellation_credit_single_min_amount_total, 
+    no_cancellation_credit_used_amount_total, no_cancellation_credit_last6mouth_pay_avg, 
+    flag, version, created_by, created_dt, updatetimed_by, updatetimed_dt
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="data_credit_datil_outline_info.Base_Column_List" />
+    from data_credit_datil_outline_info
+    <isParameterPresent >
+      <include refid="data_credit_datil_outline_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    select 
+    <include refid="data_credit_datil_outline_info.Base_Column_List" />
+    from data_credit_datil_outline_info
+    where id = #id:CHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    delete from data_credit_datil_outline_info
+    where id = #id:CHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfoExample" >
+    delete from data_credit_datil_outline_info
+    <include refid="data_credit_datil_outline_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_credit_datil_outline_info')
+    </selectKey>
+    insert into data_credit_datil_outline_info (id, credit_report_id, asset_disposal_num, assurer_num, 
+      bad_debts_num, house_loan_num, other_loan_num, guarantee_other_num, 
+      bad_loans_total_num, uncleared_loan_legalperson_total, uncleared_loan_branch_total, 
+      uncleared_loan_num_total, uncleared_loan_signlamount_total, uncleared_loan_leftamount_total, 
+      uncleared_loan_last5mouth_pay_avg, no_cancellation_credit_legalperson_total, 
+      no_cancellation_credit_branch_total, no_cancellation_credit_account_total, 
+      no_cancellation_credit_amount_total, no_cancellation_credit_single_max_amount_total, 
+      no_cancellation_credit_single_min_amount_total, no_cancellation_credit_used_amount_total, 
+      no_cancellation_credit_last6mouth_pay_avg, flag, version, 
+      created_by, created_dt, updatetimed_by, updatetimed_dt
+      )
+    values (#id:CHAR#, #creditReportId:VARCHAR#, #assetDisposalNum:VARCHAR#, #assurerNum:VARCHAR#, 
+      #badDebtsNum:VARCHAR#, #houseLoanNum:VARCHAR#, #otherLoanNum:VARCHAR#, #guaranteeOtherNum:VARCHAR#, 
+      #badLoansTotalNum:VARCHAR#, #unclearedLoanLegalpersonTotal:VARCHAR#, #unclearedLoanBranchTotal:VARCHAR#, 
+      #unclearedLoanNumTotal:VARCHAR#, #unclearedLoanSignlamountTotal:VARCHAR#, #unclearedLoanLeftamountTotal:VARCHAR#, 
+      #unclearedLoanLast5mouthPayAvg:VARCHAR#, #noCancellationCreditLegalpersonTotal:VARCHAR#, 
+      #noCancellationCreditBranchTotal:VARCHAR#, #noCancellationCreditAccountTotal:VARCHAR#, 
+      #noCancellationCreditAmountTotal:VARCHAR#, #noCancellationCreditSingleMaxAmountTotal:VARCHAR#, 
+      #noCancellationCreditSingleMinAmountTotal:VARCHAR#, #noCancellationCreditUsedAmountTotal:VARCHAR#, 
+      #noCancellationCreditLast6mouthPayAvg:VARCHAR#, #flag:CHAR#, #version:INTEGER#, 
+      #createdBy:VARCHAR#, #createdDt:TIMESTAMP#, #updatetimedBy:VARCHAR#, #updatetimedDt:TIMESTAMP#
+      )
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT GENTABID('data_credit_datil_outline_info')
+    </selectKey>
+    insert into data_credit_datil_outline_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id
+      </isNotNull>
+      <isNotNull prepend="," property="assetDisposalNum" >
+        asset_disposal_num
+      </isNotNull>
+      <isNotNull prepend="," property="assurerNum" >
+        assurer_num
+      </isNotNull>
+      <isNotNull prepend="," property="badDebtsNum" >
+        bad_debts_num
+      </isNotNull>
+      <isNotNull prepend="," property="houseLoanNum" >
+        house_loan_num
+      </isNotNull>
+      <isNotNull prepend="," property="otherLoanNum" >
+        other_loan_num
+      </isNotNull>
+      <isNotNull prepend="," property="guaranteeOtherNum" >
+        guarantee_other_num
+      </isNotNull>
+      <isNotNull prepend="," property="badLoansTotalNum" >
+        bad_loans_total_num
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLegalpersonTotal" >
+        uncleared_loan_legalperson_total
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanBranchTotal" >
+        uncleared_loan_branch_total
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanNumTotal" >
+        uncleared_loan_num_total
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanSignlamountTotal" >
+        uncleared_loan_signlamount_total
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLeftamountTotal" >
+        uncleared_loan_leftamount_total
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLast5mouthPayAvg" >
+        uncleared_loan_last5mouth_pay_avg
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLegalpersonTotal" >
+        no_cancellation_credit_legalperson_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditBranchTotal" >
+        no_cancellation_credit_branch_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAccountTotal" >
+        no_cancellation_credit_account_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAmountTotal" >
+        no_cancellation_credit_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMaxAmountTotal" >
+        no_cancellation_credit_single_max_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMinAmountTotal" >
+        no_cancellation_credit_single_min_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditUsedAmountTotal" >
+        no_cancellation_credit_used_amount_total
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLast6mouthPayAvg" >
+        no_cancellation_credit_last6mouth_pay_avg
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="creditReportId" >
+        #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="assetDisposalNum" >
+        #assetDisposalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="assurerNum" >
+        #assurerNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="badDebtsNum" >
+        #badDebtsNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="houseLoanNum" >
+        #houseLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="otherLoanNum" >
+        #otherLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="guaranteeOtherNum" >
+        #guaranteeOtherNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="badLoansTotalNum" >
+        #badLoansTotalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLegalpersonTotal" >
+        #unclearedLoanLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanBranchTotal" >
+        #unclearedLoanBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanNumTotal" >
+        #unclearedLoanNumTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanSignlamountTotal" >
+        #unclearedLoanSignlamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLeftamountTotal" >
+        #unclearedLoanLeftamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLast5mouthPayAvg" >
+        #unclearedLoanLast5mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLegalpersonTotal" >
+        #noCancellationCreditLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditBranchTotal" >
+        #noCancellationCreditBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAccountTotal" >
+        #noCancellationCreditAccountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAmountTotal" >
+        #noCancellationCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMaxAmountTotal" >
+        #noCancellationCreditSingleMaxAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMinAmountTotal" >
+        #noCancellationCreditSingleMinAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditUsedAmountTotal" >
+        #noCancellationCreditUsedAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLast6mouthPayAvg" >
+        #noCancellationCreditLast6mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from data_credit_datil_outline_info
+    <include refid="data_credit_datil_outline_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update data_credit_datil_outline_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.creditReportId" >
+        credit_report_id = #record.creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.assetDisposalNum" >
+        asset_disposal_num = #record.assetDisposalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.assurerNum" >
+        assurer_num = #record.assurerNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.badDebtsNum" >
+        bad_debts_num = #record.badDebtsNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.houseLoanNum" >
+        house_loan_num = #record.houseLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.otherLoanNum" >
+        other_loan_num = #record.otherLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.guaranteeOtherNum" >
+        guarantee_other_num = #record.guaranteeOtherNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.badLoansTotalNum" >
+        bad_loans_total_num = #record.badLoansTotalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanLegalpersonTotal" >
+        uncleared_loan_legalperson_total = #record.unclearedLoanLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanBranchTotal" >
+        uncleared_loan_branch_total = #record.unclearedLoanBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanNumTotal" >
+        uncleared_loan_num_total = #record.unclearedLoanNumTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanSignlamountTotal" >
+        uncleared_loan_signlamount_total = #record.unclearedLoanSignlamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanLeftamountTotal" >
+        uncleared_loan_leftamount_total = #record.unclearedLoanLeftamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.unclearedLoanLast5mouthPayAvg" >
+        uncleared_loan_last5mouth_pay_avg = #record.unclearedLoanLast5mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditLegalpersonTotal" >
+        no_cancellation_credit_legalperson_total = #record.noCancellationCreditLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditBranchTotal" >
+        no_cancellation_credit_branch_total = #record.noCancellationCreditBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditAccountTotal" >
+        no_cancellation_credit_account_total = #record.noCancellationCreditAccountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditAmountTotal" >
+        no_cancellation_credit_amount_total = #record.noCancellationCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditSingleMaxAmountTotal" >
+        no_cancellation_credit_single_max_amount_total = #record.noCancellationCreditSingleMaxAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditSingleMinAmountTotal" >
+        no_cancellation_credit_single_min_amount_total = #record.noCancellationCreditSingleMinAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditUsedAmountTotal" >
+        no_cancellation_credit_used_amount_total = #record.noCancellationCreditUsedAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.noCancellationCreditLast6mouthPayAvg" >
+        no_cancellation_credit_last6mouth_pay_avg = #record.noCancellationCreditLast6mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.flag" >
+        flag = #record.flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.version" >
+        version = #record.version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdBy" >
+        created_by = #record.createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createdDt" >
+        created_dt = #record.createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedBy" >
+        updatetimed_by = #record.updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatetimedDt" >
+        updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="data_credit_datil_outline_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update data_credit_datil_outline_info
+    set id = #record.id:CHAR#,
+      credit_report_id = #record.creditReportId:VARCHAR#,
+      asset_disposal_num = #record.assetDisposalNum:VARCHAR#,
+      assurer_num = #record.assurerNum:VARCHAR#,
+      bad_debts_num = #record.badDebtsNum:VARCHAR#,
+      house_loan_num = #record.houseLoanNum:VARCHAR#,
+      other_loan_num = #record.otherLoanNum:VARCHAR#,
+      guarantee_other_num = #record.guaranteeOtherNum:VARCHAR#,
+      bad_loans_total_num = #record.badLoansTotalNum:VARCHAR#,
+      uncleared_loan_legalperson_total = #record.unclearedLoanLegalpersonTotal:VARCHAR#,
+      uncleared_loan_branch_total = #record.unclearedLoanBranchTotal:VARCHAR#,
+      uncleared_loan_num_total = #record.unclearedLoanNumTotal:VARCHAR#,
+      uncleared_loan_signlamount_total = #record.unclearedLoanSignlamountTotal:VARCHAR#,
+      uncleared_loan_leftamount_total = #record.unclearedLoanLeftamountTotal:VARCHAR#,
+      uncleared_loan_last5mouth_pay_avg = #record.unclearedLoanLast5mouthPayAvg:VARCHAR#,
+      no_cancellation_credit_legalperson_total = #record.noCancellationCreditLegalpersonTotal:VARCHAR#,
+      no_cancellation_credit_branch_total = #record.noCancellationCreditBranchTotal:VARCHAR#,
+      no_cancellation_credit_account_total = #record.noCancellationCreditAccountTotal:VARCHAR#,
+      no_cancellation_credit_amount_total = #record.noCancellationCreditAmountTotal:VARCHAR#,
+      no_cancellation_credit_single_max_amount_total = #record.noCancellationCreditSingleMaxAmountTotal:VARCHAR#,
+      no_cancellation_credit_single_min_amount_total = #record.noCancellationCreditSingleMinAmountTotal:VARCHAR#,
+      no_cancellation_credit_used_amount_total = #record.noCancellationCreditUsedAmountTotal:VARCHAR#,
+      no_cancellation_credit_last6mouth_pay_avg = #record.noCancellationCreditLast6mouthPayAvg:VARCHAR#,
+      flag = #record.flag:CHAR#,
+      version = #record.version:INTEGER#,
+      created_by = #record.createdBy:VARCHAR#,
+      created_dt = #record.createdDt:TIMESTAMP#,
+      updatetimed_by = #record.updatetimedBy:VARCHAR#,
+      updatetimed_dt = #record.updatetimedDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="data_credit_datil_outline_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    update data_credit_datil_outline_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="creditReportId" >
+        credit_report_id = #creditReportId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="assetDisposalNum" >
+        asset_disposal_num = #assetDisposalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="assurerNum" >
+        assurer_num = #assurerNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="badDebtsNum" >
+        bad_debts_num = #badDebtsNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="houseLoanNum" >
+        house_loan_num = #houseLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="otherLoanNum" >
+        other_loan_num = #otherLoanNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="guaranteeOtherNum" >
+        guarantee_other_num = #guaranteeOtherNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="badLoansTotalNum" >
+        bad_loans_total_num = #badLoansTotalNum:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLegalpersonTotal" >
+        uncleared_loan_legalperson_total = #unclearedLoanLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanBranchTotal" >
+        uncleared_loan_branch_total = #unclearedLoanBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanNumTotal" >
+        uncleared_loan_num_total = #unclearedLoanNumTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanSignlamountTotal" >
+        uncleared_loan_signlamount_total = #unclearedLoanSignlamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLeftamountTotal" >
+        uncleared_loan_leftamount_total = #unclearedLoanLeftamountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="unclearedLoanLast5mouthPayAvg" >
+        uncleared_loan_last5mouth_pay_avg = #unclearedLoanLast5mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLegalpersonTotal" >
+        no_cancellation_credit_legalperson_total = #noCancellationCreditLegalpersonTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditBranchTotal" >
+        no_cancellation_credit_branch_total = #noCancellationCreditBranchTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAccountTotal" >
+        no_cancellation_credit_account_total = #noCancellationCreditAccountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditAmountTotal" >
+        no_cancellation_credit_amount_total = #noCancellationCreditAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMaxAmountTotal" >
+        no_cancellation_credit_single_max_amount_total = #noCancellationCreditSingleMaxAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditSingleMinAmountTotal" >
+        no_cancellation_credit_single_min_amount_total = #noCancellationCreditSingleMinAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditUsedAmountTotal" >
+        no_cancellation_credit_used_amount_total = #noCancellationCreditUsedAmountTotal:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="noCancellationCreditLast6mouthPayAvg" >
+        no_cancellation_credit_last6mouth_pay_avg = #noCancellationCreditLast6mouthPayAvg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="flag" >
+        flag = #flag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="version" >
+        version = #version:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createdBy" >
+        created_by = #createdBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createdDt" >
+        created_dt = #createdDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedBy" >
+        updatetimed_by = #updatetimedBy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updatetimedDt" >
+        updatetimed_dt = #updatetimedDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:CHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.data.dataTask.model.DataCreditDatilOutlineInfo" >
+    update data_credit_datil_outline_info
+    set credit_report_id = #creditReportId:VARCHAR#,
+      asset_disposal_num = #assetDisposalNum:VARCHAR#,
+      assurer_num = #assurerNum:VARCHAR#,
+      bad_debts_num = #badDebtsNum:VARCHAR#,
+      house_loan_num = #houseLoanNum:VARCHAR#,
+      other_loan_num = #otherLoanNum:VARCHAR#,
+      guarantee_other_num = #guaranteeOtherNum:VARCHAR#,
+      bad_loans_total_num = #badLoansTotalNum:VARCHAR#,
+      uncleared_loan_legalperson_total = #unclearedLoanLegalpersonTotal:VARCHAR#,
+      uncleared_loan_branch_total = #unclearedLoanBranchTotal:VARCHAR#,
+      uncleared_loan_num_total = #unclearedLoanNumTotal:VARCHAR#,
+      uncleared_loan_signlamount_total = #unclearedLoanSignlamountTotal:VARCHAR#,
+      uncleared_loan_leftamount_total = #unclearedLoanLeftamountTotal:VARCHAR#,
+      uncleared_loan_last5mouth_pay_avg = #unclearedLoanLast5mouthPayAvg:VARCHAR#,
+      no_cancellation_credit_legalperson_total = #noCancellationCreditLegalpersonTotal:VARCHAR#,
+      no_cancellation_credit_branch_total = #noCancellationCreditBranchTotal:VARCHAR#,
+      no_cancellation_credit_account_total = #noCancellationCreditAccountTotal:VARCHAR#,
+      no_cancellation_credit_amount_total = #noCancellationCreditAmountTotal:VARCHAR#,
+      no_cancellation_credit_single_max_amount_total = #noCancellationCreditSingleMaxAmountTotal:VARCHAR#,
+      no_cancellation_credit_single_min_amount_total = #noCancellationCreditSingleMinAmountTotal:VARCHAR#,
+      no_cancellation_credit_used_amount_total = #noCancellationCreditUsedAmountTotal:VARCHAR#,
+      no_cancellation_credit_last6mouth_pay_avg = #noCancellationCreditLast6mouthPayAvg:VARCHAR#,
+      flag = #flag:CHAR#,
+      version = #version:INTEGER#,
+      created_by = #createdBy:VARCHAR#,
+      created_dt = #createdDt:TIMESTAMP#,
+      updatetimed_by = #updatetimedBy:VARCHAR#,
+      updatetimed_dt = #updatetimedDt:TIMESTAMP#
+    where id = #id:CHAR#
+  </update>
+</sqlMap>
