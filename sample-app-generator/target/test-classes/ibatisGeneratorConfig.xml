@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="ojdbc14.jar" /> -->
+
+    <context id="OracleTables" targetRuntime="Ibatis2Java5">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="com.fosun.generate.plugin.TopSerializablePlugin"></plugin>
+        <plugin type="com.fosun.generate.plugin.SqlMapUnMergePlugin"></plugin>
+        <!-- DAO的生成,带有分页标识 -->
+        <plugin type="com.fosun.generate.plugin.PaginationAnnotaionPlugin">
+        	<property name="extends" value="com.fosun.base.ibatisEx.IbatisDaoAnnotation4Template"/>
+        	<property name="pageClass" value="com.fosun.base.common.beans.Page"/>
+        	<property name="sqlMapTemplate" value="sqlMapClientTemplate"/>
+        </plugin>
+
+        <commentGenerator type="com.fosun.generate.plugin.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.gjt.mm.mysql.Driver" connectionURL="jdbc:mysql://10.166.10.211:3306/yuntong?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="yuntong" password="yuntong1qaz">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+		
+		<!-- POJO类生成配置 -->
+        <javaModelGenerator targetPackage="com.fosun.data.dataTask.model" targetProject="../component-data-parent/component-data-dal/src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+		
+		<!-- SqlMap文件生成配置 -->
+        <sqlMapGenerator targetPackage="ibatis" targetProject="../component-data-parent/component-data-dal/src/main/resources">
+        </sqlMapGenerator>
+		
+		<!-- Dao生成配置 -->
+        <javaClientGenerator type="SPRING" targetPackage="com.fosun.data.dataTask.dao" targetProject="../component-data-parent/component-data-dal/src/main/java">
+        </javaClientGenerator>
+
+       
+        
+        <table tableName="data_credit_person_basic" domainObjectName="CreditPersonBasic">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('data_credit_person_basic')" identity="false"/>
+        </table>
+        
+        
+        
+        
+    </context>
+
+</generatorConfiguration>

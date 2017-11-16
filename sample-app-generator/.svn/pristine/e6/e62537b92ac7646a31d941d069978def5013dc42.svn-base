@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="ojdbc14.jar" /> -->
+
+    <context id="OracleTables" targetRuntime="Ibatis2Java5">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="com.fosun.generate.plugin.TopSerializablePlugin"></plugin>
+        <plugin type="com.fosun.generate.plugin.SqlMapUnMergePlugin"></plugin>
+        <!-- DAO的生成,带有分页标识 -->
+        <plugin type="com.fosun.generate.plugin.PaginationAnnotaionPlugin">
+        	<property name="extends" value="com.fosun.base.ibatisEx.IbatisDaoAnnotation4Template"/>
+        	<property name="pageClass" value="com.fosun.base.common.beans.Page"/>
+        	<property name="sqlMapTemplate" value="sqlMapClientTemplate"/>
+        </plugin>
+
+        <commentGenerator type="com.fosun.generate.plugin.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.gjt.mm.mysql.Driver" connectionURL="jdbc:mysql://10.166.10.211:3306/creditor?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="creditor_monitor" password="creditor_monitor">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+		
+		<!-- POJO类生成配置 -->
+        <javaModelGenerator targetPackage="com.fosun.fortune.account.model" targetProject="../fosun_fortune_parent/fosun_fortune_account_parent/fosun_fortune_account_dal/src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+		
+		<!-- SqlMap文件生成配置 -->
+        <sqlMapGenerator targetPackage="ibatis" targetProject="../fosun_fortune_parent/fosun_fortune_account_parent/fosun_fortune_account_dal/src/main/resources">
+        </sqlMapGenerator>
+		
+		<!-- Dao生成配置 -->
+        <javaClientGenerator type="SPRING" targetPackage="com.fosun.fortune.account.dao" targetProject="../fosun_fortune_parent/fosun_fortune_account_parent/fosun_fortune_account_dal/src/main/java">
+        </javaClientGenerator>
+
+        <!-- 数据库表
+         -->
+        
+        <table tableName="t_credit_biz_config" domainObjectName="CreditBizConfig">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_biz_config')" identity="false"/>
+        </table>
+        <table tableName="t_credit_monitor" domainObjectName="CreditMonitor">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_monitor')" identity="false"/>
+        </table>
+        <table tableName="t_credit_operate_log" domainObjectName="CreditOperateLog">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_operate_log')" identity="false"/>
+        </table>
+        <table tableName="t_credit_respondent" domainObjectName="CreditRespondent">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_respondent')" identity="false"/>
+        </table>
+        <table tableName="t_credit_task" domainObjectName="CreditTask">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_task')" identity="false"/>
+        </table>
+        <table tableName="t_credit_user" domainObjectName="CreditUser">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_user')" identity="false"/>
+        </table>
+        <table tableName="t_credit_user_org" domainObjectName="CreditUserOrg">
+        	<generatedKey column="id" sqlStatement="SELECT genTabId('t_credit_user_org')" identity="false"/>
+        </table>
+    </context>
+
+</generatorConfiguration>
