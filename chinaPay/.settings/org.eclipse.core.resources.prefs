@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/chinapay/model/bean/TransactionBean.java=GBK
+encoding//src/chinapay/servlet/QueryReturnServlet.java=GBK
+encoding//src/chinapay/servlet/QuerySendServlet.java=GBK
+encoding//src/chinapay/servlet/TransactionReturnServlet.java=GBK
+encoding//src/chinapay/util/Config.java=GBK
+encoding/readme_DaiKou(Java).txt=GBK

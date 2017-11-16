@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+<display-name>chinaPay</display-name>
+<welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+<servlet>
+	<display-name>Transaction</display-name>
+	<servlet-name>Transaction</servlet-name>
+	<servlet-class>chinapay.servlet.TransactionServlet</servlet-class>
+</servlet>
+<servlet>
+	<display-name>test</display-name>
+	<servlet-name>test</servlet-name>
+	<servlet-class>http://payment-test.chinapay.com/pay/TransGet
+	</servlet-class>
+</servlet>
+<servlet>
+	<display-name>WhiteList</display-name>
+	<servlet-name>WhiteList</servlet-name>
+	<servlet-class>chinapay.servlet.WhiteListServlet</servlet-class>
+</servlet>
+<servlet>
+	<display-name>WhiteListReturn</display-name>
+	<servlet-name>WhiteListReturn</servlet-name>
+	<servlet-class>chinapay.servlet.WhiteListReturnServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>This is the description of my J2EE component</description>
+	<display-name>QuerySend</display-name>
+	<servlet-name>QuerySend</servlet-name>
+	<servlet-class>chinapay.servlet.QuerySendServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>This is the description of my J2EE component</description>
+	<display-name>QueryReturn</display-name>
+	<servlet-name>QueryReturn</servlet-name>
+	<servlet-class>chinapay.servlet.QueryReturnServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>This is the description of my J2EE component</description>
+	<display-name>ResonseServlet</display-name>
+	<servlet-name>ResonseServlet</servlet-name>
+	<servlet-class>chinapay.servlet.ResonseServlet</servlet-class>
+</servlet>
+<servlet>
+	<description>This is the description of my J2EE component</description>
+	<display-name>TransactionReturn</display-name>
+	<servlet-name>TransactionReturn</servlet-name>
+	<servlet-class>chinapay.servlet.TransactionReturnServlet
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Transaction</servlet-name>
+	<url-pattern>/Transaction</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>test</servlet-name>
+	<url-pattern>/test</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>WhiteList</servlet-name>
+	<url-pattern>/WhiteList</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>WhiteListReturn</servlet-name>
+	<url-pattern>/WhiteListReturn</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>QuerySend</servlet-name>
+	<url-pattern>/QuerySend</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>QueryReturn</servlet-name>
+	<url-pattern>/QueryReturn</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>ResonseServlet</servlet-name>
+	<url-pattern>/ResonseServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>TransactionReturn</servlet-name>
+	<url-pattern>/TransactionReturn</url-pattern>
+</servlet-mapping>
+</web-app>
