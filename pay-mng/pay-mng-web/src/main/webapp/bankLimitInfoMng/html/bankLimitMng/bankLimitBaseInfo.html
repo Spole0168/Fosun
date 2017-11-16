@@ -1,0 +1,14 @@
+<ht-legend>基本信息</ht-legend>
+<ht-button-group>
+    <ht-button ht-id="cancel" class="btn-primary">返回</ht-button>
+    <!-- 留作样例
+    <ht-button ht-id="save" class="btn-primary" hide={{readonly}}>保存</ht-button>
+    <ht-button ht-id="updateRecord" class="btn-primary" hide={{readonly}}>修改记录</ht-button>
+     -->
+</ht-button-group>
+<ht-form name="bankLimitBaseInfoForm">
+    <ht-select ht-id="payType" name="渠道类型" disable="true" dictionary="ChnlType" ng-model="bankLimitBaseInfoForm.payType"></ht-select>
+    <ht-select ht-id="bankType" name="银行类型" disable="true" dictionary="BankType" ng-model="bankLimitBaseInfoForm.bankType"></ht-select>
+    <ht-input ht-id="singleLmt" name="单笔限额(元)" disable="true" ng-model="bankLimitBaseInfoForm.singleLmt"></ht-input>
+    <ht-input ht-id="dayLmt" name="每日限额(元)" disable="true" ng-model="bankLimitBaseInfoForm.dayLmt"></ht-input>
+</ht-form>

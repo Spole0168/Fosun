@@ -1,0 +1,13 @@
+{
+  "zValidate": {
+    "ruleName": ["require","english"],
+    "require":{
+      "rule": "IS_NOT_NULL",
+      "errMsg": "不能为空"
+    },
+    "english":{
+      "rule": "/[a-zA-Z]/",
+      "errMsg": "英文格式"
+    }
+  }
+}

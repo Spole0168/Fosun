@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="ojdbc14.jar" /> -->
+
+    <context id="OracleTables" targetRuntime="Ibatis2Java5">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"></plugin>
+        <plugin type="com.huateng.generate.plugin.TopSerializablePlugin"></plugin>
+        <plugin type="com.huateng.generate.plugin.SqlMapUnMergePlugin"></plugin>
+        <!-- DAO的生成,带有分页标识 -->
+        <plugin type="com.huateng.generate.plugin.PaginationAnnotaionPlugin">
+        	<property name="extends" value="com.huateng.base.ibatisEx.IbatisDaoAnnotation4Template"/>
+        	<property name="pageClass" value="com.huateng.base.common.beans.Page"/>
+        	<property name="sqlMapTemplate" value="sqlMapClientTemplate"/>
+        </plugin>
+
+        <commentGenerator type="com.huateng.generate.plugin.DBCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@101.200.228.39:1521:vfinance"
+            userId="test" password="123">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection> -->
+        <jdbcConnection driverClass="org.gjt.mm.mysql.Driver" connectionURL="jdbc:mysql://10.166.10.211:3306/yuntong?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="yuntong" password="yuntong1qaz">
+            <property name="remarksReporting" value="true" />
+        </jdbcConnection>
+		
+		<!-- POJO类生成配置 -->
+        <javaModelGenerator targetPackage="com.fosun.paymng.model" targetProject="../pay-mng-dal/src/main/java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+		
+		
+		
+		
+		
+		<!-- SqlMap文件生成配置 -->
+        <sqlMapGenerator targetPackage="ibatis" targetProject="../pay-mng-dal/src/main/resources">
+        </sqlMapGenerator>
+		
+		<!-- Dao生成配置 -->
+        <javaClientGenerator type="SPRING" targetPackage="com.fosun.paymng.dao" targetProject="../pay-mng-dal/src/main/java">
+        </javaClientGenerator>
+         <!-- 数据库view表 --> 
+        <!-- <table tableName="VIEW_TLR_INFO" domainObjectName="ViewTlrInfo">
+        	<generatedKey column="ID" sqlStatement="SELECT GENTABID('VIEW_TLR_INFO')"/>
+        </table>  -->
+
+        <!-- 数据库表 --> 
+        <table tableName="PAY_MCHNT_TRANS_LOG" domainObjectName="PayMchntTransLog">
+        	<generatedKey column="trans_seq_id" sqlStatement="SELECT nextval('PAY_MCHNT_TRANS_LOG')"/>
+        </table>
+        <table tableName="PAY_CHANL_PAY_LOG" domainObjectName="PayChanlPayLog">
+        	<generatedKey column="trans_pay_id" sqlStatement="SELECT nextval('PAY_CHANL_PAY_LOG')"/>
+        </table>       
+        <table tableName="PAY_CARD_REAL_INF" domainObjectName="PayCardRealInf">
+        	<generatedKey column="rec_seq_id" sqlStatement="SELECT nextval('PAY_CARD_REAL_INF')"/>
+        </table>            
+        <table tableName="PAY_CARD_CONTRACT_INF" domainObjectName="PayCardContractInf">
+        	<generatedKey column="rec_seq_id" sqlStatement="SELECT nextval('PAY_CARD_CONTRACT_INF')"/>
+        </table>            
+        <table tableName="PAY_BILL_FILE_DTL" domainObjectName="PayBillFileDtl">
+        	<generatedKey column="ID" sqlStatement="SELECT nextval('PAY_BILL_FILE_DTL')"/>
+        </table>            
+        <table tableName="PAY_COMMON_TRANS_ROUTE_CFG" domainObjectName="PayCommonTransRouteCfg">
+        </table>            
+        <table tableName="PAY_TXN_CHNL_ROUTE_CFG" domainObjectName="PayTxnChnlRouteCfg">
+        </table>            
+        <table tableName="PAY_CHNL_INF" domainObjectName="PayChnlInf">
+        </table>    
+        <table tableName="PAY_BANK_INF" domainObjectName="PayBankInf">
+        </table>    
+        <table tableName="PAY_MCHNT_INF" domainObjectName="PayMchntInf">
+        </table> 
+        <table tableName="PAY_CHECK_BILLS_FILE" domainObjectName="PayCheckBillsFile">
+        	<generatedKey column="ID" sqlStatement="SELECT genTabId('PAY_CHECK_BILLS_FILE')"/>
+        </table>              
+        
+        <table tableName="PAY_FUND_CFG" domainObjectName="PayFundCfg">
+        	<generatedKey column="ID" sqlStatement="SELECT genTabId('PAY_FUND_CFG')"/>
+        </table>    
+         <table tableName="pay_trans_record_info" domainObjectName="PayTransRecordInfo">
+        	<generatedKey column="ID" sqlStatement="SELECT genTabId('PAY_TRANS_RECORD_INFO')"/>
+        </table>    
+        
+        
+
+    </context>
+
+</generatorConfiguration>

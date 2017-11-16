@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMapConfig PUBLIC
+    "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<settings useStatementNamespaces="true" enhancementEnabled="true" lazyLoadingEnabled="true" />
+	<typeAlias alias="String" type="java.lang.String" />
+	<typeAlias alias="Long" type="java.lang.Long" />
+	<typeAlias alias="Integer" type="java.lang.Integer" />
+
+	<!-- base begin -->		
+	<sqlMap resource="ibatis/pay_bank_inf_SqlMap.xml" />
+	<sqlMap resource="ibatis/pay_bank_limit_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_bill_file_dtl_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_card_contract_inf_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_card_real_inf_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_chanl_pay_log_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_check_bills_file_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_chnl_inf_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_common_trans_route_cfg_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_fund_cfg_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_mchnt_trans_log_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_trans_record_info_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_txn_chnl_route_cfg_SqlMap.xml" />	
+	<sqlMap resource="ibatis/pay_mchnt_inf_SqlMap.xml" />	
+	
+
+	
+</sqlMapConfig>

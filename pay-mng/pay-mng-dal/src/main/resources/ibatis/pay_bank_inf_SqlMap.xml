@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_bank_inf" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayBankInf" >
+    <result column="bank_id" property="bankId" jdbcType="CHAR" />
+    <result column="bank_ecd" property="bankEcd" jdbcType="VARCHAR" />
+    <result column="swift_code" property="swiftCode" jdbcType="VARCHAR" />
+    <result column="bank_nm" property="bankNm" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="disp_order" property="dispOrder" jdbcType="INTEGER" />
+    <result column="valid_st" property="validSt" jdbcType="CHAR" />
+    <result column="rec_crt_ts" property="recCrtTs" jdbcType="TIMESTAMP" />
+    <result column="rec_crt_opr_id" property="recCrtOprId" jdbcType="VARCHAR" />
+    <result column="rec_upd_ts" property="recUpdTs" jdbcType="TIMESTAMP" />
+    <result column="rec_upd_opr_id" property="recUpdOprId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    bank_id, bank_ecd, swift_code, bank_nm, image_url, disp_order, valid_st, rec_crt_ts, 
+    rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBankInfExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_bank_inf.Base_Column_List" />
+    from pay_bank_inf
+    <isParameterPresent >
+      <include refid="pay_bank_inf.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    select 
+    <include refid="pay_bank_inf.Base_Column_List" />
+    from pay_bank_inf
+    where bank_id = #bankId:CHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    delete from pay_bank_inf
+    where bank_id = #bankId:CHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayBankInfExample" >
+    delete from pay_bank_inf
+    <include refid="pay_bank_inf.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    insert into pay_bank_inf (bank_id, bank_ecd, swift_code, bank_nm, 
+      image_url, disp_order, valid_st, rec_crt_ts, 
+      rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id)
+    values (#bankId:CHAR#, #bankEcd:VARCHAR#, #swiftCode:VARCHAR#, #bankNm:VARCHAR#, 
+      #imageUrl:VARCHAR#, #dispOrder:INTEGER#, #validSt:CHAR#, #recCrtTs:TIMESTAMP#, 
+      #recCrtOprId:VARCHAR#, #recUpdTs:TIMESTAMP#, #recUpdOprId:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    insert into pay_bank_inf
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="bankId" >
+        bank_id
+      </isNotNull>
+      <isNotNull prepend="," property="bankEcd" >
+        bank_ecd
+      </isNotNull>
+      <isNotNull prepend="," property="swiftCode" >
+        swift_code
+      </isNotNull>
+      <isNotNull prepend="," property="bankNm" >
+        bank_nm
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        image_url
+      </isNotNull>
+      <isNotNull prepend="," property="dispOrder" >
+        disp_order
+      </isNotNull>
+      <isNotNull prepend="," property="validSt" >
+        valid_st
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="bankId" >
+        #bankId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankEcd" >
+        #bankEcd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="swiftCode" >
+        #swiftCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankNm" >
+        #bankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        #imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dispOrder" >
+        #dispOrder:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="validSt" >
+        #validSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        #recUpdOprId:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayBankInfExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_bank_inf
+    <include refid="pay_bank_inf.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_bank_inf
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.bankId" >
+        bank_id = #record.bankId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankEcd" >
+        bank_ecd = #record.bankEcd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.swiftCode" >
+        swift_code = #record.swiftCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankNm" >
+        bank_nm = #record.bankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.imageUrl" >
+        image_url = #record.imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.dispOrder" >
+        disp_order = #record.dispOrder:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.validSt" >
+        valid_st = #record.validSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtTs" >
+        rec_crt_ts = #record.recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtOprId" >
+        rec_crt_opr_id = #record.recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdTs" >
+        rec_upd_ts = #record.recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdOprId" >
+        rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_bank_inf.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_bank_inf
+    set bank_id = #record.bankId:CHAR#,
+      bank_ecd = #record.bankEcd:VARCHAR#,
+      swift_code = #record.swiftCode:VARCHAR#,
+      bank_nm = #record.bankNm:VARCHAR#,
+      image_url = #record.imageUrl:VARCHAR#,
+      disp_order = #record.dispOrder:INTEGER#,
+      valid_st = #record.validSt:CHAR#,
+      rec_crt_ts = #record.recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #record.recCrtOprId:VARCHAR#,
+      rec_upd_ts = #record.recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_bank_inf.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    update pay_bank_inf
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="bankEcd" >
+        bank_ecd = #bankEcd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="swiftCode" >
+        swift_code = #swiftCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankNm" >
+        bank_nm = #bankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        image_url = #imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="dispOrder" >
+        disp_order = #dispOrder:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="validSt" >
+        valid_st = #validSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts = #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id = #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts = #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id = #recUpdOprId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where bank_id = #bankId:CHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBankInf" >
+    update pay_bank_inf
+    set bank_ecd = #bankEcd:VARCHAR#,
+      swift_code = #swiftCode:VARCHAR#,
+      bank_nm = #bankNm:VARCHAR#,
+      image_url = #imageUrl:VARCHAR#,
+      disp_order = #dispOrder:INTEGER#,
+      valid_st = #validSt:CHAR#,
+      rec_crt_ts = #recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #recCrtOprId:VARCHAR#,
+      rec_upd_ts = #recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #recUpdOprId:VARCHAR#
+    where bank_id = #bankId:CHAR#
+  </update>
+</sqlMap>

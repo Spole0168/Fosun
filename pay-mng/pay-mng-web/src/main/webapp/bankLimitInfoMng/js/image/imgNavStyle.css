@@ -1,0 +1,180 @@
+img{
+    cursor: pointer;
+}
+span.img{
+    cursor: pointer;
+}
+.navImg{
+    position:  absolute;
+    /*background: #e5e5e5;*/
+    background: #f0f0f0;
+}
+.navImg label, .navImg input{
+    font-family: "微软雅黑", "serif";
+    cursor: hand;
+}
+.navImg .history {
+    background: #f4f4f4;
+    float: left;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.navImg .history ul{
+    list-style-type: none;
+    width: 100%;
+    margin: 2px;
+    padding: 0px;
+}
+
+.navImg .body{
+    float: left;
+}
+.navImg .body .search{
+    /* background: #f0f0f0;*/
+    width: 100%;
+    padding: 5px 0 5px 0;
+}
+.navImg .history li{
+    display: block;
+    white-space: normal;
+    /*background: #ffff00;*/
+    margin: 5px;
+    margin-left: 2px;
+    text-align: center;
+    border:#888888 dashed 1px;
+    border-radius: 10px;
+}
+.navImg .history li img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+.navImg .history .selection{
+    border:red dashed 2px;
+}
+.navImg .tuBody{
+    border-radius: 10px;
+    background: #ececec;
+    border:#00BEF0 dashed 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+/*
+.navImg .tuBody .canvasRotate{
+}
+*/
+.navImg .tuBody .canvasRotate{
+    background: red;
+    margin: 5px;
+    border-radius:  10px;
+}
+.navImg .tuBody .canvasMain{
+    background: #fff;
+    margin: 5px;
+    border-radius:  10px;
+}
+.search span.img{
+    float: right;
+    width: 22px;
+    height: 22px;
+    margin: 7px;
+}
+.search img{
+    float: right;
+    width: 22px;
+    height: 22px;
+    margin: 7px;
+}
+.search .toL{
+    background: url("toL.png");
+}.search .toR{
+     background: url("toR.png");
+ }
+.search .zoomout{
+    background: url("zoomout.png");
+}
+.search .zoomin{
+    background: url("zoomin.png");
+}
+.search .switch{
+    background: url("switch.png");
+}
+.search button{
+    border: solid 1px #0081A9;
+    cursor: pointer;
+    background: #0081A9;
+    margin: 7px;
+    font-size: 12px;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.navg{
+    float: left;
+    overflow: hidden;
+    margin: 2px;
+    margin-top: 5px;
+}
+.navgButton{
+    float: left;
+    text-align:center;
+    vertical-align:middle;
+}
+.navgButton div.img{
+    margin:0 auto;
+    vertical-align: middle;
+    align-self: center;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    margin-top: 75%;
+}
+.navgButton img{
+    vertical-align: middle;
+    align-self: center;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    margin-top: 75%;
+}
+.navgButton .imgL{
+    background: url("last.png") center center no-repeat;
+}
+.navgButton .imgR{
+    background: url("next.png") center center no-repeat;
+}
+.navg ul{
+    height: 100%;
+    list-style-type: none;
+    margin: 2px;
+    padding: 0px;
+}
+.navg li{
+    float: left;
+    display: block;
+    white-space: normal;
+    /*background: #ffff00;*/
+    margin: 5px;
+    margin-left: 2px;
+    text-align: center;
+    border:#00BEF0 dashed 1px;
+    border-radius: 10px;
+}
+.navg li img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+.navg li label{
+    font-size: 12px;
+}
+.navg .selection{
+    border:red dashed 2px;
+}

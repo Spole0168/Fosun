@@ -1,0 +1,25 @@
+<ht-legend>基本信息</ht-legend>
+<ht-button-group>
+    <ht-button ht-id="cancel" class="btn-primary">返回</ht-button>
+    <!-- 留作样例
+    <ht-button ht-id="save" class="btn-primary" hide={{readonly}}>保存</ht-button>
+    <ht-button ht-id="updateRecord" class="btn-primary" hide={{readonly}}>修改记录</ht-button>
+     -->
+</ht-button-group>
+<ht-form name="mchntBaseInfoForm">
+    <ht-input ht-id="mchntId" name="商户编码" disable="true"  ng-model="mchntBaseInfoForm.mchntId"></ht-input>
+    <ht-input ht-id="mchntAbbr" name="商户简称" disable="true" ng-model="mchntBaseInfoForm.mchntAbbr"></ht-input>
+    <ht-input ht-id="mchntNm" name="商户名称" disable="true" ng-model="mchntBaseInfoForm.mchntNm"></ht-input>
+    <ht-input ht-id="contactPersonNm" name="联系人姓名" disable="true" ng-model="mchntBaseInfoForm.contactPersonNm"></ht-input>
+    <ht-input ht-id="contactPhone" name="联系人电话" disable="true" ng-model="mchntBaseInfoForm.contactPhone"></ht-input>
+    <ht-input ht-id="billRetUrl" name="对账通知URL" disable="true" ng-model="mchntBaseInfoForm.billRetUrl"></ht-input>
+    <ht-select ht-id="mchntValidSt" name="商户状态" disable="true" dictionary="ValidSt" ng-model="mchntBaseInfoForm.mchntValidSt" ></ht-select>
+    
+	<!-- 留作样例
+	<ht-select ht-id="liveProvince" reg-exp="IsNotNull"  name="现居住地（省/直辖市/自治区）"  datasource="Province" dataTrsOption="regionName"  dataOption="regionCode"  on-change="provinceNameChange"  ng-model="customerForm.liveProvince"  disable={{readonly}}></ht-select>
+    <ht-select ht-id="liveCity" reg-exp="IsNotNull"  name="现居住地（地级市/区/县）"         datasource="City"     dataTrsOption="regionName"  dataOption="regionCode"  on-change="cityNameChange"      ng-model="customerForm.liveCity"  disable={{readonly}}></ht-select>
+    <ht-select ht-id="liveCounty" reg-exp="IsNotNull"  name="现居住地（县级市/区/县）"       datasource="County"   dataTrsOption="regionName"  dataOption="regionCode"  ng-model="customerForm.liveCounty"  disable={{readonly}}></ht-select>
+	
+	 -->
+
+</ht-form>

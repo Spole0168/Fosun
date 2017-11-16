@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_trans_record_info" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayTransRecordInfo" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TRANS_NO" property="transNo" jdbcType="VARCHAR" />
+    <result column="mchnt_id" property="mchntId" jdbcType="CHAR" />
+    <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR" />
+    <result column="BUSI_TYPE" property="busiType" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="ORDER_AMT" property="orderAmt" jdbcType="DECIMAL" />
+    <result column="SERIAL_NO" property="serialNo" jdbcType="VARCHAR" />
+    <result column="CALLBACK_SERVER_ID" property="callbackServerId" jdbcType="VARCHAR" />
+    <result column="CRT_TIME" property="crtTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="SUCC_IIME" property="succIime" jdbcType="VARCHAR" />
+    <result column="SUCC_AMT" property="succAmt" jdbcType="DECIMAL" />
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="FUND_CODE" property="fundCode" jdbcType="VARCHAR" />
+    <result column="PRODUCT_CODE" property="productCode" jdbcType="VARCHAR" />
+    <result column="TRANS_DATE" property="transDate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, TRANS_NO, mchnt_id, ORDER_ID, BUSI_TYPE, STATUS, ORDER_AMT, SERIAL_NO, CALLBACK_SERVER_ID, 
+    CRT_TIME, UPDATE_TIME, SUCC_IIME, SUCC_AMT, PAY_TYPE, FUND_CODE, PRODUCT_CODE, TRANS_DATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayTransRecordInfoExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_trans_record_info.Base_Column_List" />
+    from pay_trans_record_info
+    <isParameterPresent >
+      <include refid="pay_trans_record_info.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    select 
+    <include refid="pay_trans_record_info.Base_Column_List" />
+    from pay_trans_record_info
+    where ID = #id:VARCHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    delete from pay_trans_record_info
+    where ID = #id:VARCHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayTransRecordInfoExample" >
+    delete from pay_trans_record_info
+    <include refid="pay_trans_record_info.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('PAY_TRANS_RECORD_INFO')
+    </selectKey>
+    insert into pay_trans_record_info (ID, TRANS_NO, mchnt_id, ORDER_ID, BUSI_TYPE, 
+      STATUS, ORDER_AMT, SERIAL_NO, CALLBACK_SERVER_ID, 
+      CRT_TIME, UPDATE_TIME, SUCC_IIME, SUCC_AMT, 
+      PAY_TYPE, FUND_CODE, PRODUCT_CODE, TRANS_DATE
+      )
+    values (#id:VARCHAR#, #transNo:VARCHAR#, #mchntId:CHAR#, #orderId:VARCHAR#, #busiType:VARCHAR#, 
+      #status:VARCHAR#, #orderAmt:DECIMAL#, #serialNo:VARCHAR#, #callbackServerId:VARCHAR#, 
+      #crtTime:TIMESTAMP#, #updateTime:TIMESTAMP#, #succIime:VARCHAR#, #succAmt:DECIMAL#, 
+      #payType:VARCHAR#, #fundCode:VARCHAR#, #productCode:VARCHAR#, #transDate:VARCHAR#
+      )
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('PAY_TRANS_RECORD_INFO')
+    </selectKey>
+    insert into pay_trans_record_info
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        ID
+      </isNotNull>
+      <isNotNull prepend="," property="transNo" >
+        TRANS_NO
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        ORDER_ID
+      </isNotNull>
+      <isNotNull prepend="," property="busiType" >
+        BUSI_TYPE
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        STATUS
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmt" >
+        ORDER_AMT
+      </isNotNull>
+      <isNotNull prepend="," property="serialNo" >
+        SERIAL_NO
+      </isNotNull>
+      <isNotNull prepend="," property="callbackServerId" >
+        CALLBACK_SERVER_ID
+      </isNotNull>
+      <isNotNull prepend="," property="crtTime" >
+        CRT_TIME
+      </isNotNull>
+      <isNotNull prepend="," property="updateTime" >
+        UPDATE_TIME
+      </isNotNull>
+      <isNotNull prepend="," property="succIime" >
+        SUCC_IIME
+      </isNotNull>
+      <isNotNull prepend="," property="succAmt" >
+        SUCC_AMT
+      </isNotNull>
+      <isNotNull prepend="," property="payType" >
+        PAY_TYPE
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        FUND_CODE
+      </isNotNull>
+      <isNotNull prepend="," property="productCode" >
+        PRODUCT_CODE
+      </isNotNull>
+      <isNotNull prepend="," property="transDate" >
+        TRANS_DATE
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transNo" >
+        #transNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        #orderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="busiType" >
+        #busiType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmt" >
+        #orderAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="serialNo" >
+        #serialNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="callbackServerId" >
+        #callbackServerId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="crtTime" >
+        #crtTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updateTime" >
+        #updateTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="succIime" >
+        #succIime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="succAmt" >
+        #succAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="payType" >
+        #payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        #fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="productCode" >
+        #productCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transDate" >
+        #transDate:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayTransRecordInfoExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_trans_record_info
+    <include refid="pay_trans_record_info.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_trans_record_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        ID = #record.id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transNo" >
+        TRANS_NO = #record.transNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntId" >
+        mchnt_id = #record.mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderId" >
+        ORDER_ID = #record.orderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.busiType" >
+        BUSI_TYPE = #record.busiType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        STATUS = #record.status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderAmt" >
+        ORDER_AMT = #record.orderAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.serialNo" >
+        SERIAL_NO = #record.serialNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.callbackServerId" >
+        CALLBACK_SERVER_ID = #record.callbackServerId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.crtTime" >
+        CRT_TIME = #record.crtTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updateTime" >
+        UPDATE_TIME = #record.updateTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.succIime" >
+        SUCC_IIME = #record.succIime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.succAmt" >
+        SUCC_AMT = #record.succAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.payType" >
+        PAY_TYPE = #record.payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fundCode" >
+        FUND_CODE = #record.fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.productCode" >
+        PRODUCT_CODE = #record.productCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transDate" >
+        TRANS_DATE = #record.transDate:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_trans_record_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_trans_record_info
+    set ID = #record.id:VARCHAR#,
+      TRANS_NO = #record.transNo:VARCHAR#,
+      mchnt_id = #record.mchntId:CHAR#,
+      ORDER_ID = #record.orderId:VARCHAR#,
+      BUSI_TYPE = #record.busiType:VARCHAR#,
+      STATUS = #record.status:VARCHAR#,
+      ORDER_AMT = #record.orderAmt:DECIMAL#,
+      SERIAL_NO = #record.serialNo:VARCHAR#,
+      CALLBACK_SERVER_ID = #record.callbackServerId:VARCHAR#,
+      CRT_TIME = #record.crtTime:TIMESTAMP#,
+      UPDATE_TIME = #record.updateTime:TIMESTAMP#,
+      SUCC_IIME = #record.succIime:VARCHAR#,
+      SUCC_AMT = #record.succAmt:DECIMAL#,
+      PAY_TYPE = #record.payType:VARCHAR#,
+      FUND_CODE = #record.fundCode:VARCHAR#,
+      PRODUCT_CODE = #record.productCode:VARCHAR#,
+      TRANS_DATE = #record.transDate:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_trans_record_info.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    update pay_trans_record_info
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="transNo" >
+        TRANS_NO = #transNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id = #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        ORDER_ID = #orderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="busiType" >
+        BUSI_TYPE = #busiType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        STATUS = #status:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmt" >
+        ORDER_AMT = #orderAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="serialNo" >
+        SERIAL_NO = #serialNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="callbackServerId" >
+        CALLBACK_SERVER_ID = #callbackServerId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="crtTime" >
+        CRT_TIME = #crtTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updateTime" >
+        UPDATE_TIME = #updateTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="succIime" >
+        SUCC_IIME = #succIime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="succAmt" >
+        SUCC_AMT = #succAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="payType" >
+        PAY_TYPE = #payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        FUND_CODE = #fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="productCode" >
+        PRODUCT_CODE = #productCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transDate" >
+        TRANS_DATE = #transDate:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:VARCHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayTransRecordInfo" >
+    update pay_trans_record_info
+    set TRANS_NO = #transNo:VARCHAR#,
+      mchnt_id = #mchntId:CHAR#,
+      ORDER_ID = #orderId:VARCHAR#,
+      BUSI_TYPE = #busiType:VARCHAR#,
+      STATUS = #status:VARCHAR#,
+      ORDER_AMT = #orderAmt:DECIMAL#,
+      SERIAL_NO = #serialNo:VARCHAR#,
+      CALLBACK_SERVER_ID = #callbackServerId:VARCHAR#,
+      CRT_TIME = #crtTime:TIMESTAMP#,
+      UPDATE_TIME = #updateTime:TIMESTAMP#,
+      SUCC_IIME = #succIime:VARCHAR#,
+      SUCC_AMT = #succAmt:DECIMAL#,
+      PAY_TYPE = #payType:VARCHAR#,
+      FUND_CODE = #fundCode:VARCHAR#,
+      PRODUCT_CODE = #productCode:VARCHAR#,
+      TRANS_DATE = #transDate:VARCHAR#
+    where ID = #id:VARCHAR#
+  </update>
+</sqlMap>

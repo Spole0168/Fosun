@@ -1,0 +1,640 @@
+{
+  "loginService/login": {
+  "scubeHeader": {
+    "transCode": "",
+    "errorCode": "SUC",
+    "errorMsg": "ERROR",
+    "sessionToken": "12323533EW"
+  },
+  "scubeBody": {
+    "contextData": {
+      "domainVilidate": "",
+      "data": [
+        {"id":"454565456465"}
+      ]
+    }
+  }
+},
+  "sysTimeService/selectSystemTime": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data":"1403058804000"
+      }
+    }
+  },
+  "bdDataDictService/getDataBySysCode": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": null
+      }
+    }
+  },
+  "bdDataDictService/getAllDefaultJsonData": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data":null
+      }
+    }
+  },
+  "loginService/logout": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": []
+      }
+    }
+  },
+  "funcService/selectAppByTlrList": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR",
+      "sessionToken": "12323533EW"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": [
+         
+          {
+            "appUiUrl":"",
+            "appBusUrl":"",
+            "showSeq":"h",
+            "pagepath":"",
+            "menuCode": "1010",
+            "menuName": "支付路由管理",
+            "menuPath": "",
+            "menuUrl":"",
+            "iconName":"icon-list-alt",
+            "menuLevel":"1",
+            "menuParentId":"0"
+          },
+          {
+            "appUiUrl":"../../../",
+            "appBusUrl":"",
+            "showSeq":"a",
+            "pagepath":"mchntInfoMng/html/mchntManage.html",
+            "menuCode": "10101",
+            "menuName": "商户管理",
+            "menuPath": "mchntInfoMng/html/mchntManage.html",
+            "menuUrl":"../../../",
+            "iconName":"icon-double-angle-right",
+            "menuLevel":"2",
+            "menuParentId":"1010"
+          },
+          {
+            "appUiUrl":"",
+            "appBusUrl":"",
+            "showSeq":"h",
+            "pagepath":"",
+            "menuCode": "2010",
+            "menuName": "参数管理",
+            "menuPath": "",
+            "menuUrl":"",
+            "iconName":"icon-list-alt",
+            "menuLevel":"1",
+            "menuParentId":"0"
+          },
+          {
+            "appUiUrl":"../../../",
+            "appBusUrl":"",
+            "showSeq":"a",
+            "pagepath":"bankLimitInfoMng/html/bankLimitManage.html",
+            "menuCode": "20101",
+            "menuName": "银行限额管理",
+            "menuPath": "bankLimitInfoMng/html/bankLimitManage.html",
+            "menuUrl":"../../../",
+            "iconName":"icon-double-angle-right",
+            "menuLevel":"2",
+            "menuParentId":"2010"
+          }
+
+          
+          
+          
+        ]
+      }
+    }
+  },
+  "/top":{
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": [
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_18.png",
+            "number":"10.00￥",
+            "text":"今天收益"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_18.png",
+            "number":"",
+            "text":"今天收益"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_18.png",
+            "number":"",
+            "text":"今天收益"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_18.png",
+            "number":"",
+            "text":"今天收益"
+          }
+        ]
+      }
+    }
+  },
+  "/bottom": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": [
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_08.png",
+            "number":"",
+            "text":"用户管理"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_17.png",
+            "number":"",
+            "text":"竞品分析"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_07.png",
+            "number":"7",
+            "text":"通知公告"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_01.png",
+            "number":"12",
+            "text":"下载记录"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_02.png",
+            "number":"",
+            "text":"授信"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_03.png",
+            "number":"",
+            "text":"电子合同"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_04.png",
+            "number":"",
+            "text":"公共应用"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_05.png",
+            "number":"",
+            "text":"信贷工厂"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_10.png",
+            "number":"",
+            "text":"信贷还款"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_11.png",
+            "number":"",
+            "text":"商户管理"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_12.png",
+            "number":"",
+            "text":"数据分析"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_13.png",
+            "number":"7",
+            "text":"待办任务"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_14.png",
+            "number":"",
+            "text":"核算"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_15.png",
+            "number":"",
+            "text":"额度管理"
+          },
+          {
+            "className":"col-lg-2 col-md-2 col-sm-2 col-xs-2",
+            "imgName":"../../images/icon_17.png",
+            "number":"",
+            "text":"竞品分析"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_16.png",
+            "number":"",
+            "text":"基础支持"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_16.png",
+            "number":"",
+            "text":"基础支持"
+          },
+          {
+            "className":"col-lg-1 col-md-1 col-sm-1 col-xs-1",
+            "imgName":"../../images/icon_16.png",
+            "number":"",
+            "text":"基础支持"
+          }
+        ]
+      }
+    }
+  },
+  "/select": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": [
+          {
+            "options": "testInformation-01"
+          },
+          {
+            "options": "testInformation-02"
+          },
+          {
+            "options": "testInformation-03"
+          },
+          {
+            "options": "testInformation-04"
+          },
+          {
+            "options": "testInformation-05"
+          },
+          {
+            "options": "testInformation-06"
+          },
+          {
+            "options": "testInformation-07"
+          }
+        ]
+      }
+    }
+  },
+
+  "/guide":{
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": {
+          "first": "1",
+          "text": "一",
+          "other": [
+            {
+              "number": 2,
+              "text": "二",
+              "src": "../../images/Timeline.png"
+            },
+            {
+              "number": 3,
+              "text": "三",
+              "src": "../../images/Timeline.png"
+            },
+            {
+              "number": 4,
+              "text": "四",
+              "src": "../../images/Timeline.png"
+            },
+            {
+              "number": 5,
+              "text": "五",
+              "src": "../../images/Timeline.png"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "/mainTableLeft": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data":
+        {
+          "records":[
+            {"number": "20160801", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160802", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160803", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160804", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160805", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160806", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160807", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160808", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160809", "company": "上海华腾", "task": "财务总监"},
+            {"number": "20160810", "company": "上海华腾", "task": "财务总监"}
+          ],
+          "totalRecord":"8"
+        }
+      }
+    }
+  },
+  "/mainTableRight": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data":
+        {
+          "records":[
+            {"number": "1", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "2", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "3", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "4", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "5", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "6", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "7", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"},
+            {"number": "8", "them": "工作主题", "task": "工作内容", "people": "总经理", "time": "2016/08/12"}
+          ],
+          "totalRecord":"8"
+        }
+      }
+    }
+  },
+  "queryTable": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": [
+          {
+            "id": "1",
+            "sequence": "2016050500007001",
+            "tuoshouDate": "2015/11/22",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "2",
+            "sequence": "2016050500070002",
+            "tuoshouDate": "2015/11/23",
+            "sequenceStatus": "1",
+            "ifDaike": "2",
+            "totalBishu": "5000",
+            "totalZhangshu": "4"
+          },
+          {
+            "id": "3",
+            "sequence": "2016050500000003",
+            "tuoshouDate": "2015/11/23",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "7"
+          },
+          {
+            "id": "4",
+            "sequence": "2016050500070004",
+            "tuoshouDate": "2015/11/24",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "5",
+            "sequence": "2016050500700005",
+            "tuoshouDate": "2015/11/25",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "6",
+            "sequence": "2016050500700006",
+            "tuoshouDate": "2015/11/26",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "7",
+            "sequence": "2016050500000007",
+            "tuoshouDate": "2015/11/27",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "8",
+            "sequence": "2016050500070008",
+            "tuoshouDate": "2015/11/28",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "9",
+            "sequence": "2016050500070009",
+            "tuoshouDate": "2015/11/29",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          },
+          {
+            "id": "10",
+            "sequence": "2016050500000011",
+            "tuoshouDate": "2015/12/01",
+            "sequenceStatus": "0",
+            "ifDaike": "1",
+            "totalBishu": "5000",
+            "totalZhangshu": "1"
+          }
+
+        ]
+      }
+    }
+  },
+  "orgUserService/findOrgUserByPage": {
+    "scubeHeader": {
+      "transCode": "",
+      "errorCode": "SUC",
+      "errorMsg": "ERROR"
+    },
+    "scubeBody": {
+      "contextData": {
+        "domainVilidate": "",
+        "data": {
+          "records":[
+          {
+            "id": "1",
+            "userName": "张三",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "2",
+            "userName": "李四",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "3",
+            "userName": "王五",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "4",
+            "userName": "二麻子",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "5",
+            "userName": "二麻子",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "6",
+            "userName": "二麻子",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          },
+          {
+            "id": "7",
+            "userName": "二麻子",
+            "password": "1321321321",
+            "remark": "看电视上课"
+          }
+        ],
+          "totalRecord":"7"
+        }
+      }
+    }
+  },
+  "/getEcharts": {
+  "scubeHeader": {
+    "transCode": "",
+    "errorCode": "SUC",
+    "errorMsg": "ERROR"
+  },
+  "scubeBody": {
+    "contextData": {
+      "domainVilidate": "",
+      "data":
+      {
+        "series": [
+          {
+            "name": "厂商1",
+            "value": [
+              {
+                "name": "衬衫",
+                "value": 5
+              },
+              {
+                "name": "羊毛衫",
+                "value": 10
+              },
+              {
+                "name": "雪纺衫",
+                "value": 4
+              },
+              {
+                "name": "裤子",
+                "value": 7
+              },
+              {
+                "name": "袜子",
+                "value": 5
+              },
+              {
+                "name": "高跟鞋",
+                "value": 10
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+}

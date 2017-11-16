@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_bill_file_dtl" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayBillFileDtl" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="MCHNT_FILE_ID" property="mchntFileId" jdbcType="VARCHAR" />
+    <result column="CHNL_FILE_ID" property="chnlFileId" jdbcType="VARCHAR" />
+    <result column="CHECK_DATE" property="checkDate" jdbcType="VARCHAR" />
+    <result column="chnl_id" property="chnlId" jdbcType="CHAR" />
+    <result column="chnl_mchnt_id" property="chnlMchntId" jdbcType="VARCHAR" />
+    <result column="send_order_id" property="sendOrderId" jdbcType="VARCHAR" />
+    <result column="mchnt_id" property="mchntId" jdbcType="CHAR" />
+    <result column="mchnt_order_id" property="mchntOrderId" jdbcType="VARCHAR" />
+    <result column="mchnt_trans_dt" property="mchntTransDt" jdbcType="VARCHAR" />
+    <result column="sys_trans_id" property="sysTransId" jdbcType="VARCHAR" />
+    <result column="sys_settle_dt" property="sysSettleDt" jdbcType="CHAR" />
+    <result column="trans_cd" property="transCd" jdbcType="CHAR" />
+    <result column="trans_amt" property="transAmt" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="CHAR" />
+    <result column="true_amt" property="trueAmt" jdbcType="DECIMAL" />
+    <result column="trans_fee" property="transFee" jdbcType="DECIMAL" />
+    <result column="chnl_trans_tms" property="chnlTransTms" jdbcType="VARCHAR" />
+    <result column="chnl_trans_id" property="chnlTransId" jdbcType="VARCHAR" />
+    <result column="orig_snd_order_id" property="origSndOrderId" jdbcType="VARCHAR" />
+    <result column="rec_crt_ts" property="recCrtTs" jdbcType="TIMESTAMP" />
+    <result column="rec_crt_opr_id" property="recCrtOprId" jdbcType="VARCHAR" />
+    <result column="rec_upd_ts" property="recUpdTs" jdbcType="TIMESTAMP" />
+    <result column="rec_upd_opr_id" property="recUpdOprId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, MCHNT_FILE_ID, CHNL_FILE_ID, CHECK_DATE, chnl_id, chnl_mchnt_id, send_order_id, 
+    mchnt_id, mchnt_order_id, mchnt_trans_dt, sys_trans_id, sys_settle_dt, trans_cd, 
+    trans_amt, currency, true_amt, trans_fee, chnl_trans_tms, chnl_trans_id, orig_snd_order_id, 
+    rec_crt_ts, rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBillFileDtlExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_bill_file_dtl.Base_Column_List" />
+    from pay_bill_file_dtl
+    <isParameterPresent >
+      <include refid="pay_bill_file_dtl.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    select 
+    <include refid="pay_bill_file_dtl.Base_Column_List" />
+    from pay_bill_file_dtl
+    where ID = #id:VARCHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    delete from pay_bill_file_dtl
+    where ID = #id:VARCHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayBillFileDtlExample" >
+    delete from pay_bill_file_dtl
+    <include refid="pay_bill_file_dtl.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT nextval('PAY_BILL_FILE_DTL')
+    </selectKey>
+    insert into pay_bill_file_dtl (ID, MCHNT_FILE_ID, CHNL_FILE_ID, CHECK_DATE, 
+      chnl_id, chnl_mchnt_id, send_order_id, mchnt_id, mchnt_order_id, 
+      mchnt_trans_dt, sys_trans_id, sys_settle_dt, trans_cd, 
+      trans_amt, currency, true_amt, trans_fee, chnl_trans_tms, 
+      chnl_trans_id, orig_snd_order_id, rec_crt_ts, rec_crt_opr_id, 
+      rec_upd_ts, rec_upd_opr_id)
+    values (#id:VARCHAR#, #mchntFileId:VARCHAR#, #chnlFileId:VARCHAR#, #checkDate:VARCHAR#, 
+      #chnlId:CHAR#, #chnlMchntId:VARCHAR#, #sendOrderId:VARCHAR#, #mchntId:CHAR#, #mchntOrderId:VARCHAR#, 
+      #mchntTransDt:VARCHAR#, #sysTransId:VARCHAR#, #sysSettleDt:CHAR#, #transCd:CHAR#, 
+      #transAmt:DECIMAL#, #currency:CHAR#, #trueAmt:DECIMAL#, #transFee:DECIMAL#, #chnlTransTms:VARCHAR#, 
+      #chnlTransId:VARCHAR#, #origSndOrderId:VARCHAR#, #recCrtTs:TIMESTAMP#, #recCrtOprId:VARCHAR#, 
+      #recUpdTs:TIMESTAMP#, #recUpdOprId:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT nextval('PAY_BILL_FILE_DTL')
+    </selectKey>
+    insert into pay_bill_file_dtl
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        ID
+      </isNotNull>
+      <isNotNull prepend="," property="mchntFileId" >
+        MCHNT_FILE_ID
+      </isNotNull>
+      <isNotNull prepend="," property="chnlFileId" >
+        CHNL_FILE_ID
+      </isNotNull>
+      <isNotNull prepend="," property="checkDate" >
+        CHECK_DATE
+      </isNotNull>
+      <isNotNull prepend="," property="chnlId" >
+        chnl_id
+      </isNotNull>
+      <isNotNull prepend="," property="chnlMchntId" >
+        chnl_mchnt_id
+      </isNotNull>
+      <isNotNull prepend="," property="sendOrderId" >
+        send_order_id
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id
+      </isNotNull>
+      <isNotNull prepend="," property="mchntOrderId" >
+        mchnt_order_id
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        mchnt_trans_dt
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        sys_trans_id
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        sys_settle_dt
+      </isNotNull>
+      <isNotNull prepend="," property="transCd" >
+        trans_cd
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        trans_amt
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        currency
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        true_amt
+      </isNotNull>
+      <isNotNull prepend="," property="transFee" >
+        trans_fee
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransTms" >
+        chnl_trans_tms
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransId" >
+        chnl_trans_id
+      </isNotNull>
+      <isNotNull prepend="," property="origSndOrderId" >
+        orig_snd_order_id
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntFileId" >
+        #mchntFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlFileId" >
+        #chnlFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="checkDate" >
+        #checkDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlId" >
+        #chnlId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlMchntId" >
+        #chnlMchntId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sendOrderId" >
+        #sendOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntOrderId" >
+        #mchntOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        #mchntTransDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        #sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        #sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transCd" >
+        #transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        #transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        #currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        #trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="transFee" >
+        #transFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransTms" >
+        #chnlTransTms:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransId" >
+        #chnlTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="origSndOrderId" >
+        #origSndOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        #recUpdOprId:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayBillFileDtlExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_bill_file_dtl
+    <include refid="pay_bill_file_dtl.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_bill_file_dtl
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        ID = #record.id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntFileId" >
+        MCHNT_FILE_ID = #record.mchntFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlFileId" >
+        CHNL_FILE_ID = #record.chnlFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.checkDate" >
+        CHECK_DATE = #record.checkDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlId" >
+        chnl_id = #record.chnlId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlMchntId" >
+        chnl_mchnt_id = #record.chnlMchntId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sendOrderId" >
+        send_order_id = #record.sendOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntId" >
+        mchnt_id = #record.mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntOrderId" >
+        mchnt_order_id = #record.mchntOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntTransDt" >
+        mchnt_trans_dt = #record.mchntTransDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysTransId" >
+        sys_trans_id = #record.sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysSettleDt" >
+        sys_settle_dt = #record.sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transCd" >
+        trans_cd = #record.transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transAmt" >
+        trans_amt = #record.transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.currency" >
+        currency = #record.currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.trueAmt" >
+        true_amt = #record.trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transFee" >
+        trans_fee = #record.transFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlTransTms" >
+        chnl_trans_tms = #record.chnlTransTms:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlTransId" >
+        chnl_trans_id = #record.chnlTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.origSndOrderId" >
+        orig_snd_order_id = #record.origSndOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtTs" >
+        rec_crt_ts = #record.recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtOprId" >
+        rec_crt_opr_id = #record.recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdTs" >
+        rec_upd_ts = #record.recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdOprId" >
+        rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_bill_file_dtl.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_bill_file_dtl
+    set ID = #record.id:VARCHAR#,
+      MCHNT_FILE_ID = #record.mchntFileId:VARCHAR#,
+      CHNL_FILE_ID = #record.chnlFileId:VARCHAR#,
+      CHECK_DATE = #record.checkDate:VARCHAR#,
+      chnl_id = #record.chnlId:CHAR#,
+      chnl_mchnt_id = #record.chnlMchntId:VARCHAR#,
+      send_order_id = #record.sendOrderId:VARCHAR#,
+      mchnt_id = #record.mchntId:CHAR#,
+      mchnt_order_id = #record.mchntOrderId:VARCHAR#,
+      mchnt_trans_dt = #record.mchntTransDt:VARCHAR#,
+      sys_trans_id = #record.sysTransId:VARCHAR#,
+      sys_settle_dt = #record.sysSettleDt:CHAR#,
+      trans_cd = #record.transCd:CHAR#,
+      trans_amt = #record.transAmt:DECIMAL#,
+      currency = #record.currency:CHAR#,
+      true_amt = #record.trueAmt:DECIMAL#,
+      trans_fee = #record.transFee:DECIMAL#,
+      chnl_trans_tms = #record.chnlTransTms:VARCHAR#,
+      chnl_trans_id = #record.chnlTransId:VARCHAR#,
+      orig_snd_order_id = #record.origSndOrderId:VARCHAR#,
+      rec_crt_ts = #record.recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #record.recCrtOprId:VARCHAR#,
+      rec_upd_ts = #record.recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_bill_file_dtl.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    update pay_bill_file_dtl
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="mchntFileId" >
+        MCHNT_FILE_ID = #mchntFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlFileId" >
+        CHNL_FILE_ID = #chnlFileId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="checkDate" >
+        CHECK_DATE = #checkDate:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlId" >
+        chnl_id = #chnlId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlMchntId" >
+        chnl_mchnt_id = #chnlMchntId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sendOrderId" >
+        send_order_id = #sendOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id = #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntOrderId" >
+        mchnt_order_id = #mchntOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        mchnt_trans_dt = #mchntTransDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        sys_trans_id = #sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        sys_settle_dt = #sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transCd" >
+        trans_cd = #transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        trans_amt = #transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        currency = #currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        true_amt = #trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="transFee" >
+        trans_fee = #transFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransTms" >
+        chnl_trans_tms = #chnlTransTms:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlTransId" >
+        chnl_trans_id = #chnlTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="origSndOrderId" >
+        orig_snd_order_id = #origSndOrderId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts = #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id = #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts = #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id = #recUpdOprId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:VARCHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBillFileDtl" >
+    update pay_bill_file_dtl
+    set MCHNT_FILE_ID = #mchntFileId:VARCHAR#,
+      CHNL_FILE_ID = #chnlFileId:VARCHAR#,
+      CHECK_DATE = #checkDate:VARCHAR#,
+      chnl_id = #chnlId:CHAR#,
+      chnl_mchnt_id = #chnlMchntId:VARCHAR#,
+      send_order_id = #sendOrderId:VARCHAR#,
+      mchnt_id = #mchntId:CHAR#,
+      mchnt_order_id = #mchntOrderId:VARCHAR#,
+      mchnt_trans_dt = #mchntTransDt:VARCHAR#,
+      sys_trans_id = #sysTransId:VARCHAR#,
+      sys_settle_dt = #sysSettleDt:CHAR#,
+      trans_cd = #transCd:CHAR#,
+      trans_amt = #transAmt:DECIMAL#,
+      currency = #currency:CHAR#,
+      true_amt = #trueAmt:DECIMAL#,
+      trans_fee = #transFee:DECIMAL#,
+      chnl_trans_tms = #chnlTransTms:VARCHAR#,
+      chnl_trans_id = #chnlTransId:VARCHAR#,
+      orig_snd_order_id = #origSndOrderId:VARCHAR#,
+      rec_crt_ts = #recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #recCrtOprId:VARCHAR#,
+      rec_upd_ts = #recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #recUpdOprId:VARCHAR#
+    where ID = #id:VARCHAR#
+  </update>
+</sqlMap>

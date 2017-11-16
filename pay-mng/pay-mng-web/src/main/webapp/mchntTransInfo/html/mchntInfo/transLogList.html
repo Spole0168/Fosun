@@ -1,0 +1,28 @@
+<ht-form name="mchntTransForm">
+	<!-- 交易代码  商户代码   商户交易日期  商户请求流水号  账户姓名 -->
+    <ht-select ht-id="transCd" 		name="交易代码" 		ng-model="condition.transCd" dictionary="QuryTransCode"	></ht-select>
+    <ht-input ht-id="mchntId" 		name="商户代码" 		ng-model="condition.mchntId"></ht-input>
+    <ht-input ht-id="mchntTransDt" 	name="商户交易日期" 	ng-model="condition.mchntTransDt"	edit-type="date" ></ht-input>
+    <ht-input ht-id="mchntTransId" 	name="商户请求流水号" 	ng-model="condition.mchntTransId"></ht-input>
+    <ht-input ht-id="bankAcctNm" 	name="账户姓名" 		ng-model="condition.bankAcctNm"></ht-input>
+    <ht-select ht-id="transSt" 		name="交易状态" 		ng-model="condition.transSt" dictionary="TransSt"  ></ht-select>
+    
+    <ht-button-group class="center">
+        <ht-button ht-id="submit" class="btn-primary" desc-name="查询"></ht-button>
+        <ht-button ht-id="reset" class="btn-primary" desc-name="重置"></ht-button>
+    </ht-button-group>
+</ht-form>
+<ht-button-group>
+    <ht-button ht-id="detail" class="btn-primary">详情</ht-button>
+</ht-button-group>
+<ht-table ht-id="tableId" datasource="mchntTransData" selected="selected" docheckbox="true" singlecheckbox="true" dooption="false">
+    <ht-column eg-name="mchntId" 		zh-name="商户代码" 	docolumn="column"></ht-column>
+    <ht-column eg-name="mchntTransDt" 	zh-name="商户交易日期"	></ht-column>
+    <ht-column eg-name="transCd" 		zh-name="交易代码" 	dictionary="TransCode" ></ht-column>
+    <ht-column eg-name="mchntTransId" 	zh-name="商户请求流水号"	></ht-column>
+    <ht-column eg-name="bankAcctNm" 	zh-name="账户姓名"		></ht-column>
+    <ht-column eg-name="transAmt" 		zh-name="交易金额"		edit-type="currency" init=()></ht-column>
+    <ht-column eg-name="sysRspCd" 		zh-name="系统应答码" 	dictionary="SysRspCdSt"></ht-column>
+    <ht-column eg-name="transSt" 		zh-name="交易状态" 	dictionary="TransSt" ></ht-column><!-- dictionary="TransCode" -->
+</ht-table>
+<ht-page conf="conf"></ht-page>

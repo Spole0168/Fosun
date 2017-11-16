@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_fund_cfg" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayFundCfg" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="MCHNT_ID" property="mchntId" jdbcType="CHAR" />
+    <result column="FUND_CODE" property="fundCode" jdbcType="VARCHAR" />
+    <result column="FUND_NAME" property="fundName" jdbcType="VARCHAR" />
+    <result column="ACT_NO" property="actNo" jdbcType="VARCHAR" />
+    <result column="PFX_FILE_NAME" property="pfxFileName" jdbcType="VARCHAR" />
+    <result column="PUB_FILE_NAME" property="pubFileName" jdbcType="VARCHAR" />
+    <result column="PRI_PSD" property="priPsd" jdbcType="VARCHAR" />
+    <result column="BILL_FLAG" property="billFlag" jdbcType="CHAR" />
+    <result column="TERMINAL" property="terminal" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, PAY_TYPE, MCHNT_ID, FUND_CODE, FUND_NAME, ACT_NO, PFX_FILE_NAME, PUB_FILE_NAME, 
+    PRI_PSD, BILL_FLAG, TERMINAL
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayFundCfgExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_fund_cfg.Base_Column_List" />
+    from pay_fund_cfg
+    <isParameterPresent >
+      <include refid="pay_fund_cfg.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    select 
+    <include refid="pay_fund_cfg.Base_Column_List" />
+    from pay_fund_cfg
+    where ID = #id:VARCHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    delete from pay_fund_cfg
+    where ID = #id:VARCHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayFundCfgExample" >
+    delete from pay_fund_cfg
+    <include refid="pay_fund_cfg.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('PAY_FUND_CFG')
+    </selectKey>
+    insert into pay_fund_cfg (ID, PAY_TYPE, MCHNT_ID, FUND_CODE, FUND_NAME, 
+      ACT_NO, PFX_FILE_NAME, PUB_FILE_NAME, PRI_PSD, 
+      BILL_FLAG, TERMINAL)
+    values (#id:VARCHAR#, #payType:VARCHAR#, #mchntId:CHAR#, #fundCode:VARCHAR#, #fundName:VARCHAR#, 
+      #actNo:VARCHAR#, #pfxFileName:VARCHAR#, #pubFileName:VARCHAR#, #priPsd:VARCHAR#, 
+      #billFlag:CHAR#, #terminal:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    <selectKey resultClass="java.lang.String" keyProperty="id" >
+      SELECT genTabId('PAY_FUND_CFG')
+    </selectKey>
+    insert into pay_fund_cfg
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        ID
+      </isNotNull>
+      <isNotNull prepend="," property="payType" >
+        PAY_TYPE
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        MCHNT_ID
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        FUND_CODE
+      </isNotNull>
+      <isNotNull prepend="," property="fundName" >
+        FUND_NAME
+      </isNotNull>
+      <isNotNull prepend="," property="actNo" >
+        ACT_NO
+      </isNotNull>
+      <isNotNull prepend="," property="pfxFileName" >
+        PFX_FILE_NAME
+      </isNotNull>
+      <isNotNull prepend="," property="pubFileName" >
+        PUB_FILE_NAME
+      </isNotNull>
+      <isNotNull prepend="," property="priPsd" >
+        PRI_PSD
+      </isNotNull>
+      <isNotNull prepend="," property="billFlag" >
+        BILL_FLAG
+      </isNotNull>
+      <isNotNull prepend="," property="terminal" >
+        TERMINAL
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="payType" >
+        #payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        #fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundName" >
+        #fundName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="actNo" >
+        #actNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pfxFileName" >
+        #pfxFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pubFileName" >
+        #pubFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="priPsd" >
+        #priPsd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="billFlag" >
+        #billFlag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="terminal" >
+        #terminal:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayFundCfgExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_fund_cfg
+    <include refid="pay_fund_cfg.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_fund_cfg
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        ID = #record.id:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.payType" >
+        PAY_TYPE = #record.payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntId" >
+        MCHNT_ID = #record.mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fundCode" >
+        FUND_CODE = #record.fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.fundName" >
+        FUND_NAME = #record.fundName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.actNo" >
+        ACT_NO = #record.actNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.pfxFileName" >
+        PFX_FILE_NAME = #record.pfxFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.pubFileName" >
+        PUB_FILE_NAME = #record.pubFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.priPsd" >
+        PRI_PSD = #record.priPsd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.billFlag" >
+        BILL_FLAG = #record.billFlag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.terminal" >
+        TERMINAL = #record.terminal:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_fund_cfg.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_fund_cfg
+    set ID = #record.id:VARCHAR#,
+      PAY_TYPE = #record.payType:VARCHAR#,
+      MCHNT_ID = #record.mchntId:CHAR#,
+      FUND_CODE = #record.fundCode:VARCHAR#,
+      FUND_NAME = #record.fundName:VARCHAR#,
+      ACT_NO = #record.actNo:VARCHAR#,
+      PFX_FILE_NAME = #record.pfxFileName:VARCHAR#,
+      PUB_FILE_NAME = #record.pubFileName:VARCHAR#,
+      PRI_PSD = #record.priPsd:VARCHAR#,
+      BILL_FLAG = #record.billFlag:CHAR#,
+      TERMINAL = #record.terminal:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_fund_cfg.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    update pay_fund_cfg
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="payType" >
+        PAY_TYPE = #payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        MCHNT_ID = #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundCode" >
+        FUND_CODE = #fundCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="fundName" >
+        FUND_NAME = #fundName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="actNo" >
+        ACT_NO = #actNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pfxFileName" >
+        PFX_FILE_NAME = #pfxFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pubFileName" >
+        PUB_FILE_NAME = #pubFileName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="priPsd" >
+        PRI_PSD = #priPsd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="billFlag" >
+        BILL_FLAG = #billFlag:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="terminal" >
+        TERMINAL = #terminal:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where ID = #id:VARCHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayFundCfg" >
+    update pay_fund_cfg
+    set PAY_TYPE = #payType:VARCHAR#,
+      MCHNT_ID = #mchntId:CHAR#,
+      FUND_CODE = #fundCode:VARCHAR#,
+      FUND_NAME = #fundName:VARCHAR#,
+      ACT_NO = #actNo:VARCHAR#,
+      PFX_FILE_NAME = #pfxFileName:VARCHAR#,
+      PUB_FILE_NAME = #pubFileName:VARCHAR#,
+      PRI_PSD = #priPsd:VARCHAR#,
+      BILL_FLAG = #billFlag:CHAR#,
+      TERMINAL = #terminal:VARCHAR#
+    where ID = #id:VARCHAR#
+  </update>
+</sqlMap>

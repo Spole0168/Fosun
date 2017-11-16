@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure id="wac" class="org.mortbay.jetty.webapp.WebAppContext">
+
+	<New id="dataSourceA" class="org.apache.commons.dbcp.BasicDataSource">
+        <Set name="driverClassName">org.gjt.mm.mysql.Driver</Set>
+		<Set name="url">jdbc:mysql://10.166.10.211:3306/yuntong?useUnicode=true&amp;characterEncoding=UTF-8</Set>
+		<Set name="username">yuntong</Set>
+		<Set name="password">yuntong1qaz</Set>
+		<Set name="validationQuery">select 1</Set>
+		<Set name="maxActive">20</Set>
+		<Set name="maxIdle">10</Set>
+		<Set name="maxWait">-1</Set>
+		<Set name="minEvictableIdleTimeMillis">10000</Set>
+		<Set name="timeBetweenEvictionRunsMillis">10000</Set>
+    </New>
+	<New id="app_Datasource" class="org.mortbay.jetty.plus.naming.EnvEntry">
+		<Arg>jdbc/pay</Arg>
+		<Arg>
+			<Ref id="dataSourceA"/>
+		</Arg>
+	</New>
+</Configure>

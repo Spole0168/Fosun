@@ -1,0 +1,11 @@
+    <ht-legend>基础信息</ht-legend>
+    <ht-form name="bankLimitAddForm">
+        <ht-select ht-id="payType" name="渠道类型" reg-exp="IsNotNull" dictionary="ChnlType" ng-model="bankLimitAdd.payType"></ht-select>
+        <ht-select ht-id="bankType" name="银行类型" reg-exp="IsNotNull" dictionary="BankType" ng-model="bankLimitAdd.bankType"></ht-select>
+        <ht-input ht-id="singleLmt" name="单笔限额(元)" reg-exp="isBankLimit" ng-model="bankLimitAdd.singleLmt"></ht-input>
+        <ht-input ht-id="dayLmt" name="每日限额(元)" reg-exp="isBankLimit" ng-model="bankLimitAdd.dayLmt"></ht-input>
+    </ht-form>
+    <ht-button-group class="center">
+        <ht-button ht-id="confirm" class="btn-primary">确定</ht-button>
+        <ht-button ht-id="cancel" class="btn-primary">取消</ht-button>
+    </ht-button-group>

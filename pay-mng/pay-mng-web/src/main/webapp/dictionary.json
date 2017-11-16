@@ -1,0 +1,1812 @@
+{
+    "dictionary": [
+        {
+            "dictName": "IdType",
+            "dictCode": "IdType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "身份证"
+                }
+            ]
+        },
+        {
+            "dictName": "ValidSt",
+            "dictCode": "ValidSt",
+            "dataItems": [
+                {
+                    "dataVal": "Y",
+                    "dataTrsVal": "有效"
+                },
+                {
+                    "dataVal": "N",
+                    "dataTrsVal": "无效"
+                }
+            ]
+        },        
+        {
+            "dictName": "EmerRelation",
+            "dictCode": "EmerRelation",
+            "dataItems": [
+               {
+                    "dataVale": "01",
+                    "dataTrsVal": "父母"
+               },
+               {
+                    "dataVale": "02",
+                    "dataTrsVal": "配偶"
+                },{
+                    "dataVale": "03",
+                    "dataTrsVal": "子女"
+                },{
+                    "dataVale": "04",
+                    "dataTrsVal": "亲友"
+                },{
+                    "dataVale": "05",
+                    "dataTrsVal": "同事"
+                },{
+                    "dataVale": "06",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "CustType",
+            "dictCode": "CustType",
+            "dataItems":[
+                {
+                    "dataVale": "01",
+                    "dataTrsVal": "个人"
+                },
+                {
+                    "dataVale": "02",
+                    "dataTrsVal": "法人"
+                },
+                {
+                    "dataVale": "03",
+                    "dataTrsVal": "个体工商户"
+                }
+            ]
+        },
+        {
+            "dictName": "Sex",
+            "dictCode": "Sex",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "男"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "女"
+                }
+            ]
+        },
+        {
+            "dictName": "Ethnics",
+            "dictCode": "Ethnics",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "汉族"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "少数民族"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Marriage",
+            "dictCode": "Marriage",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "未婚"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "已婚"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "离异"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "丧偶"
+                }
+            ]
+        },
+        {
+            "dictName": "LivePropetty",
+            "dictCode": "LivePropetty",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "自有房产"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "租赁"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "与亲戚同住"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "公司宿舍"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "MailTo",
+            "dictCode": "MailTo",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "家庭地址"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "单位地址"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "紧急联系人地址"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "户籍地址"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "其他地址"
+                }
+            ]
+        },
+        {
+            "dictName": "CustomerState",
+            "dictCode": "CustomerState",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "未审核"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "已审核"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "已失效"
+                }
+            ]
+        },
+        {
+            "dictName": "CustomerQueryState",
+            "dictCode": "CustomerQueryState",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "未审核"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "已审核"
+                }
+            ]
+        },
+        {
+            "dictName": "PlatformType",
+            "dictCode": "PlatformType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "Android"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "iOS"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "微信"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "PC端"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "手机浏览器"
+                }
+            ]
+        },
+        {
+            "dictName": "ValidateState",
+            "dictCode": "ValidateState",
+            "dataItems": [
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "有效"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "无效"
+                }
+            ]
+        },
+        {
+            "dictName": "CommodityState",
+            "dictCode": "CommodityState",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "已录入"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "上架"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "下架"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "已售完"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "失效"
+                }
+            ]
+        },
+        {
+            "dictName": "MerchantType",
+            "dictCode": "MerchantType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "零售"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "饮食"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "旅游"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "教育"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "美容"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "BlackSource",
+            "dictCode": "BlackSource",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "内部手工录入"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "内部系统生成"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "银行业数据"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "政府部门数据"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "第三方征信"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "同业共享数据"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "BlackType",
+            "dictCode": "BlackType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "逾期类"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "欠款类"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "违约类"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "违规类"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "违法类"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "作弊类"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "风险类"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "BlackCustType",
+            "dictCode": "BlackCustType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "个人"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "企业"
+                }
+            ]
+        },
+        {
+            "dictName": "RegIdType",
+            "dictCode": "RegIdType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "组织机构代码"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "统一社会信用代码"
+                }
+            ]
+        },
+        {
+            "dictName": "CustClass",
+            "dictCode": "CustClass",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "初级"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "二级"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "三级"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "四级"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "五级"
+                }
+            ]
+        },
+        {
+            "dictName": "Degree",
+            "dictCode": "Degree",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "学士"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "硕士"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "博士及以上"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "名誉博士"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Education",
+            "dictCode": "Education",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "研究生及以上"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "本科"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "专科"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Occupation",
+            "dictCode": "Occupation",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "医生"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "律师"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "教师"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "会计师"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "经济师"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "工程师"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "公务员"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Title",
+            "dictCode": "Title",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "高级职称"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "中级职称"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "初级职称"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "国家认可的专业注册资格"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "无"
+                }
+            ]
+        },
+        {
+            "dictName": "EmerRelation",
+            "dictCode": "Relationship",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "配偶"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "父母"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "子女"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "祖父母"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "孙子女"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "兄弟姐妹"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Trade",
+            "dictCode": "Trade",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "农、林、牧、渔业"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "采掘业"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "制造业"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "电力、燃气、及水的生产和供应业"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "建筑业"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "交通运输、仓储和邮政业"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "信息传输、计算机服务和软件业"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "批发和零售业"
+                },
+                {
+                    "dataVal": "09",
+                    "dataTrsVal": "住宿和餐饮业"
+                },
+                {
+                    "dataVal": "10",
+                    "dataTrsVal": "金融业"
+                },
+                {
+                    "dataVal": "11",
+                    "dataTrsVal": "房地产业"
+                },
+                {
+                    "dataVal": "12",
+                    "dataTrsVal": "租赁和商务服务业"
+                },
+                {
+                    "dataVal": "13",
+                    "dataTrsVal": "科学研究、技术服务业和地质勘探业"
+                },
+                {
+                    "dataVal": "14",
+                    "dataTrsVal": "水利、环境和公共设施管理业"
+                },
+                {
+                    "dataVal": "15",
+                    "dataTrsVal": "居民服务和其他服务业"
+                },
+                {
+                    "dataVal": "16",
+                    "dataTrsVal": "教育业"
+                },
+                {
+                    "dataVal": "17",
+                    "dataTrsVal": "卫生、社会保障和社会福利业"
+                },
+                {
+                    "dataVal": "18",
+                    "dataTrsVal": "文化、体育和娱乐业"
+                },
+                {
+                    "dataVal": "19",
+                    "dataTrsVal": "公共管理和社会组织"
+                },
+                {
+                    "dataVal": "20",
+                    "dataTrsVal": "国际组织"
+                },
+                {
+                    "dataVal": "21",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "Property",
+            "dictCode": "Property",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "事业"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "国有"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "集体"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "合资"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "独资"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "私营"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "个体"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "MerchantClass",
+            "dictCode": "MerchantClass",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "总部"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "分部"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "一级支部"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "二级支部"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "三级支部"
+                }
+            ]
+        },
+        {
+            "dictName": "McntRelaType",
+            "dictCode": "McntRelaType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "直属"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "从属"
+                }
+            ]
+        },
+        {
+            "dictName": "CreditLimitType",
+            "dictCode": "CreditLimitType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "月总额限制"
+                }
+            ]
+        },
+        {
+            "dictName": "IdType",
+            "dictCode": "IdType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "身份证"
+                }
+            ]
+        },
+        {
+            "dictName": "BpClass",
+            "dictCode": "BpClass",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "初级"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "中级"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "高级"
+                }
+            ]
+        },
+        {
+            "dictName": "RelaType",
+            "dictCode": "RelaType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "权属人"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "内部人员"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "BpType",
+            "dictCode": "BpType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "贷款销售类"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "驻店营业类"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "商户推广类"
+                }
+            ]
+        },
+        {
+            "dictName": "CsDayManType",
+            "dictCode": "CsDayManType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "不限制"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "总额限制"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "单笔最高额限制"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "可用额限制"
+                }
+            ]
+        },
+	{
+            "dictName": "GuarantyType",
+            "dictCode": "GuarantyType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "信用"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "保证"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "抵押"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "质押"
+                }
+            ]
+        },
+        {
+            "dictName": "CsType",
+            "dictCode": "CsType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "资金提供方"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "资产购买方"
+                }
+            ]
+        },
+        {
+            "dictName": "ProductType",
+            "dictCode": "ProductType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "消费类"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "现金类"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "授信类"
+                }
+            ]
+        },
+        {
+            "dictName": "EffectState",
+            "dictCode": "EffectState",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "新建"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "启用审批中"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "启用"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "启用审批拒绝"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "停用审批中"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "停用"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "停用审批拒绝"
+                }
+            ]
+        },
+        {
+            "dictName": "Currency",
+            "dictCode": "Currency",
+            "dataItems": [
+                {
+                    "dataVal": "CNY",
+                    "dataTrsVal": "人民币"
+                }
+            ]
+        },
+        {
+            "dictName": "LoanTerms",
+            "dictCode": "LoanTerms",
+            "dataItems": [
+                {
+                    "dataVal": "003",
+                    "dataTrsVal": "3期"
+                },
+                {
+                    "dataVal": "006",
+                    "dataTrsVal": "6期"
+                },
+                {
+                    "dataVal": "009",
+                    "dataTrsVal": "9期"
+                },
+                {
+                    "dataVal": "012",
+                    "dataTrsVal": "12期"
+                },
+                {
+                    "dataVal": "018",
+                    "dataTrsVal": "18期"
+                },
+                {
+                    "dataVal": "024",
+                    "dataTrsVal": "24期"
+                },
+                {
+                    "dataVal": "036",
+                    "dataTrsVal": "36期"
+                }
+            ]
+        },
+        {
+            "dictName": "FineRateModel",
+            "dictCode": "FineRateModel",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "浮动"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "固定"
+                }
+            ]
+        },
+        {
+            "dictName": "YesNo",
+            "dictCode": "YesNo",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "是"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "否"
+                }
+            ]
+        },
+        {
+            "dictName": "RepmtFeeModel",
+            "dictCode": "RepmtFeeModel",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "比例"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "金额"
+                }
+            ]
+        },
+        {
+            "dictName": "FeeType",
+            "dictCode": "FeeType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "手续费"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "管理费"
+                }
+            ]
+        },
+        {
+            "dictName": "FeeChargingModel",
+            "dictCode": "FeeChargingModel",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "本金"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "利息"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "剩余本金"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "固定"
+                }
+            ]
+        },
+        {
+            "dictName": "FeeChargingType",
+            "dictCode": "FeeChargingType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "放款一次性收取"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "第一期账单日收取"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "分摊到每月"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "最后一期收取"
+                }
+            ]
+        },
+        {
+            "dictName": "IsUse",
+            "dictCode": "IsUse",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "未使用"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "已使用"
+                }
+            ]
+        },
+        {
+            "dictName": "DiscountMainBody",
+            "dictCode": "DiscountMainBody",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "商户"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "资金方"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "平台"
+                }
+            ]
+        },
+        {
+            "dictName": "DiscountType",
+            "dictCode": "DiscountType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "手续费"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "利息"
+                }
+            ]
+        },
+        {
+            "dictName": "DiscountModel",
+            "dictCode": "DiscountModel",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "比例"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "金额"
+                }
+            ]
+        },
+        {
+            "dictName": "DiscountMode",
+            "dictCode": "DiscountMode",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "放款一次性收取"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "第一期账单日收取"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "分摊到每月"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "最后一期收取"
+                }
+            ]
+        },
+        {
+            "dictName": "ApproveResult",
+            "dictCode": "ApproveResult",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "通过"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "拒绝"
+                }
+            ]
+        },
+        {
+            "dictName": "ApproveResult",
+            "dictCode": "ApproveResult",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "文本"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "数字"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "金额"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "日期"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "文本域"
+                }
+            ]
+        },
+        {
+            "dictName": "AppStat",
+            "dictCode": "AppStat",
+            "dataItems": [
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "未审批"
+                },
+                {
+                    "dataVal": "2",
+                    "dataTrsVal": "审批中"
+                },
+                {
+                    "dataVal": "3",
+                    "dataTrsVal": "审批成功"
+                },
+                {
+                    "dataVal": "4",
+                    "dataTrsVal": "审批拒绝"
+                }
+            ]
+        },
+        {
+            "dictName": "Status",
+            "dictCode": "Status",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "正常"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "逾期"
+                },
+                {
+                    "dataVal": "2",
+                    "dataTrsVal": "非应计"
+                },
+                {
+                    "dataVal": "3",
+                    "dataTrsVal": "减值"
+                },
+                {
+                    "dataVal": "4",
+                    "dataTrsVal": "核销"
+                },
+                {
+                    "dataVal": "5",
+                    "dataTrsVal": "结清"
+                }
+            ]
+        },
+        {
+            "dictName": "LnStat",
+            "dictCode": "LnStat",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "未入账"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "已入账"
+                }
+            ]
+        },
+        {
+            "dictName": "FiveClass",
+            "dictCode": "FiveClass",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "正常"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "关注"
+                },
+                {
+                    "dataVal": "2",
+                    "dataTrsVal": "次级"
+                },
+                {
+                    "dataVal": "3",
+                    "dataTrsVal": "可疑"
+                },
+                {
+                    "dataVal": "4",
+                    "dataTrsVal": "损失"
+                }
+            ]
+        },
+        {
+            "dictName": "ImpFlg",
+            "dictCode": "ImpFlg",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "只换本金"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "本息合计"
+                }
+            ]
+        },
+        {
+            "dictName": "State",
+            "dictCode": "State",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "记账失败"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "记账成功"
+                },
+                {
+                    "dataVal": "2",
+                    "dataTrsVal": "超时"
+                }
+            ]
+        },
+        {
+            "dictName": "MonitorClass",
+            "dictCode": "MonitorClass",
+            "dataItems": [
+                {
+                    "dataVal": "0",
+                    "dataTrsVal": "首次检查"
+                },
+                {
+                    "dataVal": "1",
+                    "dataTrsVal": "重点检查"
+                },
+                {
+                    "dataVal": "2",
+                    "dataTrsVal": "定期检查"
+                }
+            ]
+        },
+        {
+            "dictName": "RateModel",
+            "dictCode": "RateModel",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "浮动利率"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "固定利率"
+                }
+            ]
+        },
+        {
+            "dictName": "ActiveType",
+            "dictCode": "ActiveType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "利率"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "费用"
+                }
+            ]
+        },
+        {
+            "dictName": "RepayType",
+            "dictCode": "RepayType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "等额本息"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "等额本金"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "随借随还"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "灵活还款"
+                }
+            ]
+        },
+        {
+            "dictName": "LoanTnr",
+            "dictCode": "LoanTnr",
+            "dataItems": [
+                {
+                    "dataVal": "3",
+                    "dataTrsVal": "3期"
+                },
+                {
+                    "dataVal": "6",
+                    "dataTrsVal": "6期"
+                },
+                {
+                    "dataVal": "9",
+                    "dataTrsVal": "9期"
+                }
+            ]
+        },
+        {
+            "dictName": "ApplyStatus",
+            "dictCode": "ApplyStatus",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "创建"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "审批中"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "审批通过"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "已拒绝"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "已取消"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "已退回"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "已放款"
+                }
+            ]
+        },
+        {
+            "dictName": "BillStatus",
+            "dictCode": "BillStatus",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "未出账"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "出账中"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "已出账"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "已取消"
+                }
+            ]
+        },
+        {
+            "dictName": "CheckResult",
+            "dictCode": "CheckResult",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "1-核查通过"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "2-核查拒绝"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "3-核查退回"
+                }
+            ]
+        },
+        {
+            "dictName": "AnswerResult",
+            "dictCode": "AnswerResult",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "1-正确"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "2-错误"
+                }
+            ]
+        },
+        {
+            "dictName": "ContractType",
+            "dictCode": "ContractType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "01-授信合同"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "02-贷款合同"
+                }
+            ]
+        },
+        {
+            "dictName": "LoanType",
+            "dictCode": "LoanType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "1-普通贷款"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "2-绿色通道贷款"
+                }
+            ]
+        },
+        {
+            "dictName": "InfoType",
+            "dictCode": "InfoType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "个人消息"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "平台消息"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "商户消息"
+                }
+            ]
+        },
+        {
+            "dictName": "CheckType",
+            "dictCode": "CheckType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "01-电话核查"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "02-客户准入核查"
+                }
+            ]
+        },
+        {
+            "dictName": "HouseCount",
+            "dictCode": "HouseCount",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "1套"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "2套"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "3套或3套以上"
+                }
+            ]
+        },
+        {
+            "dictName": "EduLevelInfo",
+            "dictCode": "EduLevelInfo",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "硕士及以上"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "本科"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "大专"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "高中"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "初中及以下"
+                }
+            ]
+        },
+        {
+            "dictName": "DutyInfo",
+            "dictCode": "DutyInfo",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "股东 "
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "负责人"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "高级管理"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "一般管理"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "正式员工"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "劳务派遣"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "退休"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "CustProperty",
+            "dictCode": "CustProperty",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "机关事业"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "国有企业"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "外资公司"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "合资公司"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "民营企业"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "个体户"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "CustRelationship",
+            "dictCode": "CustRelationship",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "配偶"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "父母"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "子女"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "同事"
+                },
+                {
+                    "dataVal": "05",
+                    "dataTrsVal": "朋友"
+                },
+                {
+                    "dataVal": "06",
+                    "dataTrsVal": "紧急联系人"
+                },
+                {
+                    "dataVal": "07",
+                    "dataTrsVal": "工作证明人"
+                },
+                {
+                    "dataVal": "08",
+                    "dataTrsVal": "其他"
+                }
+            ]
+        },
+        {
+            "dictName": "ChnlType",
+            "dictCode": "ChnlType",
+            "dataItems": [
+                {
+                    "dataVal": "01",
+                    "dataTrsVal": "商盟统统付"
+                },
+                {
+                    "dataVal": "02",
+                    "dataTrsVal": "ChinaPay-银联电子支付"
+                },
+                {
+                    "dataVal": "03",
+                    "dataTrsVal": "宝付"
+                },
+                {
+                    "dataVal": "04",
+                    "dataTrsVal": "ChinaPay增值平台"
+                }
+            ]
+        },
+        {
+            "dictName": "BankType",
+            "dictCode": "BankType",
+            "dataItems": [
+                {
+					"dataVal" : "ABC",
+					"dataTrsVal" : "中国农业银行"
+				},
+				{
+					"dataVal" : "BCM",
+					"dataTrsVal" : "交通银行"
+				},
+				{
+					"dataVal" : "BKSH",
+					"dataTrsVal" : "上海银行"
+				},
+				{
+					"dataVal" : "BOBJ",
+					"dataTrsVal" : "北京银行"
+				},
+				{
+					"dataVal" : "BOC",
+					"dataTrsVal" : "中国银行"
+				},
+				{
+					"dataVal" : "CCB",
+					"dataTrsVal" : "中国建设银行"
+				},
+				{
+					"dataVal" : "CEB",
+					"dataTrsVal" : "中国光大银行"
+				},
+				{
+					"dataVal" : "CGB",
+					"dataTrsVal" : "广东发展银行"
+				},
+				{
+					"dataVal" : "CIB",
+					"dataTrsVal" : "兴业银行"
+				},
+				{
+					"dataVal" : "CMB",
+					"dataTrsVal" : "招商银行"
+				},
+				{
+					"dataVal" : "CMBC",
+					"dataTrsVal" : "中国民生银行"
+				},
+				{
+					"dataVal" : "CNCB",
+					"dataTrsVal" : "中信银行"
+				},
+				{
+					"dataVal" : "HXB",
+					"dataTrsVal" : "华夏银行"
+				},
+				{
+					"dataVal" : "ICBC",
+					"dataTrsVal" : "中国工商银行"
+				},
+				{
+					"dataVal" : "NBCB",
+					"dataTrsVal" : "宁波银行"
+				},
+				{
+					"dataVal" : "PAB",
+					"dataTrsVal" : "中国平安银行"
+				},
+				{
+					"dataVal" : "PSBC",
+					"dataTrsVal" : "邮政储汇"
+				},
+				{
+					"dataVal" : "SDB",
+					"dataTrsVal" : "深发展银行"
+				},
+				{
+					"dataVal" : "SPDB",
+					"dataTrsVal" : "浦东发展银行"
+				}
+            ]
+        }
+    ]
+}

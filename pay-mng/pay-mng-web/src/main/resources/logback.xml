@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+	<property name="default_pattern" value="%d [%t - %X{traceNo}] %-5level %c{1} - %m%n" />
+	<property name="log.basedir" value="/apps/logs/pay-mng" />
+	<appender name="FILE-INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<file>${log.basedir}/pay-mng-info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.basedir}/pay-mng-info.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+		<encoder
+			class="com.huateng.base.logTrace.logback.mdc.trace.encoder.TraceNoPatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<pattern>${default_pattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-WARN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<file>${log.basedir}/pay-mng-warn.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.basedir}/pay-mng-warn.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+		<encoder
+			class="com.huateng.base.logTrace.logback.mdc.trace.encoder.TraceNoPatternLayoutEncoder">
+			<charset>UTF-8</charset>
+			<pattern>${default_pattern}</pattern>
+		</encoder>
+	</appender>
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration> 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+        http://www.springframework.org/schema/context   
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- DAL -->
+    <import resource="classpath*:spring-dao.xml"/>
+    <import resource="classpath*:spring-datasource.xml"/>
+    <!-- CORE -->
+    <import resource="classpath*:spring-service.xml"/>
+    <import resource="classpath*:spring-transaction.xml"/>
+
+    
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<bean id="propertiesUtil" class="com.huateng.utils.PropertiesUtil">			
+		<property name="locations">
+			<list>
+				<value>file:/apps/config/paymng/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- scube rpc 客户端配置；业务对象需要是ScubeClientProxy类型 -->
+	<bean class="com.huateng.scube.common.ScubeClientConfig"
+		init-method="init">
+		<property name="application" value="${scube.application}" />
+		<property name="address" value="${scube.server.address}" />
+		<property name="requestTimeout" value="${scube.client.requestTimeout}" />
+		<property name="transMaxSize" value="${scube.transMaxSize}" />
+	</bean>
+
+	<import resource="classpath*:scube_client.xml" />
+    
+</beans>

@@ -1,0 +1,24 @@
+<ht-legend>订单支付信息</ht-legend>
+<ht-button-group>
+    <ht-button ht-id="cancel" class="btn-primary">返回</ht-button>
+</ht-button-group>
+<ht-table ht-id="payTableId" datasource="mchntPayLogsData"  dooption="false">
+    <ht-column eg-name="executeSeqId" 	zh-name="执行顺序号"  docolumn="column"></ht-column>
+    <ht-column eg-name="sysTransTms" 	zh-name="系统交易日期时间" ></ht-column>
+    <ht-column eg-name="transChnl" 		zh-name="交易渠道" dictionary="TransCnlSt" ></ht-column>
+    <ht-column eg-name="sendOrderId" 	zh-name="内部订单号"></ht-column>
+    <ht-column eg-name="chnlTransId" 	zh-name="渠道交易标识码"></ht-column>
+    <ht-column eg-name="chnlSettleDt" 	zh-name="渠道清算日期"></ht-column>
+    <ht-column eg-name="transAmt" 		zh-name="交易金额" ></ht-column>
+    <ht-column eg-name="transSt" 		zh-name="交易状态" dictionary="TransSt" ></ht-column><!-- dictionary="TransSt" -->
+    <ht-column eg-name="chnlRspCd" 		zh-name="渠道应答码"></ht-column>
+    <ht-column eg-name="recUpdOprId" 	zh-name="最后修改操作员"></ht-column>
+    
+   <!--  
+    <ht-column eg-name="transSeqId" 	zh-name="商户交易序列号"></ht-column>
+    <ht-column eg-name="currency" 		zh-name="交易币种" ></ht-column>
+    <ht-column eg-name="chnlActNo" 		zh-name="渠道商户代码"></ht-column>
+    <ht-column eg-name="chnlTransTms" 	zh-name="渠道交易日期时间"></ht-column>
+    <ht-column eg-name="transPayId" 	zh-name="支付流水号" ></ht-column>
+     -->
+</ht-table>

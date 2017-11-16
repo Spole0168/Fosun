@@ -1,0 +1,27 @@
+<ht-form name="bankLimitForm">
+    <ht-select ht-id="payType" name="渠道类型" ng-model="condition.payType" dictionary="ChnlType"></ht-select>
+    <ht-select ht-id="bankType" name="银行类型" ng-model="condition.bankType" dictionary="BankType"></ht-select>
+    <!-- <ht-input ht-id="bankName" name="银行名称" ng-model="condition.bankName"></ht-input> -->
+    <ht-button-group class="center">
+        <ht-button ht-id="submit" class="btn-primary" desc-name="查询"></ht-button>
+        <ht-button ht-id="reset" class="btn-primary" desc-name="重置"></ht-button>
+    </ht-button-group>
+</ht-form>
+<ht-button-group>
+    <!--<ht-button ht-id="upload" class="btn-primary">导入数据</ht-button>-->
+    <!--<ht-button ht-id="download" class="btn-primary">下载模板</ht-button>-->
+    <ht-button ht-id="add" class="btn-primary">新增</ht-button>
+    <!--<ht-button ht-id="update" class="btn-primary">修改</ht-button>-->
+    <ht-button ht-id="detail" class="btn-primary">详情</ht-button>
+    <ht-button ht-id="delete" class="btn-primary">删除</ht-button>
+    <!--<ht-button ht-id="revocationDelete" class="btn-primary">撤销删除</ht-button>
+    <ht-button ht-id="excel" class="btn-primary" option="exportExcel">导出页面数据</ht-button>-->
+</ht-button-group>
+<ht-table ht-id="tableId" datasource="bankLimitData" selected="selected" docheckbox="true" singlecheckbox="true" dooption="false">
+    <ht-column eg-name="payType" zh-name="渠道类型" dictionary="ChnlType"></ht-column>
+    <ht-column eg-name="bankType" zh-name="银行代码"></ht-column>
+    <ht-column eg-name="bankName" zh-name="银行名称" ></ht-column>
+    <ht-column eg-name="singleLmt" zh-name="单笔限额(元)"></ht-column>
+    <ht-column eg-name="dayLmt" zh-name="每日限额(元)" ></ht-column>
+</ht-table>
+<ht-page conf="conf"></ht-page>

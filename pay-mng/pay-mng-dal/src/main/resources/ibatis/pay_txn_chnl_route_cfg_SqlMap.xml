@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_txn_chnl_route_cfg" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayTxnChnlRouteCfg" >
+    <result column="trans_cd" property="transCd" jdbcType="CHAR" />
+    <result column="bank_id" property="bankId" jdbcType="CHAR" />
+    <result column="chnl_id" property="chnlId" jdbcType="CHAR" />
+    <result column="priority" property="priority" jdbcType="INTEGER" />
+    <result column="rec_crt_ts" property="recCrtTs" jdbcType="TIMESTAMP" />
+    <result column="rec_crt_opr_id" property="recCrtOprId" jdbcType="VARCHAR" />
+    <result column="rec_upd_ts" property="recUpdTs" jdbcType="TIMESTAMP" />
+    <result column="rec_upd_opr_id" property="recUpdOprId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    trans_cd, bank_id, chnl_id, priority, rec_crt_ts, rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayTxnChnlRouteCfgExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_txn_chnl_route_cfg.Base_Column_List" />
+    from pay_txn_chnl_route_cfg
+    <isParameterPresent >
+      <include refid="pay_txn_chnl_route_cfg.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayTxnChnlRouteCfgExample" >
+    delete from pay_txn_chnl_route_cfg
+    <include refid="pay_txn_chnl_route_cfg.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayTxnChnlRouteCfg" >
+    insert into pay_txn_chnl_route_cfg (trans_cd, bank_id, chnl_id, priority, rec_crt_ts, 
+      rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id)
+    values (#transCd:CHAR#, #bankId:CHAR#, #chnlId:CHAR#, #priority:INTEGER#, #recCrtTs:TIMESTAMP#, 
+      #recCrtOprId:VARCHAR#, #recUpdTs:TIMESTAMP#, #recUpdOprId:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayTxnChnlRouteCfg" >
+    insert into pay_txn_chnl_route_cfg
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="transCd" >
+        trans_cd
+      </isNotNull>
+      <isNotNull prepend="," property="bankId" >
+        bank_id
+      </isNotNull>
+      <isNotNull prepend="," property="chnlId" >
+        chnl_id
+      </isNotNull>
+      <isNotNull prepend="," property="priority" >
+        priority
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="transCd" >
+        #transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankId" >
+        #bankId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="chnlId" >
+        #chnlId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="priority" >
+        #priority:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        #recUpdOprId:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayTxnChnlRouteCfgExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_txn_chnl_route_cfg
+    <include refid="pay_txn_chnl_route_cfg.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_txn_chnl_route_cfg
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.transCd" >
+        trans_cd = #record.transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankId" >
+        bank_id = #record.bankId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.chnlId" >
+        chnl_id = #record.chnlId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.priority" >
+        priority = #record.priority:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtTs" >
+        rec_crt_ts = #record.recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtOprId" >
+        rec_crt_opr_id = #record.recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdTs" >
+        rec_upd_ts = #record.recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdOprId" >
+        rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_txn_chnl_route_cfg.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_txn_chnl_route_cfg
+    set trans_cd = #record.transCd:CHAR#,
+      bank_id = #record.bankId:CHAR#,
+      chnl_id = #record.chnlId:CHAR#,
+      priority = #record.priority:INTEGER#,
+      rec_crt_ts = #record.recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #record.recCrtOprId:VARCHAR#,
+      rec_upd_ts = #record.recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_txn_chnl_route_cfg.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+</sqlMap>

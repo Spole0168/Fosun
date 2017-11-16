@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_bank_limit" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayBankLimit" >
+    <result column="PAY_TYPE" property="payType" jdbcType="VARCHAR" />
+    <result column="BANK_TYPE" property="bankType" jdbcType="VARCHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="SINGLE_LMT" property="singleLmt" jdbcType="DECIMAL" />
+    <result column="DAY_LMT" property="dayLmt" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    PAY_TYPE, BANK_TYPE, BANK_NAME, SINGLE_LMT, DAY_LMT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBankLimitExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_bank_limit.Base_Column_List" />
+    from pay_bank_limit
+    <isParameterPresent >
+      <include refid="pay_bank_limit.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayBankLimitKey" >
+    select 
+    <include refid="pay_bank_limit.Base_Column_List" />
+    from pay_bank_limit
+    where PAY_TYPE = #payType:VARCHAR#
+      and BANK_TYPE = #bankType:VARCHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBankLimitKey" >
+    delete from pay_bank_limit
+    where PAY_TYPE = #payType:VARCHAR#
+      and BANK_TYPE = #bankType:VARCHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayBankLimitExample" >
+    delete from pay_bank_limit
+    <include refid="pay_bank_limit.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayBankLimit" >
+    insert into pay_bank_limit (PAY_TYPE, BANK_TYPE, BANK_NAME, SINGLE_LMT, 
+      DAY_LMT)
+    values (#payType:VARCHAR#, #bankType:VARCHAR#, #bankName:VARCHAR#, #singleLmt:DECIMAL#, 
+      #dayLmt:DECIMAL#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayBankLimit" >
+    insert into pay_bank_limit
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="payType" >
+        PAY_TYPE
+      </isNotNull>
+      <isNotNull prepend="," property="bankType" >
+        BANK_TYPE
+      </isNotNull>
+      <isNotNull prepend="," property="bankName" >
+        BANK_NAME
+      </isNotNull>
+      <isNotNull prepend="," property="singleLmt" >
+        SINGLE_LMT
+      </isNotNull>
+      <isNotNull prepend="," property="dayLmt" >
+        DAY_LMT
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="payType" >
+        #payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankType" >
+        #bankType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankName" >
+        #bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="singleLmt" >
+        #singleLmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="dayLmt" >
+        #dayLmt:DECIMAL#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayBankLimitExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_bank_limit
+    <include refid="pay_bank_limit.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_bank_limit
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.payType" >
+        PAY_TYPE = #record.payType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankType" >
+        BANK_TYPE = #record.bankType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankName" >
+        BANK_NAME = #record.bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.singleLmt" >
+        SINGLE_LMT = #record.singleLmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.dayLmt" >
+        DAY_LMT = #record.dayLmt:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_bank_limit.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_bank_limit
+    set PAY_TYPE = #record.payType:VARCHAR#,
+      BANK_TYPE = #record.bankType:VARCHAR#,
+      BANK_NAME = #record.bankName:VARCHAR#,
+      SINGLE_LMT = #record.singleLmt:DECIMAL#,
+      DAY_LMT = #record.dayLmt:DECIMAL#
+    <isParameterPresent >
+      <include refid="pay_bank_limit.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayBankLimit" >
+    update pay_bank_limit
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="bankName" >
+        BANK_NAME = #bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="singleLmt" >
+        SINGLE_LMT = #singleLmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="dayLmt" >
+        DAY_LMT = #dayLmt:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    where PAY_TYPE = #payType:VARCHAR#
+      and BANK_TYPE = #bankType:VARCHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayBankLimit" >
+    update pay_bank_limit
+    set BANK_NAME = #bankName:VARCHAR#,
+      SINGLE_LMT = #singleLmt:DECIMAL#,
+      DAY_LMT = #dayLmt:DECIMAL#
+    where PAY_TYPE = #payType:VARCHAR#
+      and BANK_TYPE = #bankType:VARCHAR#
+  </update>
+</sqlMap>

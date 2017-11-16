@@ -1,0 +1,90 @@
+{
+  "validate": [
+    {
+      "ruleName": "IsNotNull",
+      "rule": "IS_NOT_NULL",
+      "errMsg": "此项为必输项"
+    },
+    {
+      "ruleName": "isMchntCode",
+      "rule": "/^[0-9]{10}$/",
+      "errMsg": "商户编码为10位数字"
+    },
+    {
+      "ruleName": "isChn.thirty",
+      "rule": "/[\u4e00-\u9fa5]{,30}/",
+      "errMsg": "仅限中文，最长30个中文"
+    },
+    {
+      "ruleName": "isChn.fifth",
+      "rule": "/[\u4e00-\u9fa5]{,50}/",
+      "errMsg": "仅限中文，最长50个中文"
+    },
+    {
+      "ruleName": "isMec.twenty",
+      "rule": "/[\u4e00-\u9fa5a-zA-Z]{1,20}/",
+      "errMsg": "仅限中英文，最短1位字符，最长20个中文"
+    },
+    {
+      "ruleName": "isMec.thirty",
+      "rule": "/[\u4e00-\u9fa5a-zA-Z]{1,30}/",
+      "errMsg": "仅限中英文，最短1位字符，最长30个中文"
+    },
+    {
+      "ruleName": "isMec.fifty",
+      "rule": "/[\u4e00-\u9fa5a-zA-Z]{1,50}/",
+      "errMsg": "仅限中英文，最短1位字符，最长50个中文"
+    },
+    {
+      "ruleName": "isMecLine.tenth",
+      "rule": "/[\u4e00-\u9fa5a-zA-Z_]{1,10}/",
+      "errMsg": "您的输入有误，只能包含中英文、下划线、数字。最短一位字符，最长10个字符！"
+    },
+    {
+      "ruleName": "isAddress",
+      "rule": "/[\u4e00-\u9fa50-9]{,50}/",
+      "errMsg": "输入数字和中文,最长50个中文"
+    },
+    {
+      "ruleName": "isPostCode",
+      "rule": "/^[0-9]{6}$/",
+      "errMsg": "邮编为六位数字"
+    },
+    {
+      "ruleName": "isMobile",
+      "rule": "/^1[0-9]{10}$/",
+      "errMsg": "您的输入有误，必须是11位数字且第一位必须是1"
+    },
+    {
+      "ruleName": "isHomePhone",
+      "rule": "/^[0-9]{30}$/",
+      "errMsg": "最长30个数字"
+    },
+    {
+      "ruleName": "isMail",
+      "rule": "/^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[a-zA-Z]$/",
+      "errMsg": "必须包含英文加@加点组成，且仅存在一个“@”和一个“.”"
+    },
+    {
+      "ruleName": "isCard",
+      "rule": "/^([0-9]{15})|([0-9]{17}([0-9]|X))$/",
+      "errMsg": "您的输入有误，身份证位数必须是15位或18位且仅最后一位可以为大写字母X，其他均为数字"
+    },
+    {
+      "ruleName": "isPercent",
+      "rule": "/^[0-9]{1,2}+(.[0-9]{1,2})?$/",
+      "errMsg": "两位整数和两位小数"
+    },
+    {
+      "ruleName": "isRemark",
+      "rule": "/[\u4e00-\u9fa50-9a-zA-Z]{,128}/",
+      "errMsg": "输入数字和中文,最长128个中文"
+    },
+    {
+      "ruleName": "isBankLimit",
+      "rule": "/^(?:0\\.\\d{1,2}|0|[1-18]\\d{0,15}(?:\\.\\d{1,2})?)$/",
+      "errMsg": "十六位整数保留两位小数"
+    }
+  ]
+}
+

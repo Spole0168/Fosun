@@ -1,0 +1,18 @@
+<ht-legend>订单交易信息</ht-legend>
+<ht-button-group>
+    <ht-button ht-id="cancel" class="btn-primary">返回</ht-button>
+</ht-button-group>
+<ht-form name="transLogDetailBaseInfoForm">
+<!-- 	<ht-input disable="true" ht-id="transSeqId" 	ng-model="transLogDetailBaseInfoForm.transSeqId"  ></ht-input> -->
+    <ht-input disable="true" ht-id="mchntId" 		ng-model="transLogDetailBaseInfoForm.mchntId"               name="商户代码" ></ht-input>
+    <ht-input disable="true" ht-id="mchntTransDt" 	ng-model="transLogDetailBaseInfoForm.mchntTransDt"          name="商户交易日期"></ht-input>
+    <ht-select disable="true" ht-id="transCd" 		ng-model="transLogDetailBaseInfoForm.transCd"               name="交易代码" 	dictionary="TransCode"  ></ht-select>
+    <ht-input disable="true" ht-id="mchntTransId" 	ng-model="transLogDetailBaseInfoForm.mchntTransId"          name="商户请求流水号"></ht-input>
+    <ht-input disable="true" ht-id="bankAcctNm" 	ng-model="transLogDetailBaseInfoForm.bankAcctNm"            name="账户姓名"></ht-input>
+    <ht-input disable="true" ht-id="transAmt" 		ng-model="transLogDetailBaseInfoForm.transAmt"              name="交易金额"	edit-type="currency" ></ht-input>
+    <ht-select disable="true" ht-id="sysRspCd" 		ng-model="transLogDetailBaseInfoForm.sysRspCd"              name="系统应答码"	dictionary="SysRspCdSt"  ></ht-select>
+   	<ht-select disable="true" ht-id="transSt" 		ng-model="transLogDetailBaseInfoForm.transSt"               name="交易状态" 	dictionary="TransSt"  ></ht-select><!-- dictionary="ValidSt" -->
+	
+</ht-form>
+
+

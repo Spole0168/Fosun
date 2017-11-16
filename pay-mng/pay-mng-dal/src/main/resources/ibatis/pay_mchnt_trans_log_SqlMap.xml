@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="pay_mchnt_trans_log" >
+  <resultMap id="BaseResultMap" class="com.fosun.paymng.model.PayMchntTransLog" >
+    <result column="trans_seq_id" property="transSeqId" jdbcType="VARCHAR" />
+    <result column="trans_cd" property="transCd" jdbcType="CHAR" />
+    <result column="trans_version" property="transVersion" jdbcType="CHAR" />
+    <result column="mchnt_id" property="mchntId" jdbcType="CHAR" />
+    <result column="mchnt_trans_dt" property="mchntTransDt" jdbcType="CHAR" />
+    <result column="mchnt_trans_tms" property="mchntTransTms" jdbcType="CHAR" />
+    <result column="mchnt_trans_id" property="mchntTransId" jdbcType="VARCHAR" />
+    <result column="bank_acc_tp" property="bankAccTp" jdbcType="CHAR" />
+    <result column="bank_acct_no" property="bankAcctNo" jdbcType="VARCHAR" />
+    <result column="bank_acct_nm" property="bankAcctNm" jdbcType="VARCHAR" />
+    <result column="cert_tp" property="certTp" jdbcType="CHAR" />
+    <result column="cert_no" property="certNo" jdbcType="VARCHAR" />
+    <result column="card_phone" property="cardPhone" jdbcType="VARCHAR" />
+    <result column="corp_acc_bank_nm" property="corpAccBankNm" jdbcType="VARCHAR" />
+    <result column="cust_id" property="custId" jdbcType="VARCHAR" />
+    <result column="contract_no" property="contractNo" jdbcType="VARCHAR" />
+    <result column="trans_amt" property="transAmt" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="CHAR" />
+    <result column="true_amt" property="trueAmt" jdbcType="DECIMAL" />
+    <result column="payee_bank_nm" property="payeeBankNm" jdbcType="VARCHAR" />
+    <result column="payee_nm" property="payeeNm" jdbcType="VARCHAR" />
+    <result column="payee_acc" property="payeeAcc" jdbcType="VARCHAR" />
+    <result column="orig_trans_seq_id" property="origTransSeqId" jdbcType="VARCHAR" />
+    <result column="frnt_ret_url" property="frntRetUrl" jdbcType="VARCHAR" />
+    <result column="bg_ret_url" property="bgRetUrl" jdbcType="VARCHAR" />
+    <result column="trans_st" property="transSt" jdbcType="CHAR" />
+    <result column="mchnt_rsp_cd" property="mchntRspCd" jdbcType="CHAR" />
+    <result column="sys_rsp_cd" property="sysRspCd" jdbcType="CHAR" />
+    <result column="sys_trans_dt" property="sysTransDt" jdbcType="TIMESTAMP" />
+    <result column="sys_trans_id" property="sysTransId" jdbcType="VARCHAR" />
+    <result column="sys_settle_dt" property="sysSettleDt" jdbcType="CHAR" />
+    <result column="req_ip" property="reqIp" jdbcType="VARCHAR" />
+    <result column="msg_ext" property="msgExt" jdbcType="VARCHAR" />
+    <result column="rec_crt_ts" property="recCrtTs" jdbcType="TIMESTAMP" />
+    <result column="rec_crt_opr_id" property="recCrtOprId" jdbcType="VARCHAR" />
+    <result column="rec_upd_ts" property="recUpdTs" jdbcType="TIMESTAMP" />
+    <result column="rec_upd_opr_id" property="recUpdOprId" jdbcType="VARCHAR" />
+    <result column="rec_upd_trans_id" property="recUpdTransId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$ #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <sql id="Base_Column_List" >
+    trans_seq_id, trans_cd, trans_version, mchnt_id, mchnt_trans_dt, mchnt_trans_tms, 
+    mchnt_trans_id, bank_acc_tp, bank_acct_no, bank_acct_nm, cert_tp, cert_no, card_phone, 
+    corp_acc_bank_nm, cust_id, contract_no, trans_amt, currency, true_amt, payee_bank_nm, 
+    payee_nm, payee_acc, orig_trans_seq_id, frnt_ret_url, bg_ret_url, trans_st, mchnt_rsp_cd, 
+    sys_rsp_cd, sys_trans_dt, sys_trans_id, sys_settle_dt, req_ip, msg_ext, rec_crt_ts, 
+    rec_crt_opr_id, rec_upd_ts, rec_upd_opr_id, rec_upd_trans_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayMchntTransLogExample" >
+    select
+    <isParameterPresent >
+      <isEqual property="distinct" compareValue="true" >
+        distinct
+      </isEqual>
+    </isParameterPresent>
+    <include refid="pay_mchnt_trans_log.Base_Column_List" />
+    from pay_mchnt_trans_log
+    <isParameterPresent >
+      <include refid="pay_mchnt_trans_log.Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    select 
+    <include refid="pay_mchnt_trans_log.Base_Column_List" />
+    from pay_mchnt_trans_log
+    where trans_seq_id = #transSeqId:VARCHAR#
+  </select>
+  <delete id="deleteByPrimaryKey" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    delete from pay_mchnt_trans_log
+    where trans_seq_id = #transSeqId:VARCHAR#
+  </delete>
+  <delete id="deleteByExample" parameterClass="com.fosun.paymng.model.PayMchntTransLogExample" >
+    delete from pay_mchnt_trans_log
+    <include refid="pay_mchnt_trans_log.Example_Where_Clause" />
+  </delete>
+  <insert id="insert" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    <selectKey resultClass="java.lang.String" keyProperty="transSeqId" >
+      SELECT nextval('PAY_MCHNT_TRANS_LOG')
+    </selectKey>
+    insert into pay_mchnt_trans_log (trans_seq_id, trans_cd, trans_version, mchnt_id, 
+      mchnt_trans_dt, mchnt_trans_tms, mchnt_trans_id, bank_acc_tp, 
+      bank_acct_no, bank_acct_nm, cert_tp, cert_no, card_phone, 
+      corp_acc_bank_nm, cust_id, contract_no, trans_amt, 
+      currency, true_amt, payee_bank_nm, payee_nm, payee_acc, 
+      orig_trans_seq_id, frnt_ret_url, bg_ret_url, trans_st, 
+      mchnt_rsp_cd, sys_rsp_cd, sys_trans_dt, sys_trans_id, 
+      sys_settle_dt, req_ip, msg_ext, rec_crt_ts, rec_crt_opr_id, 
+      rec_upd_ts, rec_upd_opr_id, rec_upd_trans_id)
+    values (#transSeqId:VARCHAR#, #transCd:CHAR#, #transVersion:CHAR#, #mchntId:CHAR#, 
+      #mchntTransDt:CHAR#, #mchntTransTms:CHAR#, #mchntTransId:VARCHAR#, #bankAccTp:CHAR#, 
+      #bankAcctNo:VARCHAR#, #bankAcctNm:VARCHAR#, #certTp:CHAR#, #certNo:VARCHAR#, #cardPhone:VARCHAR#, 
+      #corpAccBankNm:VARCHAR#, #custId:VARCHAR#, #contractNo:VARCHAR#, #transAmt:DECIMAL#, 
+      #currency:CHAR#, #trueAmt:DECIMAL#, #payeeBankNm:VARCHAR#, #payeeNm:VARCHAR#, #payeeAcc:VARCHAR#, 
+      #origTransSeqId:VARCHAR#, #frntRetUrl:VARCHAR#, #bgRetUrl:VARCHAR#, #transSt:CHAR#, 
+      #mchntRspCd:CHAR#, #sysRspCd:CHAR#, #sysTransDt:TIMESTAMP#, #sysTransId:VARCHAR#, 
+      #sysSettleDt:CHAR#, #reqIp:VARCHAR#, #msgExt:VARCHAR#, #recCrtTs:TIMESTAMP#, #recCrtOprId:VARCHAR#, 
+      #recUpdTs:TIMESTAMP#, #recUpdOprId:VARCHAR#, #recUpdTransId:VARCHAR#)
+  </insert>
+  <insert id="insertSelective" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    <selectKey resultClass="java.lang.String" keyProperty="transSeqId" >
+      SELECT nextval('PAY_MCHNT_TRANS_LOG')
+    </selectKey>
+    insert into pay_mchnt_trans_log
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="transSeqId" >
+        trans_seq_id
+      </isNotNull>
+      <isNotNull prepend="," property="transCd" >
+        trans_cd
+      </isNotNull>
+      <isNotNull prepend="," property="transVersion" >
+        trans_version
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        mchnt_trans_dt
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransTms" >
+        mchnt_trans_tms
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransId" >
+        mchnt_trans_id
+      </isNotNull>
+      <isNotNull prepend="," property="bankAccTp" >
+        bank_acc_tp
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNo" >
+        bank_acct_no
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNm" >
+        bank_acct_nm
+      </isNotNull>
+      <isNotNull prepend="," property="certTp" >
+        cert_tp
+      </isNotNull>
+      <isNotNull prepend="," property="certNo" >
+        cert_no
+      </isNotNull>
+      <isNotNull prepend="," property="cardPhone" >
+        card_phone
+      </isNotNull>
+      <isNotNull prepend="," property="corpAccBankNm" >
+        corp_acc_bank_nm
+      </isNotNull>
+      <isNotNull prepend="," property="custId" >
+        cust_id
+      </isNotNull>
+      <isNotNull prepend="," property="contractNo" >
+        contract_no
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        trans_amt
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        currency
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        true_amt
+      </isNotNull>
+      <isNotNull prepend="," property="payeeBankNm" >
+        payee_bank_nm
+      </isNotNull>
+      <isNotNull prepend="," property="payeeNm" >
+        payee_nm
+      </isNotNull>
+      <isNotNull prepend="," property="payeeAcc" >
+        payee_acc
+      </isNotNull>
+      <isNotNull prepend="," property="origTransSeqId" >
+        orig_trans_seq_id
+      </isNotNull>
+      <isNotNull prepend="," property="frntRetUrl" >
+        frnt_ret_url
+      </isNotNull>
+      <isNotNull prepend="," property="bgRetUrl" >
+        bg_ret_url
+      </isNotNull>
+      <isNotNull prepend="," property="transSt" >
+        trans_st
+      </isNotNull>
+      <isNotNull prepend="," property="mchntRspCd" >
+        mchnt_rsp_cd
+      </isNotNull>
+      <isNotNull prepend="," property="sysRspCd" >
+        sys_rsp_cd
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransDt" >
+        sys_trans_dt
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        sys_trans_id
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        sys_settle_dt
+      </isNotNull>
+      <isNotNull prepend="," property="reqIp" >
+        req_ip
+      </isNotNull>
+      <isNotNull prepend="," property="msgExt" >
+        msg_ext
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTransId" >
+        rec_upd_trans_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="transSeqId" >
+        #transSeqId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transCd" >
+        #transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transVersion" >
+        #transVersion:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        #mchntTransDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransTms" >
+        #mchntTransTms:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransId" >
+        #mchntTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAccTp" >
+        #bankAccTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNo" >
+        #bankAcctNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNm" >
+        #bankAcctNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="certTp" >
+        #certTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="certNo" >
+        #certNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardPhone" >
+        #cardPhone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="corpAccBankNm" >
+        #corpAccBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="custId" >
+        #custId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="contractNo" >
+        #contractNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        #transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        #currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        #trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeBankNm" >
+        #payeeBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeNm" >
+        #payeeNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeAcc" >
+        #payeeAcc:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="origTransSeqId" >
+        #origTransSeqId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="frntRetUrl" >
+        #frntRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bgRetUrl" >
+        #bgRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transSt" >
+        #transSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntRspCd" >
+        #mchntRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysRspCd" >
+        #sysRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransDt" >
+        #sysTransDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        #sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        #sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqIp" >
+        #reqIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="msgExt" >
+        #msgExt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        #recUpdOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTransId" >
+        #recUpdTransId:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+  <select id="countByExample" parameterClass="com.fosun.paymng.model.PayMchntTransLogExample" resultClass="java.lang.Integer" >
+    select count(*) from pay_mchnt_trans_log
+    <include refid="pay_mchnt_trans_log.Example_Where_Clause" />
+  </select>
+  <update id="updateByExampleSelective" >
+    update pay_mchnt_trans_log
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.transSeqId" >
+        trans_seq_id = #record.transSeqId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transCd" >
+        trans_cd = #record.transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transVersion" >
+        trans_version = #record.transVersion:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntId" >
+        mchnt_id = #record.mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntTransDt" >
+        mchnt_trans_dt = #record.mchntTransDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntTransTms" >
+        mchnt_trans_tms = #record.mchntTransTms:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntTransId" >
+        mchnt_trans_id = #record.mchntTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankAccTp" >
+        bank_acc_tp = #record.bankAccTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankAcctNo" >
+        bank_acct_no = #record.bankAcctNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankAcctNm" >
+        bank_acct_nm = #record.bankAcctNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.certTp" >
+        cert_tp = #record.certTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.certNo" >
+        cert_no = #record.certNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardPhone" >
+        card_phone = #record.cardPhone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.corpAccBankNm" >
+        corp_acc_bank_nm = #record.corpAccBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.custId" >
+        cust_id = #record.custId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.contractNo" >
+        contract_no = #record.contractNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transAmt" >
+        trans_amt = #record.transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.currency" >
+        currency = #record.currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.trueAmt" >
+        true_amt = #record.trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.payeeBankNm" >
+        payee_bank_nm = #record.payeeBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.payeeNm" >
+        payee_nm = #record.payeeNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.payeeAcc" >
+        payee_acc = #record.payeeAcc:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.origTransSeqId" >
+        orig_trans_seq_id = #record.origTransSeqId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.frntRetUrl" >
+        frnt_ret_url = #record.frntRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bgRetUrl" >
+        bg_ret_url = #record.bgRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.transSt" >
+        trans_st = #record.transSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mchntRspCd" >
+        mchnt_rsp_cd = #record.mchntRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysRspCd" >
+        sys_rsp_cd = #record.sysRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysTransDt" >
+        sys_trans_dt = #record.sysTransDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysTransId" >
+        sys_trans_id = #record.sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sysSettleDt" >
+        sys_settle_dt = #record.sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.reqIp" >
+        req_ip = #record.reqIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.msgExt" >
+        msg_ext = #record.msgExt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtTs" >
+        rec_crt_ts = #record.recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recCrtOprId" >
+        rec_crt_opr_id = #record.recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdTs" >
+        rec_upd_ts = #record.recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdOprId" >
+        rec_upd_opr_id = #record.recUpdOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.recUpdTransId" >
+        rec_upd_trans_id = #record.recUpdTransId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="pay_mchnt_trans_log.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByExample" >
+    update pay_mchnt_trans_log
+    set trans_seq_id = #record.transSeqId:VARCHAR#,
+      trans_cd = #record.transCd:CHAR#,
+      trans_version = #record.transVersion:CHAR#,
+      mchnt_id = #record.mchntId:CHAR#,
+      mchnt_trans_dt = #record.mchntTransDt:CHAR#,
+      mchnt_trans_tms = #record.mchntTransTms:CHAR#,
+      mchnt_trans_id = #record.mchntTransId:VARCHAR#,
+      bank_acc_tp = #record.bankAccTp:CHAR#,
+      bank_acct_no = #record.bankAcctNo:VARCHAR#,
+      bank_acct_nm = #record.bankAcctNm:VARCHAR#,
+      cert_tp = #record.certTp:CHAR#,
+      cert_no = #record.certNo:VARCHAR#,
+      card_phone = #record.cardPhone:VARCHAR#,
+      corp_acc_bank_nm = #record.corpAccBankNm:VARCHAR#,
+      cust_id = #record.custId:VARCHAR#,
+      contract_no = #record.contractNo:VARCHAR#,
+      trans_amt = #record.transAmt:DECIMAL#,
+      currency = #record.currency:CHAR#,
+      true_amt = #record.trueAmt:DECIMAL#,
+      payee_bank_nm = #record.payeeBankNm:VARCHAR#,
+      payee_nm = #record.payeeNm:VARCHAR#,
+      payee_acc = #record.payeeAcc:VARCHAR#,
+      orig_trans_seq_id = #record.origTransSeqId:VARCHAR#,
+      frnt_ret_url = #record.frntRetUrl:VARCHAR#,
+      bg_ret_url = #record.bgRetUrl:VARCHAR#,
+      trans_st = #record.transSt:CHAR#,
+      mchnt_rsp_cd = #record.mchntRspCd:CHAR#,
+      sys_rsp_cd = #record.sysRspCd:CHAR#,
+      sys_trans_dt = #record.sysTransDt:TIMESTAMP#,
+      sys_trans_id = #record.sysTransId:VARCHAR#,
+      sys_settle_dt = #record.sysSettleDt:CHAR#,
+      req_ip = #record.reqIp:VARCHAR#,
+      msg_ext = #record.msgExt:VARCHAR#,
+      rec_crt_ts = #record.recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #record.recCrtOprId:VARCHAR#,
+      rec_upd_ts = #record.recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #record.recUpdOprId:VARCHAR#,
+      rec_upd_trans_id = #record.recUpdTransId:VARCHAR#
+    <isParameterPresent >
+      <include refid="pay_mchnt_trans_log.Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    update pay_mchnt_trans_log
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="transCd" >
+        trans_cd = #transCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transVersion" >
+        trans_version = #transVersion:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntId" >
+        mchnt_id = #mchntId:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransDt" >
+        mchnt_trans_dt = #mchntTransDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransTms" >
+        mchnt_trans_tms = #mchntTransTms:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntTransId" >
+        mchnt_trans_id = #mchntTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAccTp" >
+        bank_acc_tp = #bankAccTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNo" >
+        bank_acct_no = #bankAcctNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankAcctNm" >
+        bank_acct_nm = #bankAcctNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="certTp" >
+        cert_tp = #certTp:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="certNo" >
+        cert_no = #certNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardPhone" >
+        card_phone = #cardPhone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="corpAccBankNm" >
+        corp_acc_bank_nm = #corpAccBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="custId" >
+        cust_id = #custId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="contractNo" >
+        contract_no = #contractNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transAmt" >
+        trans_amt = #transAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="currency" >
+        currency = #currency:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="trueAmt" >
+        true_amt = #trueAmt:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeBankNm" >
+        payee_bank_nm = #payeeBankNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeNm" >
+        payee_nm = #payeeNm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="payeeAcc" >
+        payee_acc = #payeeAcc:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="origTransSeqId" >
+        orig_trans_seq_id = #origTransSeqId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="frntRetUrl" >
+        frnt_ret_url = #frntRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bgRetUrl" >
+        bg_ret_url = #bgRetUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="transSt" >
+        trans_st = #transSt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mchntRspCd" >
+        mchnt_rsp_cd = #mchntRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysRspCd" >
+        sys_rsp_cd = #sysRspCd:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransDt" >
+        sys_trans_dt = #sysTransDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="sysTransId" >
+        sys_trans_id = #sysTransId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sysSettleDt" >
+        sys_settle_dt = #sysSettleDt:CHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="reqIp" >
+        req_ip = #reqIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="msgExt" >
+        msg_ext = #msgExt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtTs" >
+        rec_crt_ts = #recCrtTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recCrtOprId" >
+        rec_crt_opr_id = #recCrtOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTs" >
+        rec_upd_ts = #recUpdTs:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdOprId" >
+        rec_upd_opr_id = #recUpdOprId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="recUpdTransId" >
+        rec_upd_trans_id = #recUpdTransId:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where trans_seq_id = #transSeqId:VARCHAR#
+  </update>
+  <update id="updateByPrimaryKey" parameterClass="com.fosun.paymng.model.PayMchntTransLog" >
+    update pay_mchnt_trans_log
+    set trans_cd = #transCd:CHAR#,
+      trans_version = #transVersion:CHAR#,
+      mchnt_id = #mchntId:CHAR#,
+      mchnt_trans_dt = #mchntTransDt:CHAR#,
+      mchnt_trans_tms = #mchntTransTms:CHAR#,
+      mchnt_trans_id = #mchntTransId:VARCHAR#,
+      bank_acc_tp = #bankAccTp:CHAR#,
+      bank_acct_no = #bankAcctNo:VARCHAR#,
+      bank_acct_nm = #bankAcctNm:VARCHAR#,
+      cert_tp = #certTp:CHAR#,
+      cert_no = #certNo:VARCHAR#,
+      card_phone = #cardPhone:VARCHAR#,
+      corp_acc_bank_nm = #corpAccBankNm:VARCHAR#,
+      cust_id = #custId:VARCHAR#,
+      contract_no = #contractNo:VARCHAR#,
+      trans_amt = #transAmt:DECIMAL#,
+      currency = #currency:CHAR#,
+      true_amt = #trueAmt:DECIMAL#,
+      payee_bank_nm = #payeeBankNm:VARCHAR#,
+      payee_nm = #payeeNm:VARCHAR#,
+      payee_acc = #payeeAcc:VARCHAR#,
+      orig_trans_seq_id = #origTransSeqId:VARCHAR#,
+      frnt_ret_url = #frntRetUrl:VARCHAR#,
+      bg_ret_url = #bgRetUrl:VARCHAR#,
+      trans_st = #transSt:CHAR#,
+      mchnt_rsp_cd = #mchntRspCd:CHAR#,
+      sys_rsp_cd = #sysRspCd:CHAR#,
+      sys_trans_dt = #sysTransDt:TIMESTAMP#,
+      sys_trans_id = #sysTransId:VARCHAR#,
+      sys_settle_dt = #sysSettleDt:CHAR#,
+      req_ip = #reqIp:VARCHAR#,
+      msg_ext = #msgExt:VARCHAR#,
+      rec_crt_ts = #recCrtTs:TIMESTAMP#,
+      rec_crt_opr_id = #recCrtOprId:VARCHAR#,
+      rec_upd_ts = #recUpdTs:TIMESTAMP#,
+      rec_upd_opr_id = #recUpdOprId:VARCHAR#,
+      rec_upd_trans_id = #recUpdTransId:VARCHAR#
+    where trans_seq_id = #transSeqId:VARCHAR#
+  </update>
+</sqlMap>
