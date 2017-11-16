@@ -1,0 +1,92 @@
+三月 22, 2017 10:43:39 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 10:43:39 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 10:43:39 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 10:43:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 10:43:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 11:13:38 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 11:13:38 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 11:13:38 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 11:13:39 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 11:13:39 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 11:13:41 上午 org.apache.catalina.core.ApplicationContext log
+信息: Closing Spring root WebApplicationContext
+三月 22, 2017 11:13:41 上午 org.apache.catalina.core.ApplicationContext log
+信息: Shutting down Logback
+三月 22, 2017 11:14:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 11:14:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 11:14:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 11:14:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 11:14:40 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 11:14:47 上午 org.apache.catalina.core.ApplicationContext log
+信息: Closing Spring root WebApplicationContext
+三月 22, 2017 11:14:47 上午 org.apache.catalina.core.ApplicationContext log
+信息: Shutting down Logback
+三月 22, 2017 11:15:26 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 11:15:26 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 11:15:26 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 11:15:27 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 11:15:27 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 11:15:28 上午 org.apache.catalina.core.ApplicationContext log
+信息: Closing Spring root WebApplicationContext
+三月 22, 2017 11:15:28 上午 org.apache.catalina.core.ApplicationContext log
+信息: Shutting down Logback
+三月 22, 2017 11:16:07 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 11:16:07 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 11:16:07 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 11:16:07 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 11:16:07 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 11:22:57 上午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 11:22:57 上午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 11:22:57 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 11:22:57 上午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 11:22:57 上午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 1:38:33 下午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 1:38:33 下午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 1:38:33 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 1:38:34 下午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 1:38:34 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext
+三月 22, 2017 2:12:42 下午 org.apache.catalina.core.ApplicationContext log
+信息: No Spring WebApplicationInitializer types detected on classpath
+三月 22, 2017 2:12:42 下午 org.apache.catalina.core.ApplicationContext log
+信息: Set web app root system property: 'webapp.root' = [D:\apache-tomcat-7.0.75-18000\webapps\scube-server\]
+三月 22, 2017 2:12:42 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Logback from [file:/apps/config/scube-app/logback.xml]
+三月 22, 2017 2:12:42 下午 org.apache.catalina.core.ApplicationContext log
+信息: JUL to SLF4J bridge is not available on the classpath
+三月 22, 2017 2:12:42 下午 org.apache.catalina.core.ApplicationContext log
+信息: Initializing Spring root WebApplicationContext

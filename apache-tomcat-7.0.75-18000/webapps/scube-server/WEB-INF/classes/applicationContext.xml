@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:/apps/config/scube-app/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="serverConfig" class="com.huateng.scube.server.common.ServerConfig">
+		<property name="registerServerPort" value="${register.port}" />
+		<property name="routerServerPort" value="${router.port}" />
+		<property name="registerTimout" value="${register.timout}" />
+		<property name="routerTimout" value="${router.timout}" />
+		<property name="transMaxSize" value="${scube.transMaxSize}" />
+	</bean>
+
+	<bean class="com.huateng.scube.server.NettyRouterServerBootstrap" init-method="open" destroy-method="close">
+		<property name="config" ref="serverConfig" />
+	</bean>
+
+	<bean class="com.huateng.scube.server.NettyRegisterServerBootstrap" init-method="open" destroy-method="close">
+		<property name="config" ref="serverConfig" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,414 @@
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.75
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jan 18 2017 20:54:42 UTC
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.75.0
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 7
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            6.1
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             C:\Program Files\Java\jdk1.7.0_80\jre
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.7.0_80-b15
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.config.file=C:\apache-tomcat-7.0.75-18000\conf\logging.properties
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=\endorsed
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:32:35 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.io.tmpdir=C:\apache-tomcat-7.0.75-18000\temp
+二月 08, 2017 8:32:35 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+二月 08, 2017 8:32:35 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+二月 08, 2017 8:32:36 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+信息: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+二月 08, 2017 8:32:36 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:32:36 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:32:36 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1972 ms
+二月 08, 2017 8:32:36 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+二月 08, 2017 8:32:36 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.75
+二月 08, 2017 8:32:36 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deploying web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war
+二月 08, 2017 8:32:36 下午 org.apache.tomcat.util.digester.Digester fatalError
+严重: Parse Fatal Error at line 50 column 74: 元素类型 "Resource" 必须后跟属性规范 ">" 或 "/>"。
+org.xml.sax.SAXParseException; systemId: file:/C:/apache-tomcat-7.0.75-18000/conf/context.xml; lineNumber: 50; columnNumber: 74; 元素类型 "Resource" 必须后跟属性规范 ">" 或 "/>"。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.seekCloseOfStartTag(XMLDocumentFragmentScannerImpl.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1328)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2786)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1576)
+	at org.apache.catalina.startup.ContextConfig.processContextConfig(ContextConfig.java:651)
+	at org.apache.catalina.startup.ContextConfig.contextConfig(ContextConfig.java:594)
+	at org.apache.catalina.startup.ContextConfig.init(ContextConfig.java:849)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:399)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:388)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:103)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:135)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:1092)
+	at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1984)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+二月 08, 2017 8:32:36 下午 org.apache.catalina.startup.ContextConfig processContextConfig
+严重: Parse error in context.xml for /scube-server
+org.xml.sax.SAXParseException; systemId: file:/C:/apache-tomcat-7.0.75-18000/conf/context.xml; lineNumber: 50; columnNumber: 74; 元素类型 "Resource" 必须后跟属性规范 ">" 或 "/>"。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:198)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:441)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:368)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1436)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.seekCloseOfStartTag(XMLDocumentFragmentScannerImpl.java:1389)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1328)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2786)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:606)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:510)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:848)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1576)
+	at org.apache.catalina.startup.ContextConfig.processContextConfig(ContextConfig.java:651)
+	at org.apache.catalina.startup.ContextConfig.contextConfig(ContextConfig.java:594)
+	at org.apache.catalina.startup.ContextConfig.init(ContextConfig.java:849)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:399)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:388)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:103)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:135)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:899)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:875)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:652)
+	at org.apache.catalina.startup.HostConfig.deployWAR(HostConfig.java:1092)
+	at org.apache.catalina.startup.HostConfig$DeployWar.run(HostConfig.java:1984)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+二月 08, 2017 8:32:36 下午 org.apache.catalina.startup.ContextConfig processContextConfig
+严重: Occurred at line 50 column 74
+二月 08, 2017 8:32:38 下午 org.apache.catalina.startup.ContextConfig configureStart
+严重: Marking this application unavailable due to previous error(s)
+二月 08, 2017 8:32:38 下午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+二月 08, 2017 8:32:38 下午 org.apache.catalina.core.StandardContext startInternal
+严重: One or more components marked the context as not correctly configured
+二月 08, 2017 8:32:38 下午 org.apache.catalina.core.StandardContext startInternal
+严重: Context [/scube-server] startup failed due to previous errors
+二月 08, 2017 8:32:38 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deployment of web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war has finished in 1,678 ms
+二月 08, 2017 8:32:38 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:32:38 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:32:38 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1794 ms
+二月 08, 2017 8:33:27 下午 org.apache.catalina.startup.Catalina stopServer
+严重: Could not contact localhost:9000. Tomcat may not be running.
+二月 08, 2017 8:33:27 下午 org.apache.catalina.startup.Catalina stopServer
+严重: Catalina.stop: 
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:343)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:430)
+
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.75
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jan 18 2017 20:54:42 UTC
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.75.0
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 7
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            6.1
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             C:\Program Files\Java\jdk1.7.0_80\jre
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.7.0_80-b15
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.config.file=C:\apache-tomcat-7.0.75-18000\conf\logging.properties
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=\endorsed
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:34:23 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.io.tmpdir=C:\apache-tomcat-7.0.75-18000\temp
+二月 08, 2017 8:34:23 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+二月 08, 2017 8:34:23 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+二月 08, 2017 8:34:24 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+信息: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+二月 08, 2017 8:34:24 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:34:24 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:34:24 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 867 ms
+二月 08, 2017 8:34:24 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+二月 08, 2017 8:34:24 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.75
+二月 08, 2017 8:34:24 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deploying web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war
+二月 08, 2017 8:34:26 下午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+二月 08, 2017 8:34:26 下午 org.apache.catalina.core.StandardContext startInternal
+严重: One or more listeners failed to start. Full details will be found in the appropriate container log file
+二月 08, 2017 8:34:26 下午 org.apache.catalina.core.StandardContext startInternal
+严重: Context [/scube-server] startup failed due to previous errors
+二月 08, 2017 8:34:27 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deployment of web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war has finished in 2,609 ms
+二月 08, 2017 8:34:27 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:34:27 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:34:27 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2673 ms
+二月 08, 2017 8:35:14 下午 org.apache.coyote.ajp.AjpMessage processHeader
+严重: Invalid message received with signature 18245
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs has finished in 66 ms
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager has finished in 53 ms
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT
+二月 08, 2017 8:39:37 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT has finished in 35 ms
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.75
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jan 18 2017 20:54:42 UTC
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.75.0
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 7
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            6.1
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             C:\Program Files\Java\jdk1.7.0_80\jre
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.7.0_80-b15
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.config.file=C:\apache-tomcat-7.0.75-18000\conf\logging.properties
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=\endorsed
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:39:45 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.io.tmpdir=C:\apache-tomcat-7.0.75-18000\temp
+二月 08, 2017 8:39:45 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+二月 08, 2017 8:39:45 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+二月 08, 2017 8:39:46 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+信息: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+二月 08, 2017 8:39:46 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:39:46 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:39:46 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 864 ms
+二月 08, 2017 8:39:46 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+二月 08, 2017 8:39:46 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.75
+二月 08, 2017 8:39:46 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deploying web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+二月 08, 2017 8:39:48 下午 org.apache.catalina.core.StandardContext startInternal
+严重: One or more listeners failed to start. Full details will be found in the appropriate container log file
+二月 08, 2017 8:39:48 下午 org.apache.catalina.core.StandardContext startInternal
+严重: Context [/scube-server] startup failed due to previous errors
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deployment of web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war has finished in 2,094 ms
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs has finished in 43 ms
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager has finished in 43 ms
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT has finished in 29 ms
+二月 08, 2017 8:39:48 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:39:48 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:39:48 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2281 ms
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.75
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Jan 18 2017 20:54:42 UTC
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.75.0
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 7
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            6.1
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             C:\Program Files\Java\jdk1.7.0_80\jre
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           1.7.0_80-b15
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.config.file=C:\apache-tomcat-7.0.75-18000\conf\logging.properties
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.endorsed.dirs=\endorsed
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=C:\apache-tomcat-7.0.75-18000
+二月 08, 2017 8:41:10 下午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.io.tmpdir=C:\apache-tomcat-7.0.75-18000\temp
+二月 08, 2017 8:41:10 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: Loaded APR based Apache Tomcat Native library 1.2.10 using APR version 1.5.2.
+二月 08, 2017 8:41:10 下午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+二月 08, 2017 8:41:11 下午 org.apache.catalina.core.AprLifecycleListener initializeSSL
+信息: OpenSSL successfully initialized (OpenSSL 1.0.2j  26 Sep 2016)
+二月 08, 2017 8:41:11 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:41:11 下午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:41:11 下午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 879 ms
+二月 08, 2017 8:41:11 下午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+二月 08, 2017 8:41:11 下午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.75
+二月 08, 2017 8:41:11 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deploying web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war
+二月 08, 2017 8:41:12 下午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+二月 08, 2017 8:41:13 下午 org.apache.catalina.startup.HostConfig deployWAR
+信息: Deployment of web application archive C:\apache-tomcat-7.0.75-18000\webapps\scube-server.war has finished in 2,600 ms
+二月 08, 2017 8:41:13 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\docs has finished in 30 ms
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\manager has finished in 40 ms
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory C:\apache-tomcat-7.0.75-18000\webapps\ROOT has finished in 28 ms
+二月 08, 2017 8:41:14 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-apr-18000"]
+二月 08, 2017 8:41:14 下午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-apr-8000"]
+二月 08, 2017 8:41:14 下午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2773 ms
+二月 08, 2017 8:41:24 下午 org.apache.jasper.compiler.TldLocationsCache tldScanJar
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
